@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
-    //public ParticleSystem dashParticle;
+    public ParticleSystem dashParticle;
 
     // Update is called once per frame
     void Start()
@@ -98,12 +98,12 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator DashWait()
     {
         //0.3f --> how long the dash lasts
-        //dashParticle.Play();
+        dashParticle.Play();
         rb.gravityScale = 0;
         yield return new WaitForSeconds(0.5f);
         isDashing = false;
         yield return new WaitForSeconds(0.1f);
-        //dashParticle.Stop();
+        dashParticle.Stop();
         finishedDashing = true;
         rb.gravityScale = 1;
     }

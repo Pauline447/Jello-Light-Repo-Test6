@@ -13,10 +13,8 @@ public class Following : MonoBehaviour
 
     public GameObject Target; //Player
     public bool facingRight = false;
-    public float VampireSpeed = 2f;
-    private Vector3 targetPos;
-    private Vector3 thisPos;
 
+    public bool doneonce=false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +51,10 @@ public class Following : MonoBehaviour
         {
             isFollowing = true;
         }
+    }
+    public void SetDoneOnce()
+    {
+        doneonce = true;
     }
 
 }
