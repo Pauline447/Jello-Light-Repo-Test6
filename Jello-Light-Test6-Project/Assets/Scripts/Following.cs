@@ -9,9 +9,9 @@ public class Following : MonoBehaviour
     public
         float followSpeed = 3f;
     public
-        Transform followTarget; //Player
+        Transform followTarget; //Empty
 
-    GameObject Target; //Player
+    public GameObject Target; //Player
     public bool facingRight = false;
     public float VampireSpeed = 2f;
     private Vector3 targetPos;
@@ -21,7 +21,7 @@ public class Following : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Target = GameObject.Find("Player");
+
     }
 
     // Update is called once per frame
