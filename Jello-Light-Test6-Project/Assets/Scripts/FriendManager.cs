@@ -7,6 +7,9 @@ public class FriendManager : MonoBehaviour
     public Following Friend1;
     public Following Friend2;
 
+    public GameObject Light1;
+    public GameObject Light2;
+
     public int numberOfFish = 0;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,7 @@ public class FriendManager : MonoBehaviour
     {
         if(Friend1.isFollowing)
         {
+            Light1.SetActive(true);
             if (!Friend1.doneonce)
             {
                 numberOfFish++;
@@ -27,6 +31,7 @@ public class FriendManager : MonoBehaviour
         }
         if (Friend2.isFollowing)
         {
+            Light2.SetActive(true);
             if (!Friend2.doneonce)
             {
                 numberOfFish++;

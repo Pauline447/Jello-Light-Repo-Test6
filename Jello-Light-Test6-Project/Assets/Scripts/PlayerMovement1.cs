@@ -111,5 +111,4 @@ public class PlayerMovement1 : MonoBehaviour
 
         isDashing = false;
     }
-
 }

@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     public ParticleSystem dashParticle;
 
+    //hugging
+    public bool hugged = false;
+
     // Update is called once per frame
     void Start()
     {
@@ -106,5 +109,12 @@ public class PlayerMovement : MonoBehaviour
         dashParticle.Stop();
         finishedDashing = true;
         rb.gravityScale = 1;
+    }
+    public void Hugging(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            hugged = true;
+        }
     }
 }
