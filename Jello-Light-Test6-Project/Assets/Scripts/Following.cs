@@ -17,6 +17,7 @@ public class Following : MonoBehaviour
     public bool doneonce=false;
 
     private bool hugged = false;
+    public bool inRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,22 +47,34 @@ public class Following : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipY = false;
             facingRight = true;
         }
-    }
 
+        if (hugged)
+        {
+            isFollowing = true;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {
         if (other.tag == "Player")
         {
-            hugged = Target.GetComponent<PlayerMovement>().hugged;
-            if (hugged)
-            {
-                isFollowing = true;
-            }
+            inRange = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) //if Player goes over fish- following = true
+    {
+        if (other.tag == "Player")
+        {
+            inRange = false;
         }
     }
     public void SetDoneOnce()
     {
         doneonce = true;
+    }
+
+    public void SetHugged()
+    {
+        hugged = true;
     }
 
 }

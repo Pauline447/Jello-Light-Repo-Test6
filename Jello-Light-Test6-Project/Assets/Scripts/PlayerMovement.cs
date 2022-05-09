@@ -28,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dashParticle;
 
     //hugging
-    public bool hugged = false;
+    public bool ableToHug = false;
+    public bool hugs = false;
 
     // Update is called once per frame
     void Start()
@@ -110,11 +111,30 @@ public class PlayerMovement : MonoBehaviour
         finishedDashing = true;
         rb.gravityScale = 1;
     }
+    private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
+    {
+        if (other.tag == "Friend")
+        {
+            ableToHug = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) //if Player goes over fish- following = true
+    {
+        if (other.tag == "Friend")
+        {
+            ableToHug = false;
+        }
+    }
+
     public void Hugging(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && ableToHug)
         {
-            hugged = true;
+            hugs = true;
+        }
+        if (ctx.canceled && ableToHug)
+        {
+            hugs = false;
         }
     }
 }
