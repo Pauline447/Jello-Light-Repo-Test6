@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
+
     public Rigidbody2D rb;
     private float horizontal;
   
@@ -46,10 +48,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
         //normal movement with the slower speed when you arent dashing (if you havent pressed the button)
         if (!isDashing)
         {
-           rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            //animator.SetBool("isJumping", false);
         }
  
         if (!isFacingRight && horizontal >0f)
@@ -65,9 +70,11 @@ public class PlayerMovement : MonoBehaviour
             UpMovement();
         }
     }
+
     private bool OnGround()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+
     }
 
     private void Flip()
@@ -87,7 +94,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext ctx)
     {
-
+        if (ctx.performed)
+        {
+            animator.SetBool("isJumping", true);
+        }
         if (ctx.performed && finishedDashing && OnGround())
         {
             speed = 2f;
@@ -121,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
         dashParticle.Stop();
         finishedDashing = true;
         rb.gravityScale = 1;
+        animator.SetBool("isJumping", false);
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {
