@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hugs = true;
         }
-        if (ctx.canceled && ableToHug)
+        if (ctx.canceled)
         {
             hugs = false;
         }
