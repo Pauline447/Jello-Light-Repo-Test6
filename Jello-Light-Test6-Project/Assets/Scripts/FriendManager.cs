@@ -10,6 +10,8 @@ public class FriendManager : MonoBehaviour
     public GameObject Light1;
     public GameObject Light2;
 
+    public GameObject playerLight;
+
     public PlayerMovement player;
 
     private bool ableToHug = false;
@@ -18,7 +20,6 @@ public class FriendManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -32,6 +33,8 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend1.SetDoneOnce();
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 4;
             }
         }
         if (Friend2.isFollowing)
@@ -41,6 +44,8 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend2.SetDoneOnce();
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 3;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 5;
             }
         }
         //jeweiligen Freund umarmen
