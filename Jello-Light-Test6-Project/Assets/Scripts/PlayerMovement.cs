@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     public bool friend1stopped = false;
     public bool friend2stopped = false;
 
+    public bool walking = false;
+
     // Update is called once per frame
     void Start()
     {
@@ -54,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         if (!isDashing)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-            //animator.SetBool("isJumping", false);
         }
  
         if (!isFacingRight && horizontal >0f)
@@ -87,16 +88,24 @@ public class PlayerMovement : MonoBehaviour
     public  void Move(InputAction.CallbackContext ctx)
     {
         horizontal = ctx.ReadValue<Vector2>().x;
+        animator.SetBool("isWalking", true);
+        walking = true;
         // direction for dashing
         xRaw = ctx.ReadValue<Vector2>().x;
         yRaw = ctx.ReadValue<Vector2>().y;
+        if(horizontal == 0)
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 
     public void Dash(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            animator.SetBool("isJumping", true);
+            //animator.SetBool("isJumping", true);
+            animator.SetBool("animateDashing", true);
+            animator.SetBool("isWalking", false);
         }
         if (ctx.performed && finishedDashing && OnGround())
         {
@@ -131,7 +140,8 @@ public class PlayerMovement : MonoBehaviour
         dashParticle.Stop();
         finishedDashing = true;
         rb.gravityScale = 1;
-        animator.SetBool("isJumping", false);
+        //animator.SetBool("isJumping", false);
+        animator.SetBool("animateDashing", false);
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {
