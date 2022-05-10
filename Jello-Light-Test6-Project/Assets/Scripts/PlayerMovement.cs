@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     //UpMovement
     public bool up = false;
-    public float upPower = 10f;
+    public float upPower = 15f;
 
     //StopFriends
     public bool friend1stopped = false;
