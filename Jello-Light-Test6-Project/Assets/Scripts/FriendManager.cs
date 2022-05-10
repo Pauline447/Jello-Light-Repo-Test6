@@ -24,6 +24,7 @@ public class FriendManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Nummer hochsetzten
         if (Friend1.isFollowing)
         {
             Light1.SetActive(true);
@@ -42,13 +43,27 @@ public class FriendManager : MonoBehaviour
                 Friend2.SetDoneOnce();
             }
         }
+        //jeweiligen Freund umarmen
         if (player.hugs == true && Friend1.inRange)
         {
             Friend1.SetHugged();
+            player.friend1stopped = false;
         }
+
         if (player.hugs == true && Friend2.inRange)
         {
             Friend2.SetHugged();
+            player.friend2stopped = false;
+        }
+        //jeweiligen Freund stoppen
+        if(Friend1.hugged == true && player.friend1stopped ==true)
+        {
+            Friend1.isFollowing = false;
+        }
+
+        if (Friend2.hugged == true && player.friend2stopped == true)
+        {
+            Friend2.isFollowing = false;
         }
     }
 }

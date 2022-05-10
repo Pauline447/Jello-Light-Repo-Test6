@@ -12,11 +12,11 @@ public class Following : MonoBehaviour
         Transform followTarget; //Empty
 
     public GameObject Target; //Player
-    public bool facingRight = false;
+    private bool facingRight = false;
 
     public bool doneonce=false;
 
-    private bool hugged = false;
+    public bool hugged = false;
     public bool inRange = false;
 
     // Start is called before the first frame update

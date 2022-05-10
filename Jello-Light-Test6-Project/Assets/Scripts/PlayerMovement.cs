@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     //dashing
     public float dashSpeed = 5f;
-    public bool isDashing = false;
+    private bool isDashing = false;
     private bool finishedDashing = true;
 
     private float xRaw;
@@ -31,10 +31,18 @@ public class PlayerMovement : MonoBehaviour
     public bool ableToHug = false;
     public bool hugs = false;
 
+    //UpMovement
+    public bool up = false;
+    public float upPower = 10f;
+
+    //StopFriends
+    public bool friend1stopped = false;
+    public bool friend2stopped = false;
+
     // Update is called once per frame
     void Start()
     {
- 
+
     }
     void Update()
     {
@@ -51,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
         else if (isFacingRight && horizontal <0f)
         { 
             Flip();
+        }
+        if (up)
+        {
+            UpMovement();
         }
     }
     private bool OnGround()
@@ -71,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
         // direction for dashing
         xRaw = ctx.ReadValue<Vector2>().x;
         yRaw = ctx.ReadValue<Vector2>().y;
-
     }
 
     public void Dash(InputAction.CallbackContext ctx)
@@ -135,6 +146,24 @@ public class PlayerMovement : MonoBehaviour
         if (ctx.canceled && ableToHug)
         {
             hugs = false;
+        }
+    }
+    public void UpMovement()
+    {
+           rb.velocity = new Vector2(rb.velocity.x, upPower);
+    }
+    public void StopFriend1(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            friend1stopped = true;
+        }
+    }
+    public void StopFriend2(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            friend2stopped = true;
         }
     }
 }
