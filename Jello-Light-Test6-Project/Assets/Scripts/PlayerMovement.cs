@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     //dashing
     public float dashSpeed = 5f;
-    public bool isDashing = false;
+    private bool isDashing = false;
     private bool finishedDashing = true;
 
     private float xRaw;
@@ -28,12 +28,21 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dashParticle;
 
     //hugging
-    public bool hugged = false;
+    public bool ableToHug = false;
+    public bool hugs = false;
+
+    //UpMovement
+    public bool up = false;
+    public float upPower = 10f;
+
+    //StopFriends
+    public bool friend1stopped = false;
+    public bool friend2stopped = false;
 
     // Update is called once per frame
     void Start()
     {
- 
+
     }
     void Update()
     {
@@ -50,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
         else if (isFacingRight && horizontal <0f)
         { 
             Flip();
+        }
+        if (up)
+        {
+            UpMovement();
         }
     }
     private bool OnGround()
@@ -70,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
         // direction for dashing
         xRaw = ctx.ReadValue<Vector2>().x;
         yRaw = ctx.ReadValue<Vector2>().y;
-
     }
 
     public void Dash(InputAction.CallbackContext ctx)
@@ -110,11 +122,48 @@ public class PlayerMovement : MonoBehaviour
         finishedDashing = true;
         rb.gravityScale = 1;
     }
+    private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
+    {
+        if (other.tag == "Friend")
+        {
+            ableToHug = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) //if Player goes over fish- following = true
+    {
+        if (other.tag == "Friend")
+        {
+            ableToHug = false;
+        }
+    }
+
     public void Hugging(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && ableToHug)
+        {
+            hugs = true;
+        }
+        if (ctx.canceled)
+        {
+            hugs = false;
+        }
+    }
+    public void UpMovement()
+    {
+           rb.velocity = new Vector2(rb.velocity.x, upPower);
+    }
+    public void StopFriend1(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            hugged = true;
+            friend1stopped = true;
+        }
+    }
+    public void StopFriend2(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            friend2stopped = true;
         }
     }
 }

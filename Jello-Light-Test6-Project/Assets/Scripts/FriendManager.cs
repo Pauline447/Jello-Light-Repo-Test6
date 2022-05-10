@@ -10,6 +10,10 @@ public class FriendManager : MonoBehaviour
     public GameObject Light1;
     public GameObject Light2;
 
+    public PlayerMovement player;
+
+    private bool ableToHug = false;
+
     public int numberOfFish = 0;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +24,8 @@ public class FriendManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Friend1.isFollowing)
+        //Nummer hochsetzten
+        if (Friend1.isFollowing)
         {
             Light1.SetActive(true);
             if (!Friend1.doneonce)
@@ -37,6 +42,28 @@ public class FriendManager : MonoBehaviour
                 numberOfFish++;
                 Friend2.SetDoneOnce();
             }
+        }
+        //jeweiligen Freund umarmen
+        if (player.hugs == true && Friend1.inRange)
+        {
+            Friend1.SetHugged();
+            player.friend1stopped = false;
+        }
+
+        if (player.hugs == true && Friend2.inRange)
+        {
+            Friend2.SetHugged();
+            player.friend2stopped = false;
+        }
+        //jeweiligen Freund stoppen
+        if(Friend1.hugged == true && player.friend1stopped ==true)
+        {
+            Friend1.isFollowing = false;
+        }
+
+        if (Friend2.hugged == true && player.friend2stopped == true)
+        {
+            Friend2.isFollowing = false;
         }
     }
 }
