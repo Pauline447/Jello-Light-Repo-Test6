@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     private float horizontal;
   
-    public float speed = 5f;
+    public float speed = 2f;
     private bool isFacingRight = true;
 
     //dashing
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (ctx.performed && finishedDashing && !OnGround() && dashNumber > 0)
         {
-            speed = 5f;
+            speed = 2f;
             finishedDashing = false;
             isDashing = true;
             Vector2 dir = new Vector2(xRaw, yRaw);

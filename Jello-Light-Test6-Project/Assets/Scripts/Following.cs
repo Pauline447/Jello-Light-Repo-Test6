@@ -76,5 +76,4 @@ public class Following : MonoBehaviour
     {
         hugged = true;
     }
-
 }

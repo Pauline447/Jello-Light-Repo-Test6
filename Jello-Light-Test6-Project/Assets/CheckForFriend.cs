@@ -16,7 +16,7 @@ public class CheckForFriend : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
+    private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.tag == "Friend")
         {
