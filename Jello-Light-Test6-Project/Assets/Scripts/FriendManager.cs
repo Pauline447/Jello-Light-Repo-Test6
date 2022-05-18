@@ -12,7 +12,7 @@ public class FriendManager : MonoBehaviour
 
     public GameObject playerLight;
 
-    public PlayerMovement player;
+    public PlayerMovementNew player;
 
     private bool ableToHug = false;
 
