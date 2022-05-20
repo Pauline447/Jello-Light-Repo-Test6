@@ -9,26 +9,24 @@ public class PlayerMovementNew : MonoBehaviour
 
     public Rigidbody2D rb;
     private float horizontal;
-  
-    public float speed = 1.5f;
+    private float vertical;
+    private float speed = 0.5f;
+
     private bool isFacingRight = true;
 
-    //dashing
-    public float dashSpeed = 1f;
+    //for dashing
+    public float dashspeed;
+    public float defaultDashSpeed = 5f;
+
     private bool isDashing = false;
     private bool finishedDashing = true;
+    public int counter = 0;
+    private bool buttondown = false;
 
-    private float xRaw;
-    private float yRaw;
-
-    private int dashNumber;
-    public int defaultDashNumber = 2;
-
-    public Transform groundCheck;
-    public LayerMask groundLayer;
+    public float slowdown = 3f;
+    public int StopValue = 50;
 
     public ParticleSystem dashParticle;
-    public float defaultGravity = 0.03f;
 
     //hugging
     public bool ableToHug = false;
@@ -44,10 +42,6 @@ public class PlayerMovementNew : MonoBehaviour
 
     public bool walking = false;
 
-    //Jump
-    private float jumpTimerCounter;
-    private float jumpTime = 5f;
-    private bool isJumping;
 
     // Update is called once per frame
     void Start()
@@ -56,35 +50,55 @@ public class PlayerMovementNew : MonoBehaviour
     }
     void Update()
     {
-        animator.SetFloat("Speed", Mathf.Abs(horizontal));
-
-        //normal movement with the slower speed when you arent dashing (if you havent pressed the button)
-        //if (!isDashing)
-        //{
-        //    rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        //}
-
-        if (!isFacingRight && horizontal >0f)
-        {
-            Flip();
-        }
-        else if (isFacingRight && horizontal <0f)
-        {
-            Flip();
-        }
-        //if (up)
-        //{
-        //    UpMovement();
-        //}
     }
+    void FixedUpdate()
+    {
+        //if the player is not dashing he is moving with the normal speed
+        if (!isDashing)
+        {
+            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+        }
+        if (!isFacingRight && horizontal > 0f)
+        {
+            Flip();
+        }
+        else if (isFacingRight && horizontal < 0f)
+        {
+            Flip();
+        }
 
-    //for Movement
-
-    //private bool OnGround()
-    //{
-    //    return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-
-    //}
+        if (buttondown)
+        {
+            dashParticle.Play();
+            animator.SetBool("animateDashing", true);
+            counter++;
+            //direction for dashing from the Move() function
+            Vector2 dir = new Vector2(horizontal, vertical);
+            rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
+            //movement starts fast and slows down over time
+            dashspeed = dashspeed - slowdown * Time.deltaTime;
+        }
+        else
+        {
+            dashParticle.Stop();
+            animator.SetBool("animateDashing", false);
+            dashspeed = defaultDashSpeed;
+        }
+        //dashing stops after a while
+        if (counter > StopValue)
+        {
+            rb.gravityScale = 1f;
+            isDashing = false;
+            //dashParticle.Stop();
+            finishedDashing = true;
+            counter = 0;
+            buttondown = false;
+        }
+        if (up)
+        {
+            UpMovement();
+        }
+    }
 
     private void Flip()
     {
@@ -93,73 +107,27 @@ public class PlayerMovementNew : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-
-
     public void Move(InputAction.CallbackContext ctx)
     {
         horizontal = ctx.ReadValue<Vector2>().x;
-        //animator.SetBool("isWalking", true);
-        walking = true;
-        // direction for dashing
-        xRaw = ctx.ReadValue<Vector2>().x;
-        yRaw = ctx.ReadValue<Vector2>().y;
-        //if (horizontal == 0)
-        //{
-        //    animator.SetBool("isWalking", false);
-        //}
+        vertical = ctx.ReadValue<Vector2>().y;
     }
-
     public void Dash(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && finishedDashing)
         {
-            //animator.SetBool("isJumping", true);
-            animator.SetBool("animateDashing", true);
-            animator.SetBool("isWalking", false);
+            rb.gravityScale = 0;
+            //bool variable for the update function -> direction and speed can be adjusted every frame
+            buttondown = true;
         }
-        //if (ctx.performed && finishedDashing) // && OnGround())
-        //{
-        //    speed = 1.5f;
-        //    dashNumber = defaultDashNumber;
-        //    finishedDashing = false;
-        //    isDashing = true;
-        //    Vector2 dir = new Vector2(xRaw, yRaw);
-        //    rb.velocity = new Vector2(dir.x * dashSpeed, dir.y * dashSpeed);
-        //    StartCoroutine(DashWait());
-        //}
-        if (ctx.performed && finishedDashing) // && !OnGround() && dashNumber > 0)
+        if (ctx.canceled)
         {
-            isJumping = true;
-            jumpTimerCounter = jumpTime;
-            speed = 0.5f;
-            finishedDashing = false;
-            isDashing = true;
-            Vector2 dir = new Vector2(xRaw, yRaw);
-            rb.velocity = new Vector2(dir.x * dashSpeed, dir.y * dashSpeed);
-            // dashNumber--;
-            //if (jumpTimerCounter < 0)
-            //{
-            //    rb.velocity = new Vector2(dir.x * dashSpeed, dir.y * dashSpeed);
-            //    jumpTimerCounter -= Time.deltaTime;
-            //}
-            StartCoroutine(DashWait());
+            rb.gravityScale = 1f;
+            isDashing = false;
+            finishedDashing = true;
+            counter = 0;
+            buttondown = false;
         }
-    }
-
-    IEnumerator DashWait()
-    {
-        //0.3f --> how long the dash lasts
-        dashParticle.Play();
-        rb.gravityScale = 0;
-        yield return new WaitForSeconds(0.5f);
-        isDashing = false;
-        yield return new WaitForSeconds(0.1f);
-        dashParticle.Stop();
-        finishedDashing = true;
-        rb.gravityScale = 0.2f;
-        //animator.SetBool("isJumping", false);
-        animator.SetBool("animateDashing", false);
-        isJumping = false;
     }
 
     //for hugging
@@ -177,7 +145,6 @@ public class PlayerMovementNew : MonoBehaviour
             ableToHug = false;
         }
     }
-    
     public void Hugging(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && ableToHug)

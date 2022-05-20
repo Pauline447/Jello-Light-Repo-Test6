@@ -13,12 +13,17 @@ public class TestMovement : MonoBehaviour
     private bool isFacingRight = true;
 
     //for dashing
-    public float dashspeed = 5f;
+    public float dashspeed;
+    public float defaultDashSpeed = 5f;
+
     private bool isDashing = false;
     private bool finishedDashing = true;
-    public int counter=0;
+    public int counter = 0;
     private bool buttondown = false;
-    private float acc = 2f;
+   
+    public float slowdown = 3f;
+    public int StopValue = 50;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +32,9 @@ public class TestMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        //if the player is not dashing he is moving with the normal speed
         if (!isDashing)
         {
             rb.velocity = new Vector2(horizontal * speed, vertical * speed);
@@ -41,26 +47,30 @@ public class TestMovement : MonoBehaviour
         {
             Flip();
         }
-        
+
         if (buttondown)
         {
             counter++;
+            //direction for dashing from the Move() function
+            Vector2 dir = new Vector2(horizontal, vertical);
+            rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
+            //movement starts fast and slows down over time
+            dashspeed = dashspeed - slowdown * Time.deltaTime;
         }
-        if (counter > 100)
+        else
         {
-            while (speed > 0)
-            {
-                speed = dashspeed - acc;
-                acc--;
-            }
+            dashspeed = defaultDashSpeed;
+        }
+        //dashing stops after a while
+        if (counter > StopValue)
+        {
+            rb.gravityScale = 1f;
             isDashing = false;
             //dashParticle.Stop();
             finishedDashing = true;
             counter = 0;
             buttondown = false;
         }
-        Debug.Log(counter);
-        Debug.Log(isDashing);
     }
     private void Flip()
     {
@@ -73,44 +83,22 @@ public class TestMovement : MonoBehaviour
     {
         horizontal = ctx.ReadValue<Vector2>().x;
         vertical = ctx.ReadValue<Vector2>().y;
-        // direction for dashing
-        //xRaw = ctx.ReadValue<Vector2>().x;
-        //yRaw = ctx.ReadValue<Vector2>().y;
     }
     public void Dash(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && finishedDashing)
         {
+            rb.gravityScale = 0;
+            //bool variable for the update function -> direction and speed can be adjusted every frame
             buttondown = true;
-            if ( counter < 2)
-            {
-                finishedDashing = false;
-                isDashing = true;
-                Vector2 dir = new Vector2(horizontal, vertical);
-                rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
-                //StartCoroutine(DashWait());
-            }
         }
          if (ctx.canceled)
         {
+                rb.gravityScale = 1f;
                 isDashing = false;
-                //dashParticle.Stop();
                 finishedDashing = true;
                 counter = 0;
                 buttondown = false;
         }
     }
-
-    //IEnumerator DashWait()
-    //{
-    //    //0.3f --> how long the dash lasts
-    //    //dashParticle.Play();
-    //    //rb.gravityScale = 0;
-    //    yield return new WaitForSeconds(0.2f);
-    //    isDashing = false;
-    //    //dashParticle.Stop();
-    //    finishedDashing = true;
-    //    //rb.gravityScale = 1;
-    //    //animator.SetBool("isJumping", false);
-    //}
 }

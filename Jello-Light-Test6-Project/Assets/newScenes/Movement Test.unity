@@ -387,7 +387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1219513526}
-  dashspeed: 6
+  dashspeed: 5
+  counter: 0
 --- !u!212 &1219513528
 SpriteRenderer:
   m_ObjectHideFlags: 0
