@@ -10,7 +10,7 @@ public class PlayerMovementNew : MonoBehaviour
     public Rigidbody2D rb;
     private float horizontal;
     private float vertical;
-    private float speed = 0.5f;
+    public float speed = 0.5f;
 
     private bool isFacingRight = true;
 

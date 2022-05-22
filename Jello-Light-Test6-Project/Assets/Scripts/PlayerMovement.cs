@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     //UpMovement
     public bool up = false;
-    public float upPower = 15f;
+    public float upPower = 3f;
+    public float upSpeed = 5f;
 
     //StopFriends
     public bool friend1stopped = false;
@@ -171,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void UpMovement()
     {
-           rb.velocity = new Vector2(rb.velocity.x, upPower);
+           rb.velocity = new Vector2(rb.velocity.x, upPower * upSpeed);
     }
     public void StopFriend1(InputAction.CallbackContext ctx)
     {
