@@ -323,6 +323,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fc1ac2d2-5c32-49da-8ae4-6b461e71c306",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "765a1533-070e-4a75-83de-6c7a15902026",
                     "path": "<Keyboard>/e",
                     "interactions": "",
