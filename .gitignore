@@ -58,3 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Nintendo Switch specific stuff
+[Aa]ssets/NintendoSDKPlugin
+[Pp]ackages/com.unity.inputsystem.switch@0.1.6-pre
+[Ss]witchIL2CPPCache
