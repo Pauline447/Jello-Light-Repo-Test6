@@ -5369,6 +5369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1790812954747518704}
   rb: {fileID: 1790812954747518709}
+  speed: 0.5
   dashspeed: 0
   defaultDashSpeed: 5
   counter: 0
