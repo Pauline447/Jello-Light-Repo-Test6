@@ -18,12 +18,15 @@ public class PlayerMovementNew : MonoBehaviour
     public float dashspeed;
     public float defaultDashSpeed = 5f;
 
-    private bool isDashing = false;
+    public bool isDashing = false;
     private bool finishedDashing = true;
     public int counter = 0;
     private bool buttondown = false;
+    public bool buttonup = false;
 
+    public float currSpeed;
     public float slowdown = 3f;
+    public bool slowDownBool = false;
     public int StopValue = 50;
 
     public ParticleSystem dashParticle;
@@ -43,6 +46,9 @@ public class PlayerMovementNew : MonoBehaviour
     public bool walking = false;
 
 
+    //delete
+    public bool inwhile = false;
+
     // Update is called once per frame
     void Start()
     {
@@ -53,6 +59,7 @@ public class PlayerMovementNew : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Vector2 dir = new Vector2(horizontal, vertical);
         //if the player is not dashing he is moving with the normal speed
         if (!isDashing)
         {
@@ -73,31 +80,43 @@ public class PlayerMovementNew : MonoBehaviour
             animator.SetBool("animateDashing", true);
             counter++;
             //direction for dashing from the Move() function
-            Vector2 dir = new Vector2(horizontal, vertical);
+            dashspeed = defaultDashSpeed;
             rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
             //movement starts fast and slows down over time
             dashspeed = dashspeed - slowdown * Time.deltaTime;
         }
-        else
+        if (buttonup)
         {
             dashParticle.Stop();
             animator.SetBool("animateDashing", false);
-            dashspeed = defaultDashSpeed;
+            slowDownBool = true;
+            //dashspeed = defaultDashSpeed;
         }
         //dashing stops after a while
-        if (counter > StopValue)
-        {
-            rb.gravityScale = 1f;
-            isDashing = false;
-            //dashParticle.Stop();
-            finishedDashing = true;
-            counter = 0;
-            buttondown = false;
-        }
+        //if (counter > StopValue)
+        //{
+        //    rb.gravityScale = 1f;
+        //    isDashing = false;
+        //    //dashParticle.Stop();
+        //    finishedDashing = true;
+        //    counter = 0;
+        //    buttondown = false;
+        //    //slowDownBool = true;
+        //}
         if (up)
         {
             UpMovement();
         }
+        while(slowDownBool && dashspeed>0)
+        {
+            inwhile = true;
+            dashspeed = dashspeed - slowdown * Time.deltaTime;
+            rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
+        }
+        isDashing = false;
+        dashspeed = defaultDashSpeed;
+        slowDownBool = false;
+        inwhile = false;
     }
 
     private void Flip()
@@ -114,7 +133,7 @@ public class PlayerMovementNew : MonoBehaviour
     }
     public void Dash(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && finishedDashing)
+        if (ctx.performed || finishedDashing)
         {
             rb.gravityScale = 0;
             //bool variable for the update function -> direction and speed can be adjusted every frame
@@ -122,11 +141,13 @@ public class PlayerMovementNew : MonoBehaviour
         }
         if (ctx.canceled)
         {
+            //slowDownBool = true;
             rb.gravityScale = 1f;
             isDashing = false;
             finishedDashing = true;
             counter = 0;
             buttondown = false;
+            buttonup = true;
         }
     }
 

@@ -7554,6 +7554,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e7b33e11a0536c45b0ac99cefe550fe, type: 3}
+--- !u!1001 &1732849150
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.36248884
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.99641734
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.03180495
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190290, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Light1
+      value: 
+      objectReference: {fileID: 2512898937400997169}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Light2
+      value: 
+      objectReference: {fileID: 773620110433412331}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 9015642830480606659}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Friend1
+      value: 
+      objectReference: {fileID: 2512898938630111280}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Friend2
+      value: 
+      objectReference: {fileID: 773620109750325738}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: playerLight
+      value: 
+      objectReference: {fileID: 2892443271636162614}
+    - target: {fileID: 7498686552820190292, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: m_Name
+      value: FriendManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
 --- !u!1001 &1764376745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13928,8 +14009,12 @@ MonoBehaviour:
   speed: 1
   dashspeed: 0
   defaultDashSpeed: 8
+  isDashing: 0
   counter: 0
+  buttonup: 0
+  currSpeed: 0
   slowdown: 3
+  slowDownBool: 0
   StopValue: 50
   dashParticle: {fileID: 2892443271696202942}
   ableToHug: 0
@@ -13939,3 +14024,4 @@ MonoBehaviour:
   friend1stopped: 0
   friend2stopped: 0
   walking: 0
+  inwhile: 0
