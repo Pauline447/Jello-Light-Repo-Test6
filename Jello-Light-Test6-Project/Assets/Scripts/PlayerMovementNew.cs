@@ -42,6 +42,7 @@ public class PlayerMovementNew : MonoBehaviour
     //StopFriends
     public bool friend1stopped = false;
     public bool friend2stopped = false;
+    public bool friend3stopped = false;
 
     public bool walking = false;
 
@@ -105,6 +106,10 @@ public class PlayerMovementNew : MonoBehaviour
         }
         if(slowDownBool)// && currDashSpeed > 0) //&& !playerStopped)
         {
+            if(!isDashing)
+            {
+                animator.SetBool("animateDashing", false);
+            }
             inwhile = true;
             dashspeed = currDashSpeed - slowdown * Time.deltaTime;
             rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed);
@@ -161,14 +166,14 @@ public class PlayerMovementNew : MonoBehaviour
     //for hugging
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {
-        if (other.tag == "Friend")
+        if (other.tag == "Friend1" || other.tag == "Friend2"|| other.tag == "Friend3" )
         {
             ableToHug = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other) //if Player goes over fish- following = true
     {
-        if (other.tag == "Friend")
+        if (other.tag == "Friend1" || other.tag == "Friend2" || other.tag == "Friend3")
         {
             ableToHug = false;
         }

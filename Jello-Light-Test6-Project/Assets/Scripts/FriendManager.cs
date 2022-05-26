@@ -6,9 +6,11 @@ public class FriendManager : MonoBehaviour
 {
     public Following Friend1;
     public Following Friend2;
+    public Following Friend3;
 
     public GameObject Light1;
     public GameObject Light2;
+    public GameObject Light3;
 
     public GameObject playerLight;
 
@@ -33,8 +35,8 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend1.SetDoneOnce();
-                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
-                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 4;
+                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
+                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 4;
             }
         }
         if (Friend2.isFollowing)
@@ -44,8 +46,19 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend2.SetDoneOnce();
-                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 3;
-                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 5;
+                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 3;
+                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 5;
+            }
+        }
+        if (Friend3.isFollowing)
+        {
+            Light3.SetActive(true);
+            if (!Friend1.doneonce)
+            {
+                numberOfFish++;
+                Friend3.SetDoneOnce();
+                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
+                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 4;
             }
         }
         //jeweiligen Freund umarmen
@@ -60,8 +73,13 @@ public class FriendManager : MonoBehaviour
             Friend2.SetHugged();
             player.friend2stopped = false;
         }
+        if (player.hugs == true && Friend3.inRange)
+        {
+            Friend3.SetHugged();
+            player.friend3stopped = false;
+        }
         //jeweiligen Freund stoppen
-        if(Friend1.hugged == true && player.friend1stopped ==true)
+        if (Friend1.hugged == true && player.friend1stopped ==true)
         {
             Friend1.isFollowing = false;
         }
@@ -69,6 +87,10 @@ public class FriendManager : MonoBehaviour
         if (Friend2.hugged == true && player.friend2stopped == true)
         {
             Friend2.isFollowing = false;
+        }
+        if (Friend3.hugged == true && player.friend3stopped == true)
+        {
+            Friend3.isFollowing = false;
         }
     }
 }

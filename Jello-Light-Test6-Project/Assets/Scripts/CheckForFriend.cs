@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CheckForFriend : MonoBehaviour
 {
-    public bool friendthere = false;
+    public bool friend1there = false;
+    public bool friend2there = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,24 @@ public class CheckForFriend : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.tag == "Friend")
+        if (other.tag == "Friend1")
         {
-            friendthere = true;
+            friend1there = true;
+        }
+        if (other.tag == "Friend2")
+        {
+            friend2there = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Friend1")
+        {
+            friend1there = false;
+        }
+        if (other.tag == "Friend2")
+        {
+            friend2there = false;
         }
     }
 }
