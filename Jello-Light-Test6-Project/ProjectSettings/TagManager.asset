@@ -47,6 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 1401244375
+    locked: 0
+  - name: Enviroment
+    uniqueID: 138866825
+    locked: 0
   - name: Figuren
     uniqueID: 2299937683
     locked: 0
