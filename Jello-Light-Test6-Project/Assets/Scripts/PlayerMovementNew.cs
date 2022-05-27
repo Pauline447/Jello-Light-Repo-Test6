@@ -78,8 +78,11 @@ public class PlayerMovementNew : MonoBehaviour
 
         if (buttondown)
         {
-            dashParticle.Play();
-            animator.SetBool("animateDashing", true);
+            if (isDashing)
+            {
+                animator.SetBool("animateDashing", true);
+                dashParticle.Play();
+            }
             counter++;
             //direction for dashing from the Move() function
             dashspeed = defaultDashSpeed;
@@ -106,10 +109,6 @@ public class PlayerMovementNew : MonoBehaviour
         }
         if(slowDownBool)// && currDashSpeed > 0) //&& !playerStopped)
         {
-            if(!isDashing)
-            {
-                animator.SetBool("animateDashing", false);
-            }
             inwhile = true;
             dashspeed = currDashSpeed - slowdown * Time.deltaTime;
             rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed);
@@ -119,6 +118,10 @@ public class PlayerMovementNew : MonoBehaviour
                 inwhile = false;
                 isDashing = false;
             }
+        }
+        if (!isDashing)
+        {
+            animator.SetBool("animateDashing", false);
         }
     }
 

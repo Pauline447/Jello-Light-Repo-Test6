@@ -53,7 +53,7 @@ public class FriendManager : MonoBehaviour
         if (Friend3.isFollowing)
         {
             Light3.SetActive(true);
-            if (!Friend1.doneonce)
+            if (!Friend3.doneonce)
             {
                 numberOfFish++;
                 Friend3.SetDoneOnce();
