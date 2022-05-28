@@ -31,6 +31,7 @@ public class FriendManager : MonoBehaviour
         if (Friend1.isFollowing)
         {
             Light1.SetActive(true);
+            Friend1.GetComponent<SpriteRenderer>().color = new Color(255,255,255,255);
             if (!Friend1.doneonce)
             {
                 numberOfFish++;
@@ -42,6 +43,7 @@ public class FriendManager : MonoBehaviour
         if (Friend2.isFollowing)
         {
             Light2.SetActive(true);
+            Friend2.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
             if (!Friend2.doneonce)
             {
                 numberOfFish++;
@@ -52,6 +54,7 @@ public class FriendManager : MonoBehaviour
         }
         if (Friend3.isFollowing)
         {
+            Friend3.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
             Light3.SetActive(true);
             if (!Friend3.doneonce)
             {

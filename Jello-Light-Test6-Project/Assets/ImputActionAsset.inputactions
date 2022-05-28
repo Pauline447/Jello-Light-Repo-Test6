@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "StopFriend3",
+                    "type": "Button",
+                    "id": "d3b77821-1723-4655-822a-1a50abe5fb7a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -324,7 +333,7 @@
                 {
                     "name": "",
                     "id": "fc1ac2d2-5c32-49da-8ae4-6b461e71c306",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -346,10 +355,10 @@
                 {
                     "name": "",
                     "id": "1c39c0a7-5c10-4f83-9393-4af720c49bb8",
-                    "path": "<Keyboard>/e",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Gamepad",
                     "action": "Hugging",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -373,6 +382,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "StopFriend2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ae64f2d-2b12-4dd5-8f21-927629629450",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StopFriend3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

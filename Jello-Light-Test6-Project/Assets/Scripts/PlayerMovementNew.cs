@@ -29,6 +29,9 @@ public class PlayerMovementNew : MonoBehaviour
     public bool slowDownBool = false;
     public int StopValue = 50;
 
+    public bool speedUpBool = false;
+    public float speedUp = 5f;
+
     public ParticleSystem dashParticle;
 
     //hugging
@@ -78,6 +81,7 @@ public class PlayerMovementNew : MonoBehaviour
 
         if (buttondown)
         {
+            speedUpBool = true;
             if (isDashing)
             {
                 animator.SetBool("animateDashing", true);
@@ -85,10 +89,10 @@ public class PlayerMovementNew : MonoBehaviour
             }
             counter++;
             //direction for dashing from the Move() function
-            dashspeed = defaultDashSpeed;
-            rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
-            //movement starts fast and slows down over time
-            dashspeed = dashspeed - slowdown * Time.deltaTime;
+            //dashspeed = defaultDashSpeed;
+            //rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
+            ////movement starts fast and slows down over time
+            //dashspeed = dashspeed - slowdown * Time.deltaTime;
         }
 
         //dashing stops after a while
@@ -100,7 +104,7 @@ public class PlayerMovementNew : MonoBehaviour
             finishedDashing = true;
            counter = 0;
             //playerStopped = true;
-          buttondown = false;
+            buttondown = false;
         }
 
         if (up)
@@ -109,15 +113,25 @@ public class PlayerMovementNew : MonoBehaviour
         }
         if(slowDownBool)// && currDashSpeed > 0) //&& !playerStopped)
         {
-            inwhile = true;
-            dashspeed = currDashSpeed - slowdown * Time.deltaTime;
+           dashspeed = currDashSpeed - slowdown * Time.deltaTime;
             rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed);
-            if(dashspeed<0)
+            if(dashspeed<0.5f)
             {
                 slowDownBool = false;
                 inwhile = false;
                 isDashing = false;
             }
+        }
+        if (speedUpBool)// && currDashSpeed > 0) //&& !playerStopped)
+        {
+            //dashspeed = currDashSpeed + speedUp * Time.deltaTime;
+            rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed);
+            if (dashspeed > defaultDashSpeed)
+            {
+                speedUpBool = false;
+                slowDownBool = true;
+            }
+            else dashspeed = currDashSpeed + speedUp * Time.deltaTime;
         }
         if (!isDashing)
         {
@@ -142,7 +156,7 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (ctx.performed && finishedDashing)
         {
-            dashspeed = defaultDashSpeed;
+            //dashspeed = defaultDashSpeed;
             isDashing = true;
             buttonup = false;
             rb.gravityScale = 0;
@@ -151,12 +165,13 @@ public class PlayerMovementNew : MonoBehaviour
         }
         if (ctx.canceled)
         {
+            speedUpBool = false;
             slowDownBool = true;
             //if (currDashSpeed > 0)
             //{
             //    slowDownBool = true;
             //}
-            rb.gravityScale = 0.03f;
+            rb.gravityScale = 3f;
             finishedDashing = true;
             counter = 0;
             buttondown = false;
@@ -211,6 +226,13 @@ public class PlayerMovementNew : MonoBehaviour
         if (ctx.performed)
         {
             friend2stopped = true;
+        }
+    }
+    public void StopFriend3(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            friend3stopped = true;
         }
     }
 }

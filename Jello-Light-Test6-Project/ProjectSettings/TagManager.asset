@@ -7,6 +7,7 @@ TagManager:
   - Friend1
   - Friend2
   - Friend3
+  - Friend
   layers:
   - Default
   - TransparentFX
@@ -47,11 +48,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LightsUp
+    uniqueID: 579417215
+    locked: 0
   - name: Player
     uniqueID: 1401244375
-    locked: 0
-  - name: Enviroment
-    uniqueID: 138866825
     locked: 0
   - name: Figuren
     uniqueID: 2299937683

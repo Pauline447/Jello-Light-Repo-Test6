@@ -8,21 +8,25 @@ public class TestMovement : MonoBehaviour
     public Rigidbody2D rb;
     private float horizontal;
     private float vertical;
-    private float speed = 0.5f;
+
+    public float speed;
+    private float defaultSpeed = 0.5f;
 
     private bool isFacingRight = true;
 
     //for dashing
-    public float dashspeed;
-    public float defaultDashSpeed = 5f;
+    private float defaultDashSpeed = 5f;
 
-    private bool isDashing = false;
-    private bool finishedDashing = true;
     public int counter = 0;
     private bool buttondown = false;
    
     public float slowdown = 3f;
     public int StopValue = 50;
+
+    public float minSpeed = 0.5f;
+
+    public bool doDash = false;
+    public bool isDashing = false;
    
 
     // Start is called before the first frame update
@@ -34,11 +38,12 @@ public class TestMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if the player is not dashing he is moving with the normal speed
-        if (!isDashing)
+        if(!isDashing)
         {
-            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+            speed = defaultSpeed;
         }
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+
         if (!isFacingRight && horizontal > 0f)
         {
             Flip();
@@ -50,26 +55,33 @@ public class TestMovement : MonoBehaviour
 
         if (buttondown)
         {
-            counter++;
-            //direction for dashing from the Move() function
-            Vector2 dir = new Vector2(horizontal, vertical);
-            rb.velocity = new Vector2(dir.x * dashspeed, dir.y * dashspeed);
-            //movement starts fast and slows down over time
-            dashspeed = dashspeed - slowdown * Time.deltaTime;
+            StartCoroutine("MyCoroutine");
         }
         else
         {
-            dashspeed = defaultDashSpeed;
+            speed = defaultSpeed;
         }
+
         //dashing stops after a while
         if (counter > StopValue)
         {
             rb.gravityScale = 1f;
-            isDashing = false;
             //dashParticle.Stop();
-            finishedDashing = true;
             counter = 0;
             buttondown = false;
+        }
+        if (doDash)
+        { 
+            if (speed > minSpeed)
+            {
+
+                speed = speed - slowdown * Time.deltaTime;
+            }
+            else
+            {
+                speed = defaultDashSpeed;
+                //doDash = false;
+            }
         }
     }
     private void Flip()
@@ -86,19 +98,38 @@ public class TestMovement : MonoBehaviour
     }
     public void Dash(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && finishedDashing)
+        if (ctx.performed)
         {
+            isDashing = true;
+            speed = defaultDashSpeed; 
             rb.gravityScale = 0;
             //bool variable for the update function -> direction and speed can be adjusted every frame
             buttondown = true;
         }
          if (ctx.canceled)
         {
-                rb.gravityScale = 1f;
-                isDashing = false;
-                finishedDashing = true;
+            isDashing = false;
+            StopCoroutine("MyCoroutine");
+            rb.gravityScale = 1f;
                 counter = 0;
                 buttondown = false;
+            speed = defaultSpeed;
         }
     }
+    //So startest du eine Coroutine:
+    //StartCoroutine(MyCoroutine);
+
+
+    //Beispiel Coroutine
+    private IEnumerator MyCoroutine()
+    {
+        while (buttondown)
+        {
+            doDash = true;
+            yield return new WaitForSeconds(0.5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        }
+    }
+
+    //So stoppst du eine Coroutine:
+    // StopCoroutine(MyCoroutine);
 }

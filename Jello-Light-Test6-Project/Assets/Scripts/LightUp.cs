@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LightUp : MonoBehaviour
 {
-    public GameObject Light;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +19,7 @@ public class LightUp : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Light.SetActive(true);
+            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
         }
     }
 }
