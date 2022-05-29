@@ -49,6 +49,7 @@ public class PlayerMovementNew : MonoBehaviour
 
     public bool walking = false;
 
+    public float rotationSpeed;
 
     //delete
     public bool inwhile = false;
@@ -65,6 +66,8 @@ public class PlayerMovementNew : MonoBehaviour
     {
         currDashSpeed = dashspeed;
         Vector2 dir = new Vector2(horizontal, vertical);
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, dir);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         //if the player is not dashing he is moving with the normal speed
         if (!isDashing && !slowDownBool)
         {

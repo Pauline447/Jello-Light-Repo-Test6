@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Deadzone : MonoBehaviour
 {
-    private float timeDuration = 5f;
-    private float timer;
+    private float timeDuration = 8f;
+    public float timer;
     private bool startTimer = false;
 
     public GameObject player;
+    private Transform pos;
+    public GameObject playerLight;
+    public Camera main;
+    private AudioSource track;
 
     // Start is called before the first frame update
     void Start()
     {
+        track = main.GetComponent<AudioSource>();
         ResetTimer();   
     }
 
@@ -33,6 +38,9 @@ public class Deadzone : MonoBehaviour
         if (other.tag == "Player")
         {
             startTimer = true;
+            player.GetComponent<PlayerMovementNew>().defaultDashSpeed = 3f;
+            StartCoroutine(FlackernPlayerLight());
+            StartCoroutine(StartFade(track, 3f, 0f));
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -53,9 +61,35 @@ public class Deadzone : MonoBehaviour
         //Player Animation --> Attack by sea monster
         //Player Movement ausschalten
         player.GetComponent<Rigidbody2D>().gravityScale = 0;
-        player.GetComponent<PlayerMovementNew>().defaultDashSpeed = 0f;
-        player.GetComponent<PlayerMovementNew>().speed = 0f;
+        playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().enabled = false;
+        pos = player.transform;
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2 (pos.position.x*0, pos.position.y*0);
         player.GetComponent<PlayerMovementNew>().enabled = false;
-        Debug.Log("U dead");
+        player.GetComponent<Animator>().SetBool("SchokoHai", true);
+      //  Debug.Log("U dead");
+    }
+    private IEnumerator FlackernPlayerLight()
+    {
+        while (timer>0)
+        {
+            playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2.5f;
+            playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 4.5f;
+            yield return new WaitForSeconds(1f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+            playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 1.2f;
+            playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 3.5f;
+            yield return new WaitForSeconds(1f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        }
+    }
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
     }
 }

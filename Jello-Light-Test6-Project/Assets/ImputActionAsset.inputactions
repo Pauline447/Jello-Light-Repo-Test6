@@ -365,6 +365,17 @@
                 },
                 {
                     "name": "",
+                    "id": "34a39e55-b402-433c-b1a8-14c7046b9df9",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hugging",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3a6790f1-476c-41ee-8a28-3d562229fcb6",
                     "path": "<Keyboard>/f",
                     "interactions": "",

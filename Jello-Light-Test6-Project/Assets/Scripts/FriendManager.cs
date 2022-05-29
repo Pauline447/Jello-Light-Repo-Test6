@@ -36,8 +36,8 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend1.SetDoneOnce();
-                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
-                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 4;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 5;
             }
         }
         if (Friend2.isFollowing)
@@ -48,8 +48,8 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend2.SetDoneOnce();
-                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 3;
-                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 5;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 3;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 6;
             }
         }
         if (Friend3.isFollowing)
@@ -60,8 +60,8 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend3.SetDoneOnce();
-                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
-                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 4;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 4;
+                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 7;
             }
         }
         //jeweiligen Freund umarmen
