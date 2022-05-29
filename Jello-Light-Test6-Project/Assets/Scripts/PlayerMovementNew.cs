@@ -10,49 +10,46 @@ public class PlayerMovementNew : MonoBehaviour
     public Rigidbody2D rb;
     private float horizontal;
     private float vertical;
-    public float speed = 0.5f;
+
+    public float speed; //has to be for PushBack 
+    public float defaultSpeed = 0.5f;
 
     private bool isFacingRight = true;
 
     //for dashing
-    public float dashspeed;
+    public float dashspeed;     
     public float defaultDashSpeed = 5f;
 
-    public bool isDashing = false;
+    private bool isDashing = false;
     private bool finishedDashing = true;
     public int counter = 0;
     private bool buttondown = false;
-    public bool buttonup = false;
+    private bool buttonup = false;
 
     public float currDashSpeed;
     public float slowdown = 3f;
-    public bool slowDownBool = false;
+    private bool slowDownBool = false;
     public int StopValue = 50;
 
-    public bool speedUpBool = false;
+    private bool speedUpBool = false;
     public float speedUp = 5f;
 
     public ParticleSystem dashParticle;
 
     //hugging
-    public bool ableToHug = false;
+    private bool ableToHug = false;
     public bool hugs = false;
 
     //UpMovement
     public bool up = false;
-    public float upPower = 15f;
+    private float upPower = 15f;
 
     //StopFriends
     public bool friend1stopped = false;
     public bool friend2stopped = false;
     public bool friend3stopped = false;
 
-    public bool walking = false;
-
     public float rotationSpeed;
-
-    //delete
-    public bool inwhile = false;
 
     // Update is called once per frame
     void Start()
@@ -66,13 +63,19 @@ public class PlayerMovementNew : MonoBehaviour
     {
         currDashSpeed = dashspeed;
         Vector2 dir = new Vector2(horizontal, vertical);
+        
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
         //if the player is not dashing he is moving with the normal speed
-        if (!isDashing && !slowDownBool)
+
+        if (!isDashing &&!slowDownBool)
         {
-            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+            speed = defaultSpeed;
         }
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+
+
         if (!isFacingRight && horizontal > 0f)
         {
             Flip();
@@ -81,6 +84,7 @@ public class PlayerMovementNew : MonoBehaviour
         {
             Flip();
         }
+
 
         if (buttondown)
         {
@@ -117,18 +121,19 @@ public class PlayerMovementNew : MonoBehaviour
         if(slowDownBool)// && currDashSpeed > 0) //&& !playerStopped)
         {
            dashspeed = currDashSpeed - slowdown * Time.deltaTime;
-            rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed);
+            speed = dashspeed;
+           // rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed); //maybe not
             if(dashspeed<0.5f)
             {
                 slowDownBool = false;
-                inwhile = false;
                 isDashing = false;
             }
         }
         if (speedUpBool)// && currDashSpeed > 0) //&& !playerStopped)
         {
             //dashspeed = currDashSpeed + speedUp * Time.deltaTime;
-            rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed);
+            // rb.velocity = new Vector2(horizontal * dashspeed, vertical * dashspeed); //maybe not
+            speed = dashspeed;
             if (dashspeed > defaultDashSpeed)
             {
                 speedUpBool = false;
@@ -237,5 +242,13 @@ public class PlayerMovementNew : MonoBehaviour
         {
             friend3stopped = true;
         }
+    }
+    public float GetDefaultDashSpeed()
+    {
+        return defaultDashSpeed;
+    }
+    public void SetDashSpeed(float _newDashSpeed)
+    {
+        defaultDashSpeed = _newDashSpeed;
     }
 }

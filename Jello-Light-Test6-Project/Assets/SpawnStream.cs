@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Strömung : MonoBehaviour
+public class SpawnStream : MonoBehaviour
 {
     public GameObject Visual;
-    public FriendManager friendManage;
-    public bool active=false;
+    public GameObject Stream;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,16 +15,13 @@ public class Strömung : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(friendManage.numberOfFish == 3)
-        {
-            Visual.SetActive(false);
-        }
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag=="Player")
+        if (other.tag == "Player")
         {
-            active = true;
+            Stream.SetActive(true);
             Visual.SetActive(true);
         }
     }
