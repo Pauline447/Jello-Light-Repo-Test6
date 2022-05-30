@@ -111,8 +111,8 @@ public class TestMovement : MonoBehaviour
             isDashing = false;
             StopCoroutine("MyCoroutine");
             rb.gravityScale = 1f;
-                counter = 0;
-                buttondown = false;
+            counter = 0;
+            buttondown = false;
             speed = defaultSpeed;
         }
     }

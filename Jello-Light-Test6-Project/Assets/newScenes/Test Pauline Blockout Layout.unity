@@ -5963,7 +5963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.880001, y: -0.741601, z: -10}
+  m_LocalPosition: {x: -75.31999, y: 1.8583994, z: -10}
   m_LocalScale: {x: 0.9938956, y: 0.9938956, z: 0.9938956}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18393,7 +18393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.880001, y: -0.741601, z: -10}
+  m_LocalPosition: {x: -75.31999, y: 1.8583994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61764,7 +61764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2512898938630111285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 56.399994, y: -9.1, z: 0.13563181}
+  m_LocalPosition: {x: -48.8, y: -6.5, z: 0.13563181}
   m_LocalScale: {x: 0.8015, y: 0.8015, z: 0.8015}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61852,7 +61852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2892443271436046527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29, y: -4.8, z: 0}
+  m_LocalPosition: {x: -76.2, y: -2.1999998, z: 0}
   m_LocalScale: {x: 0.7631978, y: 0.7631978, z: 0.7631978}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -67784,10 +67784,11 @@ MonoBehaviour:
   dashspeed: 0
   defaultDashSpeed: 8
   counter: 0
+  minSpeed: 0.5
+  doDash: 0
   currDashSpeed: 0
-  slowdown: 3
+  slowdown: 4
   StopValue: 50
-  speedUp: 5
   dashParticle: {fileID: 2892443271696202942}
   hugs: 0
   up: 0

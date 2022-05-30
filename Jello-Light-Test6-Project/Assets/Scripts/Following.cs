@@ -32,7 +32,6 @@ public class Following : MonoBehaviour
         if (isFollowing)
         {
             transform.position = Vector3.Lerp(transform.position, followTarget.position, followSpeed * Time.deltaTime); //actual following
-
         }
         if (Target.transform.position.x < gameObject.transform.position.x && facingRight)
         { //gameobject.transform.position = fish
@@ -48,10 +47,10 @@ public class Following : MonoBehaviour
             facingRight = true;
         }
 
-        //if (hugged) //has to gooooooooooo
-        //{
-        //    isFollowing = true;
-        //}
+        if (hugged) //makes that is Following am anfang auf true gesetzt wird - is folllowing muss aber auch dann auf false springen, wenn der freund gestoppt wurde
+        {
+            isFollowing = true;
+        }
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {
