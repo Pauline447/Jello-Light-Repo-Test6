@@ -48,10 +48,10 @@ public class Following : MonoBehaviour
             facingRight = true;
         }
 
-        if (hugged)
-        {
-            isFollowing = true;
-        }
+        //if (hugged) //has to gooooooooooo
+        //{
+        //    isFollowing = true;
+        //}
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {

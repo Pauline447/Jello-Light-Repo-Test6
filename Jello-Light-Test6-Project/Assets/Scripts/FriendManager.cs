@@ -19,9 +19,13 @@ public class FriendManager : MonoBehaviour
     private bool ableToHug = false;
 
     public int numberOfFish = 0;
+    public int numberOfFishFollowing = 0;
+   
+    private float playerSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
     }
 
     // Update is called once per frame
@@ -67,29 +71,32 @@ public class FriendManager : MonoBehaviour
         //jeweiligen Freund umarmen
         if (player.hugs == true && Friend1.inRange)
         {
+            Friend1.isFollowing = true;
             Friend1.SetHugged();
             player.friend1stopped = false;
         }
 
         if (player.hugs == true && Friend2.inRange)
         {
+            Friend1.isFollowing = true;
             Friend2.SetHugged();
             player.friend2stopped = false;
         }
         if (player.hugs == true && Friend3.inRange)
         {
+            Friend1.isFollowing = true;
             Friend3.SetHugged();
             player.friend3stopped = false;
         }
+       
         //jeweiligen Freund stoppen
         if (Friend1.hugged == true && player.friend1stopped ==true)
         {
             Friend1.isFollowing = false;
         }
-
         if (Friend2.hugged == true && player.friend2stopped == true)
         {
-            Friend2.isFollowing = false;
+            Friend2.isFollowing = false;   
         }
         if (Friend3.hugged == true && player.friend3stopped == true)
         {

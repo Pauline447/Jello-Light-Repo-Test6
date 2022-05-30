@@ -51,6 +51,8 @@ public class PlayerMovementNew : MonoBehaviour
 
     public float rotationSpeed;
 
+    public FriendManager friendManager;
+
     // Update is called once per frame
     void Start()
     {
@@ -194,6 +196,7 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (other.tag == "Friend1" || other.tag == "Friend2"|| other.tag == "Friend3" )
         {
+            //friendManager.SetSpeedofPlayer();
             ableToHug = true;
         }
     }

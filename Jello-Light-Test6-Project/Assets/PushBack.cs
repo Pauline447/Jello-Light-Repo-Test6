@@ -12,9 +12,11 @@ public class PushBack : MonoBehaviour
 
     public GameObject player;
     private Transform playertrans;
-    private float playerSpeed;
+    public float playerSpeed;
 
     public Transform startOfStreamTrans;
+
+    public bool pushBackBool = false; //needed as public for SpeedManager
 
     // Start is called before the first frame update
     void Start()
@@ -47,14 +49,14 @@ public class PushBack : MonoBehaviour
         if (other.tag == "Player")
         {
             startTimer = true;
-            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerSpeed / 3);
+            pushBackBool = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerSpeed);
+            pushBackBool = false;
             ResetTimer();
             startTimer = false;
             player.GetComponent<PlayerMovementNew>().enabled = true;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnStream : MonoBehaviour
 {
+    public bool active = false;
     public GameObject Visual;
     public GameObject Stream;
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class SpawnStream : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            active = true;
             Stream.SetActive(true);
             Visual.SetActive(true);
         }
