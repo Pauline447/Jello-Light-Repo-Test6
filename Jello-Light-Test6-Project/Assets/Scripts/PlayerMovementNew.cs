@@ -27,7 +27,6 @@ public class PlayerMovementNew : MonoBehaviour
     public float minSpeed = 0.5f;
     public bool doDash = false;
 
-    public float currDashSpeed;
     public float slowdown = 3f;
     public int StopValue = 50;
 
@@ -63,7 +62,6 @@ public class PlayerMovementNew : MonoBehaviour
     }
     void FixedUpdate()
     {
-        currDashSpeed = dashspeed;
         Vector2 dir = new Vector2(horizontal, vertical);
         
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, dir);
@@ -231,6 +229,10 @@ public class PlayerMovementNew : MonoBehaviour
     public float GetDefaultDashSpeed()
     {
         return defaultDashSpeed;
+    }
+    public float GetSpeed()
+    {
+        return speed;
     }
     public void SetDashSpeed(float _newDashSpeed)
     {

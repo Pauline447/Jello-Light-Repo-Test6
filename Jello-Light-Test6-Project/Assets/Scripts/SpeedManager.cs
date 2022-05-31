@@ -8,39 +8,48 @@ public class SpeedManager : MonoBehaviour
     public Following Friend2;
     public Following Friend3;
 
-    public float playerSpeed;
+    public float playerDefaultSpeed;
 
     public PushBack pushBack;
 
     public PlayerMovementNew player;
+
+    //löschen
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
+        playerDefaultSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (pushBack.pushBackBool)
+        //if (pushBack.pushBackBool)
+        //{
+        //    player.GetComponent<PlayerMovementNew>().SetDashSpeed(speeeeeed / 2);
+        //}
+        //else
+        if (Friend1.isFollowing && Friend2.isFollowing && Friend3.isFollowing)
         {
-            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerSpeed / 3);
-        }
-        else if (Friend1.isFollowing && Friend2.isFollowing && Friend3.isFollowing)
-        {
-            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerSpeed + 4);
+            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed + 4);
         }
         else if ((Friend1.isFollowing && Friend2.isFollowing) || (Friend3.isFollowing && Friend2.isFollowing) || (Friend3.isFollowing && Friend1.isFollowing))
         {
-            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerSpeed + 2);
+            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed + 2);
         }
         else if ((Friend1.isFollowing && !Friend2.isFollowing && !Friend3.isFollowing) || (!Friend1.isFollowing && Friend2.isFollowing && !Friend3.isFollowing) || (!Friend1.isFollowing && !Friend2.isFollowing && Friend3.isFollowing))
         {
-            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerSpeed + 1);
+            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed + 1);
         }
         else if (!Friend1.isFollowing && !Friend2.isFollowing && !Friend3.isFollowing)
         {
-            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerSpeed);
+            player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed);
+        }
+        speed = player.GetComponent<PlayerMovementNew>().defaultDashSpeed;
+        if (pushBack.pushBackBool)
+        {
+            player.GetComponent<PlayerMovementNew>().SetDashSpeed(speed / 2);
         }
     }
 }

@@ -1574,9 +1574,10 @@ MonoBehaviour:
   Friend1: {fileID: 2512898938630111280}
   Friend2: {fileID: 773620109750325738}
   Friend3: {fileID: 1874051438}
-  playerSpeed: 0
+  playerDefaultSpeed: 0
   pushBack: {fileID: 228984226}
   player: {fileID: 9015642830480606659}
+  speed: 0
 --- !u!4 &118795616
 Transform:
   m_ObjectHideFlags: 0
@@ -7065,7 +7066,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.2105, y: -21.0392, z: -10}
+  m_LocalPosition: {x: -54.52, y: -18.479198, z: -10}
   m_LocalScale: {x: 0.9938956, y: 0.9938956, z: 0.9938956}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34920,7 +34921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.2105, y: -21.0392, z: -10}
+  m_LocalPosition: {x: -54.52, y: -18.479198, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79897,7 +79898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773620109750325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.5, y: 52.7, z: 0.13563181}
+  m_LocalPosition: {x: 51.54, y: 51.81, z: 0.13563181}
   m_LocalScale: {x: 1.5206, y: 1.5206, z: 1.5206}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -80268,7 +80269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2512898938630111285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.646847, y: -24.999485, z: 0.13563181}
+  m_LocalPosition: {x: -30.1, y: -22.1, z: 0.13563181}
   m_LocalScale: {x: 0.8015, y: 0.8015, z: 0.8015}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -80304,7 +80305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2892443271436046527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.0905, y: -23.36, z: 0}
+  m_LocalPosition: {x: -55.4, y: -20.8, z: 0}
   m_LocalScale: {x: 0.7631978, y: 0.7631978, z: 0.7631978}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85731,7 +85732,6 @@ MonoBehaviour:
   counter: 0
   minSpeed: 0.5
   doDash: 0
-  currDashSpeed: 0
   slowdown: 5
   StopValue: 50
   dashParticle: {fileID: 2892443271696202942}

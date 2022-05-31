@@ -21,7 +21,7 @@ public class PushBack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
+       // playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
         playertrans = player.transform;
         ResetTimer();
     }
@@ -29,6 +29,7 @@ public class PushBack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
         if (startTimer && timer > 0)
         {
             timer -= Time.deltaTime;
