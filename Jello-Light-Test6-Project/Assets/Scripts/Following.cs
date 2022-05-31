@@ -46,11 +46,6 @@ public class Following : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipY = false;
             facingRight = true;
         }
-
-        if (hugged) //makes that is Following am anfang auf true gesetzt wird - is folllowing muss aber auch dann auf false springen, wenn der freund gestoppt wurde
-        {
-            isFollowing = true;
-        }
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {
