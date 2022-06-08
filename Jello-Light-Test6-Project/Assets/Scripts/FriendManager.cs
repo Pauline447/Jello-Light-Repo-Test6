@@ -20,6 +20,8 @@ public class FriendManager : MonoBehaviour
 
     public int numberOfFish = 0;
     public int numberOfFishFollowing = 0;
+
+    public interactionUI2 UIstuff;
    
     private float playerSpeed;
     // Start is called before the first frame update
@@ -102,5 +104,25 @@ public class FriendManager : MonoBehaviour
         {
             Friend3.isFollowing = false;
         }
+
+        //UI
+        if (player.ableToHug && Friend1.isFollowing && Friend2.inRange == false)
+        {
+            UIstuff.interactionCase = 0;
+            UIstuff.ChangeUI();
+        }
+
+        else if (player.ableToHug && Friend2.isFollowing == false)
+        {
+            UIstuff.interactionCase = 1;
+            UIstuff.ChangeUI();
+        }
+
+        if (player.ableToHug && Friend2.isFollowing)
+        {
+            UIstuff.interactionCase = 0;
+            UIstuff.ChangeUI();
+        }
     }
+
 }

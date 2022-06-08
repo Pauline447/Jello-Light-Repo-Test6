@@ -36,7 +36,7 @@ public class PlayerMovementNew : MonoBehaviour
     public ParticleSystem dashParticle;
 
     //hugging
-    private bool ableToHug = false;
+    public bool ableToHug = false;
     public bool hugs = false;
 
     //UpMovement
