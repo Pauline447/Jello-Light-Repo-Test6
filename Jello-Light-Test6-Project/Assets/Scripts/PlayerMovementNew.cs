@@ -44,9 +44,10 @@ public class PlayerMovementNew : MonoBehaviour
     private float upPower = 15f;
 
     //StopFriends
-    public bool friend1stopped = false;
-    public bool friend2stopped = false;
-    public bool friend3stopped = false;
+    public bool friend1called = false;
+    public bool friend2called = false;
+    public bool friend3called = false;
+
 
     public float rotationSpeed;
 
@@ -204,28 +205,6 @@ public class PlayerMovementNew : MonoBehaviour
            rb.velocity = new Vector2(rb.velocity.x, upPower);
     }
 
-    // for stopping friends
-    public void StopFriend1(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-        {
-            friend1stopped = true;
-        }
-    }
-    public void StopFriend2(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-        {
-            friend2stopped = true;
-        }
-    }
-    public void StopFriend3(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-        {
-            friend3stopped = true;
-        }
-    }
     public float GetDefaultDashSpeed()
     {
         return defaultDashSpeed;
@@ -237,5 +216,40 @@ public class PlayerMovementNew : MonoBehaviour
     public void SetDashSpeed(float _newDashSpeed)
     {
         defaultDashSpeed = _newDashSpeed;
+    }
+
+    // for stopping friends
+    public void Friend1Called(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            friend1called = true;
+        }
+        if (ctx.canceled)
+        {
+            friend1called = false;
+        }
+    }
+    public void Friend2Called(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            friend2called = true;
+        }
+        if (ctx.canceled)
+        {
+            friend2called = false;
+        }
+    }
+    public void Friend3Called(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            friend3called = true;
+        }
+        if (ctx.canceled)
+        {
+            friend3called = false;
+        }
     }
 }

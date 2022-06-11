@@ -24,6 +24,8 @@ public class FriendManager : MonoBehaviour
     public interactionUI2 UIstuff;
    
     private float playerSpeed;
+
+    public bool Friend1stopped = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,34 +77,44 @@ public class FriendManager : MonoBehaviour
         {
             Friend1.isFollowing = true;
             Friend1.SetHugged();
-            player.friend1stopped = false;
+            //player.friend1called = false;
         }
 
         if (player.hugs == true && Friend2.inRange)
         {
             Friend2.isFollowing = true;
             Friend2.SetHugged();
-            player.friend2stopped = false;
+            player.friend2called = false;
         }
         if (player.hugs == true && Friend3.inRange)
         {
             Friend3.isFollowing = true;
             Friend3.SetHugged();
-            player.friend3stopped = false;
+            player.friend3called = false;
         }
        
         //jeweiligen Freund stoppen
-        if (Friend1.hugged == true && player.friend1stopped ==true)
+        if (Friend1.hugged == true && player.friend1called ==true && Friend1.isFollowing == true)
         {
-            Friend1.isFollowing = false;
+            if(player.friend1called == true)
+            {
+                Friend1stopped = true;
+                Friend1.isFollowing = false;
+            }
         }
-        if (Friend2.hugged == true && player.friend2stopped == true)
+        if (Friend2.hugged == true && player.friend2called == true && Friend2.isFollowing == true)
         {
             Friend2.isFollowing = false;   
         }
-        if (Friend3.hugged == true && player.friend3stopped == true)
+        if (Friend3.hugged == true && player.friend3called == true && Friend2.isFollowing == true)
         {
             Friend3.isFollowing = false;
+        }
+
+        if (Friend1.hugged == true && Friend1.isFollowing == false)
+        {
+            if (player.friend1called == true)
+            StartCoroutine(StartFriend());
         }
 
         //UI
@@ -124,5 +136,10 @@ public class FriendManager : MonoBehaviour
             UIstuff.ChangeUI();
         }
     }
-
+    private IEnumerator StartFriend()
+    {
+        yield return new WaitForSeconds(0.5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        Friend1stopped = false;
+        Friend1.isFollowing = true;
+    }
 }

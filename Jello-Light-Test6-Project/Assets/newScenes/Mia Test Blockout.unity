@@ -8640,7 +8640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.919998, y: 24.8208, z: -10}
+  m_LocalPosition: {x: 13.280001, y: -17.8792, z: -10}
   m_LocalScale: {x: 0.9938956, y: 0.9938956, z: 0.9938956}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10111,7 +10111,7 @@ RectTransform:
   m_Children:
   - {fileID: 518698061}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10347,7 +10347,7 @@ Transform:
   - {fileID: 1839713148}
   - {fileID: 882921777}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677958376
 GameObject:
@@ -38283,7 +38283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.919998, y: 24.8208, z: -10}
+  m_LocalPosition: {x: 13.280001, y: -17.8792, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43194,7 +43194,7 @@ Transform:
   m_Children:
   - {fileID: 973061843}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300074392
 GameObject:
@@ -43242,7 +43242,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1300074396
 MonoBehaviour:
@@ -86352,50 +86352,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7155b1f1063999b4e837eedfed4f4d47, type: 3}
---- !u!1 &2127185293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2127185295}
-  - component: {fileID: 2127185294}
-  m_Layer: 0
-  m_Name: MausUnsichtbar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2127185294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127185293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8303a6fb68ba458479bd26d645b1ea52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2127185295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127185293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.961252, y: 42.99281, z: -0.9121642}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2131956483
 GameObject:
   m_ObjectHideFlags: 0
@@ -87003,7 +86959,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16081107, y: -0.019608617}
+  m_Offset: {x: -0.17108727, y: 0.018867731}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -87014,7 +86970,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7009747, y: 1.1629531}
+  m_Size: {x: 4.2005625, y: 2.9716406}
   m_EdgeRadius: 0
 --- !u!1 &2512898938630111285
 GameObject:
@@ -87163,7 +87119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2892443271436046527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.8, y: 22.5, z: 0}
+  m_LocalPosition: {x: 12.4, y: -20.2, z: 0}
   m_LocalScale: {x: 0.7631978, y: 0.7631978, z: 0.7631978}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -87281,18 +87237,6 @@ MonoBehaviour:
     m_ActionId: 1d53574d-0c63-47ca-bfe5-9f04114e7f43
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 55445d7a-1139-494d-bb29-73316128c524
-    m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 460b2589-3ff1-4726-af27-d754a261f689
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e06349b5-3dfb-486f-8635-3c0403c0ddf9
-    m_ActionName: Player/Jump[/Keyboard/space]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9015642830480606659}
         m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
@@ -87328,7 +87272,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9015642830480606659}
         m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
-        m_MethodName: StopFriend1
+        m_MethodName: Friend1Called
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -87344,7 +87288,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9015642830480606659}
         m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
-        m_MethodName: StopFriend2
+        m_MethodName: Friend2Called
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -87397,7 +87341,19 @@ MonoBehaviour:
     m_ActionId: 90b8d9aa-8243-46ba-b4f3-344a24325de4
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9015642830480606659}
+        m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
+        m_MethodName: Friend3Called
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d3b77821-1723-4655-822a-1a50abe5fb7a
     m_ActionName: Player/StopFriend3[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
@@ -93577,8 +93533,8 @@ MonoBehaviour:
   ableToHug: 0
   hugs: 0
   up: 0
-  friend1stopped: 0
-  friend2stopped: 0
-  friend3stopped: 0
+  friend1called: 0
+  friend2called: 0
+  friend3called: 0
   rotationSpeed: 400
   friendManager: {fileID: 2003371690}
