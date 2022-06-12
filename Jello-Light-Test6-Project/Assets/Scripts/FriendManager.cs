@@ -13,28 +13,28 @@ public class FriendManager : MonoBehaviour
     public GameObject Light3;
 
     public GameObject playerLight;
+    private float lightRadius;
+    public float addLightValue = 1;
 
     public PlayerMovementNew player;
-
-    private bool ableToHug = false;
 
     public int numberOfFish = 0;
     public int numberOfFishFollowing = 0;
 
     public interactionUI2 UIstuff;
    
-    private float playerSpeed;
 
-    public bool Friend1stopped = false;
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
+        lightRadius = playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius;
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = lightRadius;
+
         //Nummer hochsetzten
         if (Friend1.isFollowing)
         {
@@ -44,8 +44,7 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend1.SetDoneOnce();
-                //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 2;
-                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 10;
+                lightRadius = lightRadius + addLightValue;
             }
         }
         if (Friend2.isFollowing)
@@ -57,7 +56,7 @@ public class FriendManager : MonoBehaviour
                 numberOfFish++;
                 Friend2.SetDoneOnce();
                 //playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 3;
-                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 11;
+                lightRadius = lightRadius + addLightValue;
             }
         }
         if (Friend3.isFollowing)
@@ -68,8 +67,8 @@ public class FriendManager : MonoBehaviour
             {
                 numberOfFish++;
                 Friend3.SetDoneOnce();
-               // playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 4;
-                playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 12;
+                // playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightInnerRadius = 4;
+                lightRadius = lightRadius + addLightValue;
             }
         }
         //jeweiligen Freund umarmen
@@ -142,14 +141,12 @@ public class FriendManager : MonoBehaviour
     }
     private IEnumerator StartFriend(Following friend)
     {
-        yield return new WaitForSeconds(0.3f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
-        //Friend1stopped = false;
+        yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = true;
     }
     private IEnumerator StopFriend(Following friend)
     {
-        yield return new WaitForSeconds(0.5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
-       // Friend1stopped = true;
+        yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = false;
     }
 }
