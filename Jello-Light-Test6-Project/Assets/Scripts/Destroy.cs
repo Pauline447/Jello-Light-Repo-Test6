@@ -28,16 +28,16 @@ public class Destroy : MonoBehaviour
         }
         if (Target2.friend1there || Target2.friend2there || Target2.playerthere)
         {
-            animatorWorm.SetBool("FishAtTarget1After1", true);
+            animatorWorm.SetBool("FishAtTarget2", true);
         }
         else if (!Target2.friend1there && !Target2.friend2there && !Target2.playerthere)
         {
-            animatorWorm.SetBool("FishAtTarget1After1", false);
+            animatorWorm.SetBool("FishAtTarget2", false);
         }
         if ((Target1.friend1there || Target1.friend2there ||Target1.playerthere) && (Target2.friend1there || Target2.friend2there || Target2.playerthere)&& (Target3.friend1there || Target3.friend2there || Target3.playerthere))
         {
             //Destroy(gameObject);
-            animatorWorm.SetBool("FishAtTarget2", true);
+            animatorWorm.SetBool("FishAtTarget3", true);
             animatorIgel.SetBool("Snatch", true);
 
         }
