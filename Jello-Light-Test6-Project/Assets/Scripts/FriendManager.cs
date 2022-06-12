@@ -94,27 +94,31 @@ public class FriendManager : MonoBehaviour
         }
        
         //jeweiligen Freund stoppen
-        if (Friend1.hugged == true && player.friend1called ==true && Friend1.isFollowing == true)
+        if (Friend1.hugged == true && player.friend1called ==true && Friend1.isFollowing == true && player.friend1called == true)
         {
-            if(player.friend1called == true)
-            {
-                Friend1stopped = true;
-                Friend1.isFollowing = false;
-            }
+            StartCoroutine(StopFriend(Friend1));
         }
         if (Friend2.hugged == true && player.friend2called == true && Friend2.isFollowing == true)
         {
-            Friend2.isFollowing = false;   
+            StartCoroutine(StopFriend(Friend2));
         }
         if (Friend3.hugged == true && player.friend3called == true && Friend2.isFollowing == true)
         {
-            Friend3.isFollowing = false;
+            StartCoroutine(StopFriend(Friend3));
         }
 
-        if (Friend1.hugged == true && Friend1.isFollowing == false)
+        //jeweiligen Freund starten
+        if (Friend1.hugged == true && Friend1.isFollowing == false && Friend1.inRange &&player.friend1called == true)
         {
-            if (player.friend1called == true)
-            StartCoroutine(StartFriend());
+            StartCoroutine(StartFriend(Friend1));
+        }
+        if (Friend2.hugged == true && Friend2.isFollowing == false && Friend2.inRange && player.friend2called == true)
+        {
+            StartCoroutine(StartFriend(Friend2));
+        }
+        if (Friend3.hugged == true && Friend3.isFollowing == false && Friend3.inRange && player.friend3called == true)
+        {
+            StartCoroutine(StartFriend(Friend3));
         }
 
         //UI
@@ -136,10 +140,16 @@ public class FriendManager : MonoBehaviour
             UIstuff.ChangeUI();
         }
     }
-    private IEnumerator StartFriend()
+    private IEnumerator StartFriend(Following friend)
+    {
+        yield return new WaitForSeconds(0.3f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        //Friend1stopped = false;
+        friend.isFollowing = true;
+    }
+    private IEnumerator StopFriend(Following friend)
     {
         yield return new WaitForSeconds(0.5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
-        Friend1stopped = false;
-        Friend1.isFollowing = true;
+       // Friend1stopped = true;
+        friend.isFollowing = false;
     }
 }
