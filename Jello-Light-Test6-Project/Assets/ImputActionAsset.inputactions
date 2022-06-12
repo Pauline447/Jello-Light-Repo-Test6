@@ -196,7 +196,7 @@
                 {
                     "name": "",
                     "id": "fc1ac2d2-5c32-49da-8ae4-6b461e71c306",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -206,19 +206,8 @@
                 },
                 {
                     "name": "",
-                    "id": "765a1533-070e-4a75-83de-6c7a15902026",
-                    "path": "<NPad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Hugging",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1c39c0a7-5c10-4f83-9393-4af720c49bb8",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -250,8 +239,30 @@
                 },
                 {
                     "name": "",
+                    "id": "5058c93e-c7b0-41d0-b41e-4bd402cf3fbe",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Friend1Called",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a0ab54d5-243e-4a43-ab8b-4d7d59910b99",
                     "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Friend2Called",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d26ade45-7076-4d33-b4d2-a2456202b11f",
+                    "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -266,6 +277,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "Friend3Called",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86387603-661a-4475-b432-9f50bf340137",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Friend3Called",
                     "isComposite": false,
                     "isPartOfComposite": false

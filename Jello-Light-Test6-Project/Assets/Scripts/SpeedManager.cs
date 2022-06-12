@@ -11,6 +11,7 @@ public class SpeedManager : MonoBehaviour
     public float playerDefaultSpeed;
 
     public PushBack pushBack;
+    public PushBack pushBack2;
 
     public PlayerMovementNew player;
 
@@ -48,6 +49,10 @@ public class SpeedManager : MonoBehaviour
         }
         speed = player.GetComponent<PlayerMovementNew>().defaultDashSpeed;
         if (pushBack.pushBackBool)
+        {
+            player.GetComponent<PlayerMovementNew>().SetDashSpeed(speed / 2);
+        }
+        if (pushBack2.pushBackBool)
         {
             player.GetComponent<PlayerMovementNew>().SetDashSpeed(speed / 2);
         }

@@ -9,6 +9,13 @@ public class CallingFriendsUI : MonoBehaviour
     public Sprite interationRight;
     public Sprite interationUp;
     public Sprite interationDown;
+    public Sprite interationDownandUp;
+    public Sprite interationDownandLeft;
+    public Sprite interationDownandRight;
+    public Sprite interationUpandLeft;
+    public Sprite interationUpandRight;
+    public Sprite interationLeftandRight;
+    public Sprite interationAll;
     public Sprite zero;
     private Image UIimage;
 
@@ -56,6 +63,28 @@ public class CallingFriendsUI : MonoBehaviour
             case 4:
                 UIimage.sprite = interationDown;
                 break;
+            case 5:
+                UIimage.sprite = interationDownandUp;
+                break;
+            case 6:
+                UIimage.sprite = interationDownandLeft;
+                break;
+            case 7:
+                UIimage.sprite = interationDownandRight;
+                break;
+            case 8:
+                UIimage.sprite = interationUpandLeft;
+                break;
+            case 9:
+                UIimage.sprite = interationUpandRight;
+                break;
+            case 10:
+                UIimage.sprite = interationLeftandRight;
+                break;
+            case 11:
+                UIimage.sprite = interationAll;
+                break;
+
 
         }
     }
