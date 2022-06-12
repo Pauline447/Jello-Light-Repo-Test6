@@ -38578,6 +38578,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.14292598
       objectReference: {fileID: 0}
+    - target: {fileID: 4320744317095102014, guid: 620d90333a6e21743a6512b741cd906e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.70126
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320744317095102014, guid: 620d90333a6e21743a6512b741cd906e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.052213
+      objectReference: {fileID: 0}
     - target: {fileID: 5193832607310725048, guid: 620d90333a6e21743a6512b741cd906e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.0756364
@@ -38674,8 +38682,8 @@ MonoBehaviour:
   - {fileID: 753240574}
   - {fileID: 605795224}
   m_Bounds:
-    m_Center: {x: 0.75793743, y: -6.0057535, z: 0}
-    m_Extent: {x: 10.749199, y: 9.558408, z: 0}
+    m_Center: {x: 1.2594957, y: -5.6295843, z: 0}
+    m_Extent: {x: 10.247642, y: 9.182239, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
