@@ -2084,6 +2084,7 @@ MonoBehaviour:
   Friend3: {fileID: 1874051438}
   playerDefaultSpeed: 0
   pushBack: {fileID: 228984226}
+  pushBack2: {fileID: 882921778}
   player: {fileID: 9015642830480606659}
   speed: 0
 --- !u!4 &118795616
@@ -2093,13 +2094,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118795614}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.601162, y: -17.013268, z: -0.23811726}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.601158, y: -17.013268, z: -0.23811728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124465696 stripped
 GameObject:
@@ -9537,7 +9538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3541607618047960223, guid: f69b6ef1f649bd3459e3ed469cdee408, type: 3}
       propertyPath: m_Name
-      value: Particle System Stream (1)
+      value: Particle System Stream2
       objectReference: {fileID: 0}
     - target: {fileID: 3541607618047960223, guid: f69b6ef1f649bd3459e3ed469cdee408, type: 3}
       propertyPath: m_IsActive
@@ -19579,7 +19580,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778419598
 GameObject:
@@ -23716,6 +23717,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6011764259655369627, guid: 8e161875f2638054895b8e2102c5be1a, type: 3}
   m_PrefabInstance: {fileID: 995601981}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &882921778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6011764259655369625, guid: 8e161875f2638054895b8e2102c5be1a, type: 3}
+  m_PrefabInstance: {fileID: 995601981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85db3041f0e163b4d9db74659e909f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &888112217
 GameObject:
   m_ObjectHideFlags: 0
@@ -24534,7 +24546,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6011764259655369622, guid: 8e161875f2638054895b8e2102c5be1a, type: 3}
       propertyPath: m_Name
-      value: "Str\xF6mung (1)"
+      value: "Str\xF6mung2"
       objectReference: {fileID: 0}
     - target: {fileID: 6011764259655369622, guid: 8e161875f2638054895b8e2102c5be1a, type: 3}
       propertyPath: m_IsActive
@@ -24654,7 +24666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011764261119553090, guid: 8e161875f2638054895b8e2102c5be1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42.6
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 6011764261119553090, guid: 8e161875f2638054895b8e2102c5be1a, type: 3}
       propertyPath: m_LocalPosition.y
