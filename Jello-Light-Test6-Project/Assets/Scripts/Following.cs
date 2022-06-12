@@ -69,5 +69,9 @@ public class Following : MonoBehaviour
     public void SetHugged()
     {
         hugged = true;
+        if(!doneonce)
+        {
+            isFollowing = true;
+        }
     }
 }

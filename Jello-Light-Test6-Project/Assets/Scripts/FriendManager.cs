@@ -74,22 +74,16 @@ public class FriendManager : MonoBehaviour
         //jeweiligen Freund umarmen
         if (player.hugs == true && Friend1.inRange)
         {
-            Friend1.isFollowing = true;
             Friend1.SetHugged();
-            //player.friend1called = false;
         }
 
         if (player.hugs == true && Friend2.inRange)
         {
-            Friend2.isFollowing = true;
             Friend2.SetHugged();
-            player.friend2called = false;
         }
         if (player.hugs == true && Friend3.inRange)
         {
-            Friend3.isFollowing = true;
             Friend3.SetHugged();
-            player.friend3called = false;
         }
        
         //jeweiligen Freund stoppen
