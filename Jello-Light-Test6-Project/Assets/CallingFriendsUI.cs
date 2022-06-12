@@ -28,10 +28,12 @@ public class CallingFriendsUI : MonoBehaviour
         if(m_interactionPossible.interactionPossibleBool)
         {
             interactionCase = m_interactionPossible.friendCase;
+            ChangeUI();
         }
         else
         {
             interactionCase = 0;
+            ChangeUI();
         }
     }
 

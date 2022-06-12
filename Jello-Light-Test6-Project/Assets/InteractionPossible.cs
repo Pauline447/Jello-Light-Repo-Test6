@@ -24,4 +24,11 @@ public class InteractionPossible : MonoBehaviour
             interactionPossibleBool = true;
         }
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            interactionPossibleBool = false;
+        }
+    }
 }
