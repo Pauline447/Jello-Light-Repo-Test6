@@ -155,7 +155,7 @@ public class PlayerMovementNew : MonoBehaviour
             buttondown = false;
             speed = defaultSpeed;
            
-            rb.gravityScale = 2f;
+            rb.gravityScale = 1f;
             buttonup = true;
             dashParticle.Stop();
             animator.SetBool("animateDashing", false);
