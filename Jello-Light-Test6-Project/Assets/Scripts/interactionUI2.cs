@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class interactionUI2 : MonoBehaviour
 {
     public Sprite interactionB;
     public Sprite zero;
-    private Image UIimage;
+    private SpriteRenderer spriteRenderer;
     public int interactionCase;
     public GameObject UIinteraction;
     public PlayerMovementNew Player;
@@ -15,7 +14,7 @@ public class interactionUI2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIimage = UIinteraction.GetComponent<Image>();
+        spriteRenderer = UIinteraction.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,25 +23,25 @@ public class interactionUI2 : MonoBehaviour
         if (Player.ableToHug)
         {
             interactionCase = 1;
-            ChangeUI();
+            ChangeInteractionUI();
         }
 
         if (Player.ableToHug == false)
         {
             interactionCase = 0;
-            ChangeUI();
+            ChangeInteractionUI();
         }
     }
 
-    public void ChangeUI()
+    public void ChangeInteractionUI()
     {
         switch (interactionCase)
         {
             case 0:
-                UIimage.sprite = zero;
+                spriteRenderer.sprite = zero;
                 break;
             case 1:
-                UIimage.sprite = interactionB;
+                spriteRenderer.sprite = interactionB;
                 break;
         }
     }

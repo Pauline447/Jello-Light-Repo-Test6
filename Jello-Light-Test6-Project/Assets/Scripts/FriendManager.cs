@@ -21,8 +21,10 @@ public class FriendManager : MonoBehaviour
     public int numberOfFish = 0;
     public int numberOfFishFollowing = 0;
 
-    public interactionUI2 UIstuff;
-   
+    public interactionUI2 UIstuff1;
+    public interactionUI2 UIstuff2;
+    public interactionUI2 UIstuff3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,22 +76,16 @@ public class FriendManager : MonoBehaviour
         //jeweiligen Freund umarmen
         if (player.hugs == true && Friend1.inRange)
         {
-            Friend1.isFollowing = true;
             Friend1.SetHugged();
-            //player.friend1called = false;
         }
 
         if (player.hugs == true && Friend2.inRange)
         {
-            Friend2.isFollowing = true;
             Friend2.SetHugged();
-            player.friend2called = false;
         }
         if (player.hugs == true && Friend3.inRange)
         {
-            Friend3.isFollowing = true;
             Friend3.SetHugged();
-            player.friend3called = false;
         }
        
         //jeweiligen Freund stoppen
@@ -121,22 +117,35 @@ public class FriendManager : MonoBehaviour
         }
 
         //UI
-        if (player.ableToHug && Friend1.isFollowing && Friend2.inRange == false)
+        if (Friend1.inRange && !Friend1.hugged)
         {
-            UIstuff.interactionCase = 0;
-            UIstuff.ChangeUI();
+            UIstuff1.interactionCase = 1;
+            UIstuff1.ChangeInteractionUI();
         }
-
-        else if (player.ableToHug && Friend2.isFollowing == false)
+        else
         {
-            UIstuff.interactionCase = 1;
-            UIstuff.ChangeUI();
+            UIstuff1.interactionCase = 0;
+            UIstuff1.ChangeInteractionUI();
         }
-
-        if (player.ableToHug && Friend2.isFollowing)
+        if (Friend2.inRange && !Friend2.hugged)
         {
-            UIstuff.interactionCase = 0;
-            UIstuff.ChangeUI();
+            UIstuff2.interactionCase = 1;
+            UIstuff2.ChangeInteractionUI();
+        }
+        else
+        {
+            UIstuff2.interactionCase = 0;
+            UIstuff2.ChangeInteractionUI();
+        }
+        if (Friend3.inRange && !Friend3.hugged)
+        {
+            UIstuff3.interactionCase = 1;
+            UIstuff3.ChangeInteractionUI();
+        }
+        else
+        {
+            UIstuff3.interactionCase = 0;
+            UIstuff3.ChangeInteractionUI();
         }
     }
     private IEnumerator StartFriend(Following friend)
