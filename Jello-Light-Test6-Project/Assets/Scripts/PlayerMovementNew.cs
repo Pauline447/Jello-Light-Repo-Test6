@@ -53,6 +53,9 @@ public class PlayerMovementNew : MonoBehaviour
 
     public FriendManager friendManager;
 
+    //UI
+    public bool dashUIDashDone = false;
+
     // Update is called once per frame
     void Start()
     {
@@ -141,6 +144,7 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (ctx.performed)
         {
+            dashUIDashDone = true;
             speed = defaultDashSpeed;
             rb.gravityScale = 0;
             //bool variable for the update function -> direction and speed can be adjusted every frame

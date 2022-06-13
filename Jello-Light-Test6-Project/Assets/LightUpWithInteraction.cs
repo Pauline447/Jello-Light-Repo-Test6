@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LightUpWithInteraction : MonoBehaviour
 {
-    public FriendInteraction _friendInteraction;
+    public CheckForFriend checkFriend;
+    public CheckForFriend checkFriend2;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class LightUpWithInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_friendInteraction.lightUp)
+        if ((checkFriend.friend1there||checkFriend.playerthere)&&(checkFriend2.friend1there||checkFriend2.playerthere))
         {
             GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
         }

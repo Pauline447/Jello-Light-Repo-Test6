@@ -9,6 +9,7 @@ public class PushBack : MonoBehaviour
     private bool startTimer = false;
 
     public float pushBackSpeed = 2f;
+    public float pushBackFriendSpeed = 5f;
 
     public GameObject player;
     private Transform playertrans;
@@ -16,8 +17,21 @@ public class PushBack : MonoBehaviour
 
     public Transform startOfStreamTrans;
 
+    public GameObject Friend1;
+    public GameObject Friend2;
+
     public bool pushBackBool = false; //needed as public for SpeedManager
 
+    public bool isCave= false;
+
+    public void Awake()
+    {
+        if(isCave)
+        {
+            Friend1.GetComponent<Following>().isFollowing = true;
+            Friend2.GetComponent<Following>().isFollowing = true;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
