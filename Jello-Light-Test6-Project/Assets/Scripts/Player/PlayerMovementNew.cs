@@ -12,22 +12,22 @@ public class PlayerMovementNew : MonoBehaviour
     private float vertical;
 
     public float speed; //has to be for PushBack 
-    public float defaultSpeed = 0.5f;
+    public float defaultSpeed = 0.5f; //kann gesetzt werden
 
     private bool isFacingRight = true;
 
     //for dashing
-    public float dashspeed;     
+    public float dashspeed;     //im Speed Manager gebraucht
     public float defaultDashSpeed = 5f;
 
-    public int counter = 0;
+    private int counter = 0;
     private bool buttondown = false;
     private bool buttonup = false;
 
-    public float minSpeed = 0.5f;
-    public bool doDash = false;
+    public float minSpeed = 0.5f; //einstellbar 
+    private bool doDash = false;
 
-    public float slowdown = 3f;
+    public float slowdown = 3f; //einstellbar
     public int StopValue = 50;
 
     //private bool speedUpBool = false;
@@ -36,25 +36,23 @@ public class PlayerMovementNew : MonoBehaviour
     public ParticleSystem dashParticle;
 
     //hugging
-    public bool ableToHug = false;
-    public bool hugs = false;
+    public bool ableToHug = false; //needed by interactionsUI
+    public bool hugs = false; //gebraucht von FriendManager
 
     //UpMovement
-    public bool up = false;
+    public bool up = false; //needed by UpMovement
     private float upPower = 15f;
 
     //StopFriends
-    public bool friend1called = false;
-    public bool friend2called = false;
-    public bool friend3called = false;
+    public bool[] friendcalled; //needs to be assigned in Unity
 
 
-    public float rotationSpeed;
+    public float rotationSpeed; //einstellbar
 
     public FriendManager friendManager;
 
     //UI
-    public bool dashUIDashDone = false;
+    public bool dashUIDashDone = false; //wird von UI gebraucht
 
     // Update is called once per frame
     void Start()
@@ -125,7 +123,6 @@ public class PlayerMovementNew : MonoBehaviour
             UpMovement();
         }
     }
-
 
     private void Flip()
     {
@@ -227,33 +224,33 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (ctx.performed)
         {
-            friend1called = true;
+            friendcalled[0] = true;
         }
         if (ctx.canceled)
         {
-            friend1called = false;
+            friendcalled[0] = false;
         }
     }
     public void Friend2Called(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            friend2called = true;
+            friendcalled[1] = true;
         }
         if (ctx.canceled)
         {
-            friend2called = false;
+            friendcalled[1] = false;
         }
     }
     public void Friend3Called(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            friend3called = true;
+            friendcalled[2] = true;
         }
         if (ctx.canceled)
         {
-            friend3called = false;
+            friendcalled[2] = false;
         }
     }
 }

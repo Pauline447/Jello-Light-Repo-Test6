@@ -21,11 +21,10 @@ public class CallingFriendsUI : MonoBehaviour
 
     public int interactionCase;
     public GameObject UIinteraction;
-    
-    public InteractionPossible m_interactionPossible;
-    public InteractionPossible m_interactionPossible1;
-    public InteractionPossible m_interactionPossible2;
-    public InteractionPossible m_interactionPossible3;
+
+    public int numberOfInteractions;
+
+    public InteractionPossible[] interactions; 
 
     // Start is called before the first frame update
     void Start()
@@ -36,30 +35,13 @@ public class CallingFriendsUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_interactionPossible.interactionPossibleBool)
+        for (int i = 0; i < numberOfInteractions; i++)
         {
-            interactionCase = m_interactionPossible.friendCase;
-            ChangeUI();
-        }
-        else if (m_interactionPossible1.interactionPossibleBool)
-        {
-            interactionCase = m_interactionPossible1.friendCase;
-            ChangeUI();
-        }
-        else if (m_interactionPossible2.interactionPossibleBool)
-        {
-            interactionCase = m_interactionPossible2.friendCase;
-            ChangeUI();
-        }
-        else if (m_interactionPossible3.interactionPossibleBool)
-        {
-            interactionCase = m_interactionPossible3.friendCase;
-            ChangeUI();
-        }
-        else
-        {
-            interactionCase = 0;
-            ChangeUI();
+            if(interactions[i].interactionPossibleBool)
+            {
+                interactionCase = interactions[i].friendCase;
+                ChangeUI();
+            }
         }
     }
 
@@ -103,8 +85,6 @@ public class CallingFriendsUI : MonoBehaviour
             //case 11:
             //    UIimage.sprite = interationAll;
             //    break;
-
-
         }
     }
 }

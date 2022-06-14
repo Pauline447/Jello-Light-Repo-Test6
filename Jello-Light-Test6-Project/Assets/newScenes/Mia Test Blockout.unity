@@ -2071,13 +2071,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e672f9ee96dfa304fb1318c748acfc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Friend1: {fileID: 2512898938630111280}
-  Friend2: {fileID: 773620109750325738}
-  Friend3: {fileID: 1874051438}
-  playerDefaultSpeed: 0
-  pushBack: {fileID: 228984226}
-  pushBack2: {fileID: 882921778}
+  Friends:
+  - {fileID: 2512898938630111280}
+  - {fileID: 773620109750325738}
+  - {fileID: 1874051438}
+  NumberOfPushbacks: 2
+  pushBack:
+  - {fileID: 228984226}
+  - {fileID: 882921778}
   player: {fileID: 9015642830480606659}
+  AddToPlayerSpeedWhen3: 4
+  AddToPlayerSpeedWhen2: 2
+  AddToPlayerSpeedWhen1: 1
   speed: 0
 --- !u!4 &118795616
 Transform:
@@ -7597,10 +7602,12 @@ MonoBehaviour:
   zero: {fileID: 21300000, guid: e130686918181744990ba860b2c39abb, type: 3}
   interactionCase: 0
   UIinteraction: {fileID: 518698060}
-  m_interactionPossible: {fileID: 1928328791}
-  m_interactionPossible1: {fileID: 811621975}
-  m_interactionPossible2: {fileID: 668999538}
-  m_interactionPossible3: {fileID: 124465699}
+  numberOfInteractions: 4
+  interactions:
+  - {fileID: 1928328791}
+  - {fileID: 811621975}
+  - {fileID: 668999538}
+  - {fileID: 124465699}
 --- !u!1 &519252433
 GameObject:
   m_ObjectHideFlags: 0
@@ -59048,6 +59055,58 @@ PrefabInstance:
       propertyPath: playerLight
       value: 
       objectReference: {fileID: 2892443271636162614}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: NumberOfFriends
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Friends.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: UIstuff.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Friends.Array.data[0]
+      value: 
+      objectReference: {fileID: 2512898938630111280}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Friends.Array.data[1]
+      value: 
+      objectReference: {fileID: 773620109750325738}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: Friends.Array.data[2]
+      value: 
+      objectReference: {fileID: 1874051438}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: UIstuff.Array.data[0]
+      value: 
+      objectReference: {fileID: 1585400903}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: UIstuff.Array.data[1]
+      value: 
+      objectReference: {fileID: 1332827997}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: UIstuff.Array.data[2]
+      value: 
+      objectReference: {fileID: 1494455942}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: FriendLights.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: FriendLights.Array.data[0]
+      value: 
+      objectReference: {fileID: 2512898938630111285}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: FriendLights.Array.data[1]
+      value: 
+      objectReference: {fileID: 773620109750325743}
+    - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
+      propertyPath: FriendLights.Array.data[2]
+      value: 
+      objectReference: {fileID: 1874051436}
     - target: {fileID: 7498686552820190292, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
       propertyPath: m_Name
       value: FriendManager
@@ -94287,18 +94346,14 @@ MonoBehaviour:
   defaultSpeed: 0.5
   dashspeed: 0
   defaultDashSpeed: 10
-  counter: 0
   minSpeed: 0.5
-  doDash: 0
   slowdown: 5
   StopValue: 50
   dashParticle: {fileID: 2892443271696202942}
   ableToHug: 0
   hugs: 0
   up: 0
-  friend1called: 0
-  friend2called: 0
-  friend3called: 0
+  friendcalled: 000000
   rotationSpeed: 400
   friendManager: {fileID: 2003371690}
   dashUIDashDone: 0

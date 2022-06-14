@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckForFriend : MonoBehaviour
 {
-    public bool friend1there = false;
+    public bool friend1there = false; //wird bei interactable objects genutzt
     public bool friend2there = false;
     public bool playerthere = false;
     // Start is called before the first frame update
