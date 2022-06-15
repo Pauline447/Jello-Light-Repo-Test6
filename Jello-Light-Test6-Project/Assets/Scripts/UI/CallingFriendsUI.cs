@@ -6,16 +6,27 @@ using UnityEngine.UI;
 public class CallingFriendsUI : MonoBehaviour
 {
     public Sprite interationLeft;
-    //public Sprite interationRight;
-    //public Sprite interationUp;
+    public Sprite interationLeftActive;
+    public Sprite interationRight;
+    public Sprite interationRightActive;
+    public Sprite interationUp;
+    public Sprite interationUpActive;
     public Sprite interationDown;
-    //public Sprite interationDownandUp;
-    //public Sprite interationDownandLeft;
-    //public Sprite interationDownandRight;
+    public Sprite interationDownActive;
+    public Sprite interationDownandUp;
+    public Sprite interationDownandUpActive;
+    public Sprite interationDownandLeft;
+    public Sprite interationDownandLeftActive;
+    public Sprite interationDownandRight;
+    public Sprite interationDownandRightActive;
     public Sprite interationUpandLeft;
-    //public Sprite interationUpandRight;
-    //public Sprite interationLeftandRight;
-    //public Sprite interationAll;
+    public Sprite interationUpandLeftActive;
+    public Sprite interationUpandRight;
+    public Sprite interationUpandRightActive;
+    public Sprite interationLeftandRight;
+    public Sprite interationLeftandRightActive;
+    public Sprite interationAll;
+    public Sprite interationAllActive;
     public Sprite zero;
     private Image UIimage;
 
@@ -23,6 +34,7 @@ public class CallingFriendsUI : MonoBehaviour
     public GameObject UIinteraction;
 
     public int numberOfInteractions;
+    public SetFriendCase _SetFriendCase;
 
     public InteractionPossible[] interactions; 
 
@@ -42,6 +54,10 @@ public class CallingFriendsUI : MonoBehaviour
                 interactionCase = interactions[i].friendCase;
                 ChangeUI();
             }
+            else
+            {
+                interactionCase = _SetFriendCase.caseforUI;
+            }
         }
     }
 
@@ -55,36 +71,69 @@ public class CallingFriendsUI : MonoBehaviour
             case 1:
                 UIimage.sprite = interationLeft;
                 break;
-            //case 2:
-            //    UIimage.sprite = interationRight;
-            //    break;
-            //case 3:
-            //    UIimage.sprite = interationUp;
-            //    break;
+            case 2:
+                UIimage.sprite = interationRight;
+                break;
+            case 3:
+                UIimage.sprite = interationUp;
+                break;
             case 4:
                 UIimage.sprite = interationDown;
                 break;
-            //case 5:
-            //    UIimage.sprite = interationDownandUp;
-            //    break;
-            //case 6:
-            //    UIimage.sprite = interationDownandLeft;
-            //    break;
-            //case 7:
-            //    UIimage.sprite = interationDownandRight;
-            //    break;
+            case 5:
+                UIimage.sprite = interationDownandUp;
+                break;
+            case 6:
+                UIimage.sprite = interationDownandLeft;
+                break;
+            case 7:
+                UIimage.sprite = interationDownandRight;
+                break;
             case 8:
                 UIimage.sprite = interationUpandLeft;
                 break;
-            //case 9:
-            //    UIimage.sprite = interationUpandRight;
-            //    break;
-            //case 10:
-            //    UIimage.sprite = interationLeftandRight;
-            //    break;
-            //case 11:
-            //    UIimage.sprite = interationAll;
-            //    break;
+            case 9:
+                UIimage.sprite = interationUpandRight;
+                break;
+            case 10:
+                UIimage.sprite = interationLeftandRight;
+                break;
+            case 11:
+                UIimage.sprite = interationAll;
+                break;
+            case 12:
+                UIimage.sprite = interationLeftActive;
+                break;
+            case 13:
+                UIimage.sprite = interationRightActive;
+                break;
+            case 14:
+                UIimage.sprite = interationUpActive;
+                break;
+            case 15:
+                UIimage.sprite = interationDownActive;
+                break;
+            case 16:
+                UIimage.sprite = interationDownandUpActive;
+                break;
+            case 17:
+                UIimage.sprite = interationDownandLeftActive;
+                break;
+            case 18:
+                UIimage.sprite = interationDownandRightActive;
+                break;
+            case 19:
+                UIimage.sprite = interationUpandLeftActive;
+                break;
+            case 20:
+                UIimage.sprite = interationUpandRightActive;
+                break;
+            case 21:
+                UIimage.sprite = interationLeftandRightActive;
+                break;
+            case 22:
+                UIimage.sprite = interationAllActive;
+                break;
         }
     }
 }
