@@ -5,15 +5,15 @@ using UnityEngine;
 public class PushBack : MonoBehaviour
 {
     private float timeDuration = 8f;
-    public float timer;
+    private float timer;
     private bool startTimer = false;
 
-    public float pushBackSpeed = 2f;
-    public float pushBackFriendSpeed = 5f;
+    public float pushBackSpeed = 2f; //einstellbar
+    public float pushBackFriendSpeed = 5f; //einstellbar
 
     public GameObject player;
     private Transform playertrans;
-    public float playerSpeed;
+    private float playerSpeed; 
 
     public Transform startOfStreamTrans;
 
@@ -22,7 +22,7 @@ public class PushBack : MonoBehaviour
 
     public bool pushBackBool = false; //needed as public for SpeedManager
 
-    public bool isCave= false;
+    public bool isCave= false; //einstellbar
 
     public void Awake()
     {

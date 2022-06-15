@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InteractionPossible : MonoBehaviour
 {
-    public bool interactionPossibleBool = false;
-    public int friendCase;
+    public bool interactionPossibleBool = false; //wird von UI genutzt
+    public int friendCase; //muss in Unity eingestellt werden
     // Start is called before the first frame update
     void Start()
     {
