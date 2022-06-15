@@ -718,7 +718,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0195348, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1212,6 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8379adc62bd2c543ac7470e9d5eee8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   rb: {fileID: 7282111648723007268}
   speed: 2
   dashSpeed: 8
@@ -1225,8 +1226,10 @@ MonoBehaviour:
   hugs: 0
   up: 0
   upPower: 10
+  upSpeed: 5
   friend1stopped: 0
   friend2stopped: 0
+  walking: 0
 --- !u!199 &772250428910440067
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -1267,7 +1270,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -655281019
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -1894,7 +1897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b500dc8574e5242a2c59293ea7e1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 662460409933536623}
+  player: {fileID: 0}
 --- !u!61 &3027520509973497372
 BoxCollider2D:
   m_ObjectHideFlags: 0
