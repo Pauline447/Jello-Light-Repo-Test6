@@ -5585,6 +5585,7 @@ MonoBehaviour:
   friend1: {fileID: 2512898938630111280}
   friend2: {fileID: 773620109750325738}
   interaction: {fileID: 124465699}
+  caseforUI: 0
 --- !u!1 &129342815
 GameObject:
   m_ObjectHideFlags: 0
@@ -11016,6 +11017,7 @@ GameObject:
   - component: {fileID: 518698064}
   - component: {fileID: 518698063}
   - component: {fileID: 518698065}
+  - component: {fileID: 518698066}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -11094,17 +11096,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interationLeft: {fileID: 21300000, guid: fab075352ae038c41b0727dfa39d0abf, type: 3}
+  interationLeftActive: {fileID: 0}
+  interationRight: {fileID: 0}
+  interationRightActive: {fileID: 0}
+  interationUp: {fileID: 0}
+  interationUpActive: {fileID: 0}
   interationDown: {fileID: 21300000, guid: 87f833c5bb2b8594a80d96818dc8c215, type: 3}
+  interationDownActive: {fileID: 0}
+  interationDownandUp: {fileID: 0}
+  interationDownandUpActive: {fileID: 0}
+  interationDownandLeft: {fileID: 0}
+  interationDownandLeftActive: {fileID: 0}
+  interationDownandRight: {fileID: 0}
+  interationDownandRightActive: {fileID: 0}
   interationUpandLeft: {fileID: 21300000, guid: 7c22528c0a9f3b549a3bcbc7f6b6d450, type: 3}
+  interationUpandLeftActive: {fileID: 0}
+  interationUpandRight: {fileID: 0}
+  interationUpandRightActive: {fileID: 0}
+  interationLeftandRight: {fileID: 0}
+  interationLeftandRightActive: {fileID: 0}
+  interationAll: {fileID: 0}
+  interationAllActive: {fileID: 0}
   zero: {fileID: 21300000, guid: e130686918181744990ba860b2c39abb, type: 3}
   interactionCase: 0
   UIinteraction: {fileID: 518698060}
   numberOfInteractions: 4
+  _SetFriendCase: {fileID: 0}
   interactions:
   - {fileID: 1928328791}
   - {fileID: 811621975}
   - {fileID: 668999538}
   - {fileID: 124465699}
+--- !u!114 &518698066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518698060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce1000f6c5fa9946a14ad50e900b76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friend1: {fileID: 0}
+  friend2: {fileID: 0}
+  interaction: {fileID: 0}
+  caseforUI: 0
 --- !u!1 &519252433
 GameObject:
   m_ObjectHideFlags: 0
@@ -13281,6 +13319,7 @@ MonoBehaviour:
   friend1: {fileID: 2512898938630111280}
   friend2: {fileID: 773620109750325738}
   interaction: {fileID: 668999538}
+  caseforUI: 0
 --- !u!1 &672016925
 GameObject:
   m_ObjectHideFlags: 0
@@ -22767,6 +22806,7 @@ MonoBehaviour:
   friend1: {fileID: 2512898938630111280}
   friend2: {fileID: 773620109750325738}
   interaction: {fileID: 811621975}
+  caseforUI: 0
 --- !u!4 &811670994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1022860721955193799, guid: 8e7b33e11a0536c45b0ac99cefe550fe, type: 3}
@@ -41531,7 +41571,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
