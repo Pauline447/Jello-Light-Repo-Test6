@@ -20,19 +20,23 @@ public class Destroy : MonoBehaviour
     {
         if(Target1.friend1there || Target1.friend2there ||Target1.playerthere)
         {
-            animatorWorm.SetBool("FishAtTarget1", true); 
+            animatorWorm.SetBool("FishAtTarget1", true);
+            animatorWorm.SetBool("IsLit", true);
         }
         else if(!Target1.friend1there && !Target1.friend2there && !Target1.playerthere)
         {
             animatorWorm.SetBool("FishAtTarget1", false);
+            animatorWorm.SetBool("IsLit", false);
         }
         if (Target2.friend1there || Target2.friend2there || Target2.playerthere)
         {
             animatorWorm.SetBool("FishAtTarget2", true);
+            animatorWorm.SetBool("IsLit", true);
         }
         else if (!Target2.friend1there && !Target2.friend2there && !Target2.playerthere)
         {
             animatorWorm.SetBool("FishAtTarget2", false);
+            animatorWorm.SetBool("IsLit", false);
         }
         if ((Target1.friend1there || Target1.friend2there ||Target1.playerthere) && (Target2.friend1there || Target2.friend2there || Target2.playerthere)&& (Target3.friend1there || Target3.friend2there || Target3.playerthere))
         {
