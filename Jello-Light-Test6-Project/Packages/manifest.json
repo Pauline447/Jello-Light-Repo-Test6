@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.aarthificial.pixelgraphics": "https://github.com/aarthificial/pixelgraphics.git",
+    "com.aarthificial.pixelgraphics": "file:C:/Users/miasc/Desktop/h_da/sose22/project/Leveldesign stuff/pixelgraphics-master",
     "com.unity.2d.animation": "7.0.6",
     "com.unity.cinemachine": "2.8.4",
     "com.unity.collab-proxy": "1.15.15",
