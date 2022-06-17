@@ -12,7 +12,7 @@ public class PlayerMovementNew : MonoBehaviour
     private float vertical;
 
     public float speed; //has to be for PushBack 
-    public float defaultSpeed = 0.5f; //kann gesetzt werden
+    public float defaultSpeed; //kann gesetzt werden
 
     private bool isFacingRight = true;
 
@@ -22,8 +22,9 @@ public class PlayerMovementNew : MonoBehaviour
 
     //private int counter = 0;
     private bool buttondown = false;
-  
-    public float minSpeed = 0.5f; //einstellbar 
+
+    public float defaultMinSpeed = 0.5f; //einstellbar
+    public float minSpeed; //für speedManager 
     public bool doDash = false;
 
     public float slowdownValue = 3f; //einstellbar
@@ -200,6 +201,14 @@ public class PlayerMovementNew : MonoBehaviour
     public void SetDashSpeed(float _newDashSpeed)
     {
         defaultDashSpeed = _newDashSpeed;
+    }
+    public float GetDefaultMinSpeed()
+    {
+        return defaultMinSpeed;
+    }
+    public void SetMinSpeed(float _newMinSpeed)
+    {
+        minSpeed = _newMinSpeed;
     }
 
     // for stopping friends

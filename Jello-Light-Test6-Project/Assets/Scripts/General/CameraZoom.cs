@@ -7,38 +7,42 @@ public class CameraZoom : MonoBehaviour
 {
     public CinemachineVirtualCamera vCam;
     public float LensSize;
-    public ZoomTrigger _zoomTrigger;
+    public ZoomTrigger[] _zoomTriggers;
+    public int numberOfTriggers;
     public float endValue;
-    public float zoomSpeed;
     public float defaultValue = 10f;
-    private float lerpDuration = 3;
-    private float timeElapsed;
+    public float lerpDuration = 3;
+    public float timeElapsed;
+
+    public float zoomValue;
     // Start is called before the first frame update
     void Start()
     {
-        ResetZoom();
+    
+    }
 
+    private void Awake()
+    {
+        vCam.m_Lens.OrthographicSize = defaultValue;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_zoomTrigger.doZoom)
+        for (int i =0; i<numberOfTriggers;i++)
         {
-            LensSize = Mathf.Lerp(_zoomTrigger.startValue, endValue, timeElapsed/lerpDuration);
-            timeElapsed += Time.deltaTime;
-            vCam.m_Lens.OrthographicSize = LensSize;
-        }
-        else
-        {
-            ResetZoom();
+            if (_zoomTriggers[i].doZoom)
+            {
+                LensSize = Mathf.Lerp(_zoomTriggers[i].startValue, endValue, timeElapsed / lerpDuration);
+                timeElapsed += Time.deltaTime;
+                vCam.m_Lens.OrthographicSize = LensSize;
+            }
         }
         //vCam.m_Lens.OrthographicSize = LensSize;
     }
-    public void SetZoomValues(float _endValue, float _zoomSpeed)
+    public void SetZoomValues(float _endValue)
     {
         endValue = _endValue;
-        zoomSpeed = _zoomSpeed;
     }
     public void ResetZoom()
     {

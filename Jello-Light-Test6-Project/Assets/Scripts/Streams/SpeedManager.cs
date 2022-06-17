@@ -7,6 +7,7 @@ public class SpeedManager : MonoBehaviour
     public Following[] Friends;
 
     private float playerDefaultSpeed; //wird vielleicht wo anders genutzt?
+    private float playerDefaultMinSpeed;
 
     public int NumberOfPushbacks; //muss von Player eingestellt werden
     public PushBack[] pushBack;
@@ -24,6 +25,7 @@ public class SpeedManager : MonoBehaviour
     void Start()
     {
         playerDefaultSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
+        playerDefaultMinSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultMinSpeed();
     }
 
     // Update is called once per frame
@@ -33,18 +35,22 @@ public class SpeedManager : MonoBehaviour
         if (Friends[0].isFollowing && Friends[1].isFollowing && Friends[2].isFollowing)
         {
             player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed + AddToPlayerSpeedWhen3);
+            player.GetComponent<PlayerMovementNew>().SetMinSpeed(playerDefaultMinSpeed + AddToPlayerSpeedWhen3);
         }
         else if ((Friends[0].isFollowing && Friends[1].isFollowing) || (Friends[2].isFollowing && Friends[1].isFollowing) || (Friends[2].isFollowing && Friends[0].isFollowing))
         {
             player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed + AddToPlayerSpeedWhen2);
+            player.GetComponent<PlayerMovementNew>().SetMinSpeed(playerDefaultMinSpeed + AddToPlayerSpeedWhen2);
         }
         else if ((Friends[0].isFollowing && !Friends[1].isFollowing && !Friends[2].isFollowing) || (!Friends[0].isFollowing && Friends[1].isFollowing && !Friends[2].isFollowing) || (!Friends[0].isFollowing && !Friends[1].isFollowing && Friends[2].isFollowing))
         {
             player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed + AddToPlayerSpeedWhen1);
+            player.GetComponent<PlayerMovementNew>().SetMinSpeed(playerDefaultMinSpeed + AddToPlayerSpeedWhen1);
         }
         else if (!Friends[0].isFollowing && !Friends[1].isFollowing && !Friends[2].isFollowing)
         {
             player.GetComponent<PlayerMovementNew>().SetDashSpeed(playerDefaultSpeed);
+            player.GetComponent<PlayerMovementNew>().SetMinSpeed(playerDefaultMinSpeed);
         }
 
         speed = player.GetComponent<PlayerMovementNew>().defaultDashSpeed;
