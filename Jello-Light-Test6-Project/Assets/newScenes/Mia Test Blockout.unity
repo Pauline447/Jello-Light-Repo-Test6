@@ -109611,6 +109611,7 @@ MonoBehaviour:
   minSpeed: 4
   doDash: 0
   slowdownValue: 3
+  slowdownAfterDashValue: 7
   slowdownBool: 0
   StopValue: 50
   dashParticle: {fileID: 2892443271696202942}

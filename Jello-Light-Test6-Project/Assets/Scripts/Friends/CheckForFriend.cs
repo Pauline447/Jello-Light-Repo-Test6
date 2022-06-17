@@ -6,6 +6,7 @@ public class CheckForFriend : MonoBehaviour
 {
     public bool friend1there = false; //wird bei interactable objects genutzt
     public bool friend2there = false;
+    public bool friend3there = false;
     public bool playerthere = false;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,10 @@ public class CheckForFriend : MonoBehaviour
         {
             friend2there = true;
         }
+        if (other.tag == "Friend3")
+        {
+            friend3there = true;
+        }
         if (other.tag == "Player")
         {
             playerthere = true;
@@ -42,6 +47,10 @@ public class CheckForFriend : MonoBehaviour
         if (other.tag == "Friend2")
         {
             friend2there = false;
+        }
+        if (other.tag == "Friend3")
+        {
+            friend3there = false;
         }
         if (other.tag == "Player")
         {

@@ -8,7 +8,7 @@ public class LightUpWithInteraction : MonoBehaviour
     public CheckForFriend checkFriend2;
     public PlayerMovementNew player;
     public GameObject UIElement;
-    public Following friend;
+    public GameObject friend;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,18 @@ public class LightUpWithInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(checkFriend.friend1there)
+        {
+            friend = GameObject.Find("Friend1");
+        }
+        if (checkFriend.friend2there)
+        {
+            friend = GameObject.Find("Friend");
+        }
+        if (checkFriend.friend3there)
+        {
+            friend = GameObject.Find("Friend3");
+        }
         if ((checkFriend.friend1there||checkFriend.playerthere)&&(checkFriend2.friend1there||checkFriend2.playerthere))
         {
             if (UIElement != null)
@@ -28,7 +40,7 @@ public class LightUpWithInteraction : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                 Destroy(UIElement);
-                friend.isFollowing = true;
+                friend.GetComponent<Following>().isFollowing = true;
             }
         }
     }

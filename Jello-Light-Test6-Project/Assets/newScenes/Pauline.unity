@@ -4008,6 +4008,7 @@ MonoBehaviour:
   checkFriend2: {fileID: 1840756545}
   player: {fileID: 9015642830480606659}
   UIElement: {fileID: 936008167}
+  friend: {fileID: 0}
 --- !u!1 &69653986
 GameObject:
   m_ObjectHideFlags: 0
@@ -5927,7 +5928,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &172823007
@@ -10958,7 +10959,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &510647773
@@ -12004,7 +12005,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &560559602
@@ -22887,7 +22888,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &815350058
@@ -42165,7 +42166,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1128812462
@@ -82089,7 +82090,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1608536922
@@ -82635,7 +82636,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1678059527
@@ -90021,6 +90022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friend1there: 0
   friend2there: 0
+  friend3there: 0
   playerthere: 0
 --- !u!50 &1795602926
 Rigidbody2D:
@@ -90463,7 +90465,7 @@ SpriteRenderer:
   m_Size: {x: 0.51, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1826696401
@@ -90557,6 +90559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friend1there: 0
   friend2there: 0
+  friend3there: 0
   playerthere: 0
 --- !u!212 &1840756546
 SpriteRenderer:
@@ -118692,10 +118695,12 @@ MonoBehaviour:
   rb: {fileID: 2892443271436046501}
   speed: 1
   defaultSpeed: 0.5
-  dashspeed: 0
   defaultDashSpeed: 10
   minSpeed: 0.5
-  slowdown: 5
+  doDash: 0
+  slowdownValue: 3
+  slowdownAfterDashValue: 7
+  slowdownBool: 0
   StopValue: 50
   dashParticle: {fileID: 2892443271696202942}
   ableToHug: 0
