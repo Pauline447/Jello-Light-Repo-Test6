@@ -8,7 +8,9 @@ public class LightUpWithInteraction : MonoBehaviour
     public CheckForFriend checkFriend2;
     public PlayerMovementNew player;
     public GameObject UIElement;
-    public GameObject friend;
+    private GameObject friend1;
+    private GameObject friend2;
+    private GameObject friend3;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +22,17 @@ public class LightUpWithInteraction : MonoBehaviour
     {
         if(checkFriend.friend1there)
         {
-            friend = GameObject.Find("Friend1");
+            friend1 = GameObject.Find("Friend1");
         }
         if (checkFriend.friend2there)
         {
-            friend = GameObject.Find("Friend");
+            friend2 = GameObject.Find("Friend2");
         }
         if (checkFriend.friend3there)
         {
-            friend = GameObject.Find("Friend3");
+            friend3 = GameObject.Find("Friend3");
         }
-        if ((checkFriend.friend1there||checkFriend.playerthere)&&(checkFriend2.friend1there||checkFriend2.playerthere))
+        if ((checkFriend.friend1there||checkFriend.playerthere||checkFriend.friend2there)&&(checkFriend2.friend1there||checkFriend2.playerthere || checkFriend2.friend2there))
         {
             if (UIElement != null)
             {
@@ -40,7 +42,18 @@ public class LightUpWithInteraction : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                 Destroy(UIElement);
-                friend.GetComponent<Following>().isFollowing = true;
+                if(friend1 !=null)
+                {
+                 friend1.GetComponent<Following>().isFollowing = true;
+                }
+                if (friend2 != null)
+                {
+                    friend2.GetComponent<Following>().isFollowing = true;
+                }
+                if (friend3 != null)
+                {
+                    friend3.GetComponent<Following>().isFollowing = true;
+                }
             }
         }
     }
