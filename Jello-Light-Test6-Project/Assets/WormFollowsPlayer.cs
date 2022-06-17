@@ -8,6 +8,7 @@ public class WormFollowsPlayer : MonoBehaviour
     public GameObject player;
     public float positionX;
     private bool chageWormPosition;
+    private Vector3 lastPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,8 @@ public class WormFollowsPlayer : MonoBehaviour
         if(chageWormPosition)
         {
             positionX = player.transform.position.x;
-            worm.transform.position = new Vector3(positionX - 20f, worm.transform.position.y, worm.transform.position.z);
+            worm.transform.position = new Vector3(positionX - 15f, worm.transform.position.y, worm.transform.position.z);
+            lastPosition = worm.transform.position;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,6 +30,14 @@ public class WormFollowsPlayer : MonoBehaviour
        if(other.tag == "Player")
         {
             chageWormPosition = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            chageWormPosition = false;
+            worm.transform.position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z);
         }
     }
 }
