@@ -18,7 +18,7 @@ public class FriendManager : MonoBehaviour
     public int numberOfFish = 0; //actually not needed at all XD
     public int numberOfFishFollowing = 0;
 
-    public interactionUI2[] UIstuff; 
+    public interactionUI2[] UIstuff;
 
 
     // Start is called before the first frame update
@@ -63,7 +63,7 @@ public class FriendManager : MonoBehaviour
 
         for (int i = 0; i < NumberOfFriends; i++)
         {
-            if (Friends[i].hugged == true && player.friendcalled[i] == true && Friends[i].isFollowing == true && player.friendcalled[i] == true)  //hier nochmal schauen
+            if (Friends[i].hugged == true && player.friendcalled[i] == true && Friends[i].isFollowing == true)  //hier nochmal schauen
             {
                 StartCoroutine(StopFriend(Friends[i]));
             }
@@ -104,5 +104,6 @@ public class FriendManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = false;
+        friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
     }
 }

@@ -6,36 +6,85 @@ public class SetFriendCase : MonoBehaviour
 {
     public Following friend1;
     public Following friend2;
-    public InteractionPossible interaction;
+    public Following friend3;
     public int caseforUI;
+    public bool interactionPossibleBool = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (friend1.isFollowing && !friend2.isFollowing)
+        if (friend1.isFollowing && !friend2.isFollowing && !friend3.isFollowing)
         {
-            interaction.friendCase = 4;
-            caseforUI = 4;
+            if (interactionPossibleBool)
+            {
+                caseforUI = 15;
+            }
+            else caseforUI = 4;
         }
-        if (!friend1.isFollowing && friend2.isFollowing)
+        if (!friend1.isFollowing && friend2.isFollowing && !friend3.isFollowing)
         {
-            interaction.friendCase = 1;
-            caseforUI = 1;
+            if (interactionPossibleBool)
+            {
+                caseforUI = 12;
+            }
+            else caseforUI = 1;
         }
-        if (!friend1.isFollowing && !friend2.isFollowing)
+        if (!friend1.isFollowing && !friend2.isFollowing && friend3.isFollowing)
         {
-            interaction.friendCase = 0;
-            caseforUI = 0;
+            if (interactionPossibleBool)
+            {
+                caseforUI = 13;
+            }
+            else caseforUI = 2;
         }
-        if (friend1.isFollowing && friend2.isFollowing)
+        if (!friend1.isFollowing && !friend2.isFollowing && !friend3.isFollowing)
         {
-            interaction.friendCase = 8;
-            caseforUI = 0;
+            if (interactionPossibleBool)
+            {
+                caseforUI = 0;
+            }
+            else caseforUI = 0;
+        }
+        if (friend1.isFollowing && friend2.isFollowing & !friend3.isFollowing)
+        {
+            if (interactionPossibleBool)
+            {
+                caseforUI = 17;
+            }
+            else
+                caseforUI = 6;
+        }
+        if (!friend1.isFollowing && friend2.isFollowing & friend3.isFollowing)
+        {
+            if (interactionPossibleBool)
+            {
+                caseforUI = 21;
+            }
+            else
+                caseforUI = 10;
+        }
+        if (friend1.isFollowing && !friend2.isFollowing & friend3.isFollowing)
+        {
+            if (interactionPossibleBool)
+            {
+                caseforUI = 18;
+            }
+            else
+                caseforUI = 7;
+        }
+        if (friend1.isFollowing && friend2.isFollowing & friend3.isFollowing)
+        {
+            if (interactionPossibleBool)
+            {
+                caseforUI = 24;
+            }
+            else
+                caseforUI = 28;
         }
     }
 }

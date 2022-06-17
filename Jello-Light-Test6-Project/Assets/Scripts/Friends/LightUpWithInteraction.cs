@@ -6,6 +6,8 @@ public class LightUpWithInteraction : MonoBehaviour
 {
     public CheckForFriend checkFriend;
     public CheckForFriend checkFriend2;
+    public PlayerMovementNew player;
+    public GameObject UIElement;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,15 @@ public class LightUpWithInteraction : MonoBehaviour
     {
         if ((checkFriend.friend1there||checkFriend.playerthere)&&(checkFriend2.friend1there||checkFriend2.playerthere))
         {
-            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            if (UIElement != null)
+            {
+                UIElement.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            if(player.hugs)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+                Destroy(UIElement);
+            }
         }
-
     }
 }

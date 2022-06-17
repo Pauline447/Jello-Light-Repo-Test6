@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.aarthificial.pixelgraphics": {
-      "version": "file:C:/Users/miasc/Desktop/h_da/sose22/project/Leveldesign stuff/pixelgraphics-master",
+      "version": "file:pixelgraphics-master",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {
         "com.unity.render-pipelines.universal": "10.4.0"
       }
@@ -172,6 +172,14 @@
         "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem.switch": {
+      "version": "file:com.unity.inputsystem.switch@0.1.6-pre",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.inputsystem": "1.1.0-pre.5"
+      }
     },
     "com.unity.mathematics": {
       "version": "1.2.6",

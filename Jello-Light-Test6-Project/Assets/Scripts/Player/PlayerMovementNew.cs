@@ -171,27 +171,9 @@ public class PlayerMovementNew : MonoBehaviour
             yield return new WaitForSeconds(0.5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         }
     }
-
-
-    //for hugging
-    private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
-    {
-        if (other.tag == "Friend1" || other.tag == "Friend2"|| other.tag == "Friend3" )
-        {
-            //friendManager.SetSpeedofPlayer();
-            ableToHug = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other) //if Player goes over fish- following = true
-    {
-        if (other.tag == "Friend1" || other.tag == "Friend2" || other.tag == "Friend3")
-        {
-            ableToHug = false;
-        }
-    }
     public void Hugging(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && ableToHug)
+        if (ctx.performed)
         {
             hugs = true;
         }
@@ -224,33 +206,42 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (ctx.performed)
         {
-            friendcalled[0] = true;
+            StartCoroutine(ButtonClicked());
+            //friendcalled[0] = true;
         }
-        if (ctx.canceled)
-        {
-            friendcalled[0] = false;
-        }
+        //if (ctx.canceled)
+        //{
+        //    friendcalled[0] = false;
+        //}
     }
     public void Friend2Called(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            friendcalled[1] = true;
+            //friendcalled[1] = true;
+            StartCoroutine(ButtonClicked());
         }
-        if (ctx.canceled)
-        {
-            friendcalled[1] = false;
-        }
+        //if (ctx.canceled)
+        //{
+        //    friendcalled[1] = false;
+        //}
     }
     public void Friend3Called(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            friendcalled[2] = true;
+            StartCoroutine(ButtonClicked());
+            //friendcalled[2] = true;
         }
-        if (ctx.canceled)
-        {
-            friendcalled[2] = false;
-        }
+        //if (ctx.canceled)
+        //{
+        //    friendcalled[2] = false;
+        //}
+    }
+    private IEnumerator ButtonClicked()
+    {
+        friendcalled[0] = true;
+        yield return new WaitForSeconds(0.2f);
+        friendcalled[0] = false;
     }
 }
