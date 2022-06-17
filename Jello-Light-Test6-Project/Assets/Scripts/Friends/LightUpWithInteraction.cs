@@ -8,6 +8,7 @@ public class LightUpWithInteraction : MonoBehaviour
     public CheckForFriend checkFriend2;
     public PlayerMovementNew player;
     public GameObject UIElement;
+    public Following friend;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class LightUpWithInteraction : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                 Destroy(UIElement);
+                friend.isFollowing = true;
             }
         }
     }

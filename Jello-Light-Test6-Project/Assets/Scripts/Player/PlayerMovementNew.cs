@@ -17,17 +17,18 @@ public class PlayerMovementNew : MonoBehaviour
     private bool isFacingRight = true;
 
     //for dashing
-    public float dashspeed;     //im Speed Manager gebraucht
+   //public float dashspeed;     //im Speed Manager gebraucht
     public float defaultDashSpeed = 5f;
 
-    private int counter = 0;
+    //private int counter = 0;
     private bool buttondown = false;
-    private bool buttonup = false;
-
+  
     public float minSpeed = 0.5f; //einstellbar 
-    private bool doDash = false;
+    public bool doDash = false;
 
-    public float slowdown = 3f; //einstellbar
+    public float slowdownValue = 3f; //einstellbar
+    public float slowdownAfterDashValue = 7f; //einstellbar
+    public bool slowdownBool = false; //umstellen auf priv
     public int StopValue = 50;
 
     //private bool speedUpBool = false;
@@ -69,15 +70,27 @@ public class PlayerMovementNew : MonoBehaviour
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
 
+
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+
         //if the player is not dashing he is moving with the normal speed
 
-        if (!buttondown)
+        if (!buttondown && slowdownBool == false)
         {
             speed = defaultSpeed;
         }
-        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
 
-
+        if (!buttondown && slowdownBool)
+        {
+            if (speed > 0)
+            {
+                speed = speed - slowdownAfterDashValue * Time.deltaTime;
+            }
+            else if (speed < 0)
+            {
+                slowdownBool = false;
+            }
+        }
         if (!isFacingRight && horizontal > 0f)
         {
             Flip();
@@ -91,25 +104,13 @@ public class PlayerMovementNew : MonoBehaviour
         {
             StartCoroutine("MyCoroutine");
         }
-        else if (buttonup)
-        {
-            speed = defaultSpeed;
-        }
-
-        //dashing stops after a while
-        if (counter > StopValue)
-        {
-            dashParticle.Stop();
-            counter = 0;
-            buttondown = false;
-        }
 
         if (doDash)
         {
             animator.SetBool("animateDashing", true);
             if (speed > minSpeed)
             {
-                speed = speed - slowdown * Time.deltaTime;
+                speed = speed - slowdownValue * Time.deltaTime;
             }
             else
             {
@@ -146,18 +147,18 @@ public class PlayerMovementNew : MonoBehaviour
             rb.gravityScale = 0;
             //bool variable for the update function -> direction and speed can be adjusted every frame
             buttondown = true;
-
-            buttonup = false;
         }
         if (ctx.canceled)
         {
+            doDash = false;
+            slowdownBool = true;
+
             StopCoroutine("MyCoroutine");
-            counter = 0;
+           // counter = 0;
             buttondown = false;
-            speed = defaultSpeed;
+            //speed = defaultSpeed;
            
             rb.gravityScale = 1f;
-            buttonup = true;
             dashParticle.Stop();
             animator.SetBool("animateDashing", false);
         }
@@ -206,7 +207,7 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (ctx.performed)
         {
-            StartCoroutine(ButtonClicked());
+            StartCoroutine(Button1Clicked());
             //friendcalled[0] = true;
         }
         //if (ctx.canceled)
@@ -219,7 +220,7 @@ public class PlayerMovementNew : MonoBehaviour
         if (ctx.performed)
         {
             //friendcalled[1] = true;
-            StartCoroutine(ButtonClicked());
+            StartCoroutine(Button2Clicked());
         }
         //if (ctx.canceled)
         //{
@@ -230,7 +231,7 @@ public class PlayerMovementNew : MonoBehaviour
     {
         if (ctx.performed)
         {
-            StartCoroutine(ButtonClicked());
+            StartCoroutine(Button3Clicked());
             //friendcalled[2] = true;
         }
         //if (ctx.canceled)
@@ -238,10 +239,22 @@ public class PlayerMovementNew : MonoBehaviour
         //    friendcalled[2] = false;
         //}
     }
-    private IEnumerator ButtonClicked()
+    private IEnumerator Button1Clicked()
     {
         friendcalled[0] = true;
         yield return new WaitForSeconds(0.2f);
         friendcalled[0] = false;
+    }
+    private IEnumerator Button2Clicked()
+    {
+        friendcalled[1] = true;
+        yield return new WaitForSeconds(0.2f);
+        friendcalled[1] = false;
+    }
+    private IEnumerator Button3Clicked()
+    {
+        friendcalled[2] = true;
+        yield return new WaitForSeconds(0.2f);
+        friendcalled[2] = false;
     }
 }
