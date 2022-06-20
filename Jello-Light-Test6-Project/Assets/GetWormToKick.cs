@@ -7,8 +7,10 @@ public class GetWormToKick : MonoBehaviour
     public Animator anim2;
     public GameObject worm;
     public Transform target;
+   // public Transform playerTarget;
     public float positionX;
     public PlayerMovementNew player;
+    public GameObject playerObject;
 
     public float followSpeed = 3f;
     public Animator anim;
@@ -32,6 +34,8 @@ public class GetWormToKick : MonoBehaviour
             anim.SetBool("Kicked", true);
             anim2.SetBool("IsLit", true);
             player.enabled = false;
+            playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+           // playerObject.transform.position = Vector3.Lerp(playerObject.transform.position, playerTarget.transform.position, followSpeed * Time.deltaTime);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
