@@ -36,8 +36,9 @@ public class WormFollowsPlayer : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            chageWormPosition = false;
-           // worm.transform.position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z);
+            //chageWormPosition = false;
+            // worm.transform.position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z);
+            Destroy(this);
         }
     }
 }
