@@ -47154,6 +47154,7 @@ GameObject:
   - component: {fileID: 1439790116}
   - component: {fileID: 1439790118}
   - component: {fileID: 1439790117}
+  - component: {fileID: 1439790119}
   m_Layer: 0
   m_Name: AnglerfishNew
   m_TagString: Untagged
@@ -47222,6 +47223,36 @@ MonoBehaviour:
   SetBoolTimer: 0
   VisibilityOnOne: 0
   VisibilityOnTwo: 0
+--- !u!114 &1439790119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439790115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fe3cf3e96216f40909e07f37df1cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurMaterial1: {fileID: 2100000, guid: af9f2d64dd4947e40b9ff4e34b9864ca, type: 2}
+  blurMaterial2: {fileID: 2100000, guid: 133563016a36bf3488d48c2507946e8c, type: 2}
+  blurAmount1: 0
+  blurAmount2: 0
+  blurmin: 0
+  blurmax: 2.5
+  numberOfSensors1: 5
+  numberOfSensors2: 3
+  sensors1:
+  - {fileID: 7261243221021065669}
+  - {fileID: 7261243220937743738}
+  - {fileID: 7261243219956146061}
+  - {fileID: 7261243219972793484}
+  - {fileID: 7261243221006102670}
+  sensors2:
+  - {fileID: 7261243219888326489}
+  - {fileID: 7261243219910267659}
+  - {fileID: 7261243220130950786}
 --- !u!1 &1444420956
 GameObject:
   m_ObjectHideFlags: 0
