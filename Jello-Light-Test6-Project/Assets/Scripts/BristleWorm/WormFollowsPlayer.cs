@@ -7,7 +7,7 @@ public class WormFollowsPlayer : MonoBehaviour
     public GameObject worm;
     public GameObject player;
     public float positionX;
-    private bool chageWormPosition;
+    public bool chageWormPosition; //für Worm Kick
     private Vector3 lastPosition;
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class WormFollowsPlayer : MonoBehaviour
         {
             //chageWormPosition = false;
             // worm.transform.position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z);
-            Destroy(this);
+            //Destroy(this);
         }
     }
 }
