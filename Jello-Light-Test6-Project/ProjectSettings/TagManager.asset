@@ -43,11 +43,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BG
+  - name: BG 1
     uniqueID: 680392407
     locked: 0
-  - name: Mid Ground
+  - name: BG 2
     uniqueID: 154642309
+    locked: 0
+  - name: BG 3
+    uniqueID: 2456256227
     locked: 0
   - name: FG
     uniqueID: 3639686277
