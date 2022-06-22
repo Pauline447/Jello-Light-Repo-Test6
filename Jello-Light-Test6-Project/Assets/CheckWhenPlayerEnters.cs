@@ -8,7 +8,7 @@ public class CheckWhenPlayerEnters : MonoBehaviour
     public GameObject worm;
     public WormFollowsPlayer wormFollows;
     public Transform _target1;
-    //public Transform _target2;
+    public Transform _target2;
     //public Transform _target3;
     public float followSpeed = 5f;
     private bool wormBack = false;
@@ -30,7 +30,7 @@ public class CheckWhenPlayerEnters : MonoBehaviour
     {
         if (_checkForFriend.friend1there || _checkForFriend.friend2there || _checkForFriend.friend3there || _checkForFriend.playerthere)
         {
-            //Wurm kann folgen
+            worm.transform.position = Vector3.Lerp(worm.transform.position, _target2.position, followSpeed * Time.deltaTime);
         }
         else
         {

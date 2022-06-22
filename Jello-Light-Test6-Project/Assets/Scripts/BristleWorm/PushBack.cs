@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PushBack : MonoBehaviour
 {
-    private float timeDuration = 8f;
+    public float timeDuration = 8f;
     private float timer;
     private bool startTimer = false;
 
