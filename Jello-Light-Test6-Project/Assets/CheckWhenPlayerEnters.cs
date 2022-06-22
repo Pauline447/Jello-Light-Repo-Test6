@@ -11,7 +11,7 @@ public class CheckWhenPlayerEnters : MonoBehaviour
     public Transform _target2;
     //public Transform _target3;
     public float followSpeed = 5f;
-    private bool wormBack = false;
+    public bool wormBack = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,18 +25,36 @@ public class CheckWhenPlayerEnters : MonoBehaviour
         {
             worm.transform.position = Vector3.Lerp(worm.transform.position, _target1.position, followSpeed * Time.deltaTime);
         }
+
+         if (wormFollows.playerInZone)
+         {
+            wormBack = false;
+           // wormFollows.chageWormPosition = false;
+         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_checkForFriend.friend1there || _checkForFriend.friend2there || _checkForFriend.friend3there || _checkForFriend.playerthere)
         {
+             wormFollows.chageWormPosition = false;
             worm.transform.position = Vector3.Lerp(worm.transform.position, _target2.position, followSpeed * Time.deltaTime);
         }
-        else
+        else  if (!wormFollows.playerInZone)
         {
-            wormFollows.chageWormPosition = false;
+            //wormFollows.chageWormPosition = false;
             wormBack = true;
             //Wurm geht an Anfang zurück
         }
+        //else if(!wormFollows.playerInZone)
+        //{
+        //    wormFollows.chageWormPosition = false;
+        //    wormBack = true;
+        //    //Wurm geht an Anfang zurück
+        //}
+        //else if (wormFollows.playerInZone)
+        //{
+        //    wormBack = false;
+        //    wormFollows.chageWormPosition = false;
+        //}
     }
 }
