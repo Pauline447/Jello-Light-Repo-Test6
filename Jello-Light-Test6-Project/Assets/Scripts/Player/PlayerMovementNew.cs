@@ -27,6 +27,8 @@ public class PlayerMovementNew : MonoBehaviour
     public float minSpeed; //für speedManager 
     public bool doDash = false;
 
+    public bool dashing = false;
+
     public float slowdownValue = 3f; //einstellbar
     public float slowdownAfterDashValue = 7f; //einstellbar
     public bool slowdownBool = false; //umstellen auf priv
@@ -108,14 +110,15 @@ public class PlayerMovementNew : MonoBehaviour
 
         if (doDash)
         {
-            animator.SetBool("animateDashing", true);
+           // animator.SetBool("animateDashing", true);
+            dashing = true;
             if (speed > minSpeed)
             {
                 speed = speed - slowdownValue * Time.deltaTime;
             }
             else
             {
-                animator.SetBool("animateDashing", false);
+                //animator.SetBool("animateDashing", false);
                 speed = defaultDashSpeed;
             }
         }
@@ -123,6 +126,17 @@ public class PlayerMovementNew : MonoBehaviour
         if (up)
         {
             UpMovement();
+        }
+
+        if(speed < defaultDashSpeed && speed > minSpeed + 1)
+        {
+            animator.SetBool("animateDashing", true);
+            dashing = true;
+        }
+        else
+        {
+            animator.SetBool("animateDashing", false);
+            dashing = false;
         }
     }
 
@@ -170,9 +184,10 @@ public class PlayerMovementNew : MonoBehaviour
         while (buttondown)
         {
             doDash = true;
-            yield return new WaitForSeconds(0.5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+            yield return new WaitForSeconds(0f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         }
     }
+
     public void Hugging(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
