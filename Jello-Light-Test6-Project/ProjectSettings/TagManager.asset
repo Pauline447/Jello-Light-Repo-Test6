@@ -53,6 +53,12 @@ TagManager:
   - name: BG 3
     uniqueID: 2456256227
     locked: 0
+  - name: BG4
+    uniqueID: 2299016441
+    locked: 0
+  - name: lightsUpBG
+    uniqueID: 1781933171
+    locked: 0
   - name: FG
     uniqueID: 3639686277
     locked: 0
