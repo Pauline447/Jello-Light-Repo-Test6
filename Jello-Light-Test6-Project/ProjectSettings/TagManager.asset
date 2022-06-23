@@ -10,6 +10,7 @@ TagManager:
   - Friend
   - Igel
   - Algae
+  - Worm
   layers:
   - Default
   - TransparentFX

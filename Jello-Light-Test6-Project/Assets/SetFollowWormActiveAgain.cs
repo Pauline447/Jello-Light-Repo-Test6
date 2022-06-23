@@ -5,6 +5,7 @@ using UnityEngine;
 public class SetFollowWormActiveAgain : MonoBehaviour
 {
     public WormFollowsPlayer _wormFollowsPlayer;
+    public WormAnimationController _WormAnimationController;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class SetFollowWormActiveAgain : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player" )
+        if(other.tag == "Player" && !_WormAnimationController.wormThere)
         {
             _wormFollowsPlayer.followingAllowed = true;
         }

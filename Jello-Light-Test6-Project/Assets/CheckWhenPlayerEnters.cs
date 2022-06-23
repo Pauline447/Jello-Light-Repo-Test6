@@ -37,7 +37,6 @@ public class CheckWhenPlayerEnters : MonoBehaviour
         if (_checkForFriend.friend1there || _checkForFriend.friend2there || _checkForFriend.friend3there || _checkForFriend.playerthere)
         {
              wormFollows.chageWormPosition = false;
-            worm.transform.position = Vector3.Lerp(worm.transform.position, _target2.position, followSpeed * Time.deltaTime);
         }
         else  if (!wormFollows.playerInZone)
         {

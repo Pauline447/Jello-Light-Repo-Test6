@@ -22,6 +22,8 @@ public class GetWormToKick : MonoBehaviour
     public Transform igel;
 
     public bool stopFollowing = false;
+
+    public bool wormkick = false;
     // Start is called before the first frame update
 
     private void Update()
@@ -36,8 +38,8 @@ public class GetWormToKick : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            wormkick = true;
             wormFollows.chageWormPosition = false;
-            anim2.SetBool("lightThere", true); 
             anim.SetBool("Kicked", true);
             stopFollowing = true;   
             playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -52,10 +54,11 @@ public class GetWormToKick : MonoBehaviour
 
     private IEnumerator DeleteThis()
     {
+       
         yield return new WaitForSeconds(5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+         wormkick = false;
         wormFollows.chageWormPosition = true;
         vCam.Follow = playerObject.transform;
-        anim2.SetBool("lightThere", false);
         player.enabled = true;
         Destroy(this);
     }
