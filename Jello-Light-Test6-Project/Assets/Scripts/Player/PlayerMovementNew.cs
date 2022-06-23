@@ -39,6 +39,9 @@ public class PlayerMovementNew : MonoBehaviour
 
     //public ParticleSystem dashParticle;
     public GameObject dashParticleMia;
+    public int ParticleEmissionDefault;
+    public int ParticleEmissionDash;
+    //public AnimationCurve EmissionProgression;
 
     public Transform dashPosition;
 
@@ -114,7 +117,9 @@ public class PlayerMovementNew : MonoBehaviour
         if (doDash)
         {
            // animator.SetBool("animateDashing", true);
+            StartCoroutine(ParticleTrail());  //eigene variable um das nur  mal zu triggern???
             dashing = true;
+            
             if (speed > minSpeed)
             {
                 speed = speed - slowdownValue * Time.deltaTime;
@@ -287,4 +292,42 @@ public class PlayerMovementNew : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         friendcalled[2] = false;
     }
+
+    private IEnumerator ParticleTrail()
+    {
+        Debug.Log("hello");
+
+        ParticleSystem ps = dashParticleMia.GetComponent<ParticleSystem>();
+        var em = ps.emission;
+        em.enabled = true;
+        em.rateOverDistance = ParticleEmissionDash;
+        for (int i = 0; i <= ParticleEmissionDash - ParticleEmissionDefault; i++)
+        {
+            em.rateOverDistance = ParticleEmissionDash - 1 * i;
+            Debug.Log(em.rateOverDistance);
+            yield return new WaitForSeconds(0.00001f);
+
+
+        }
+
+        //very cool stuff!!! :
+
+        //float counter = 0;
+
+        //while (counter < dashDuration)
+        //{
+        //    counter += Time.deltaTime;
+
+
+        //    float counterpercentage = counter / dashDuration;
+        //    m_dashDistance = dashDistance * DashProgression.Evaluate(counterpercentage);
+        //    yield return new WaitForSeconds(0.001f);
+        //}
+
+
+
+        //em.rateOverDistance = ParticleEmissionDefault;
+
+    }
 }
+
