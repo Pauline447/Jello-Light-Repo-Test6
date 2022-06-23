@@ -35,7 +35,10 @@ public class PlayerMovementNew : MonoBehaviour
     //private bool speedUpBool = false;
     //public float speedUp = 5f;
 
-    public ParticleSystem dashParticle;
+    //public ParticleSystem dashParticle;
+    public GameObject dashParticleMia;
+
+    public Transform dashPosition;
 
     //hugging
     public bool ableToHug = false; //needed by interactionsUI
@@ -148,6 +151,9 @@ public class PlayerMovementNew : MonoBehaviour
             rb.gravityScale = 0;
             //bool variable for the update function -> direction and speed can be adjusted every frame
             buttondown = true;
+            GameObject currentParticles = Instantiate(dashParticleMia);
+            currentParticles.transform.position = dashPosition.position;
+
         }
         if (ctx.canceled)
         {
@@ -160,7 +166,7 @@ public class PlayerMovementNew : MonoBehaviour
             //speed = defaultSpeed;
            
             rb.gravityScale = 1f;
-            dashParticle.Stop();
+            //dashParticle.Stop();
             animator.SetBool("animateDashing", false);
         }
     }
