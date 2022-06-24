@@ -86376,6 +86376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca7c5859eec9254db39a479e63a389e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDash: 0
   animator: {fileID: 2892443271436046496}
   rb: {fileID: 2892443271436046501}
   speed: 1

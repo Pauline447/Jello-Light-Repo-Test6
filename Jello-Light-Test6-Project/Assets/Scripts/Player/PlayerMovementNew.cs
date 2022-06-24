@@ -119,7 +119,7 @@ public class PlayerMovementNew : MonoBehaviour
         if (doDash)
         {
            // animator.SetBool("animateDashing", true);
-            StartCoroutine(ParticleTrail());  //eigene variable um das nur  mal zu triggern???
+            /*StartCoroutine(ParticleTrail());*/  //eigene variable um das nur  mal zu triggern???
             dashing = true;
             
             if (speed > minSpeed)
@@ -156,6 +156,10 @@ public class PlayerMovementNew : MonoBehaviour
         else
         {
             startDash = false;
+        }
+
+        if (startDash == true){
+            StartCoroutine(ParticleTrail());
         }
     }
 
