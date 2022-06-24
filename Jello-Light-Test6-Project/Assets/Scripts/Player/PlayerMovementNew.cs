@@ -247,7 +247,14 @@ public class PlayerMovementNew : MonoBehaviour
     {
         minSpeed = _newMinSpeed;
     }
-
+    public void SetParticleEmissionDash(int _ParticleEmissionDash)
+    {
+        ParticleEmissionDash = _ParticleEmissionDash;
+    }
+    public int GetDefaultParticleEmissionDash()
+    {
+        return ParticleEmissionDefault;
+    }
     // for stopping friends
     public void Friend1Called(InputAction.CallbackContext ctx)
     {
