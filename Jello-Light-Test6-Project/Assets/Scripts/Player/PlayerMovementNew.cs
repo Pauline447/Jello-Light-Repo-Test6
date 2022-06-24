@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementNew : MonoBehaviour
 {
+    public bool startDash = false;
+
     public Animator animator;
 
     public Rigidbody2D rb;
@@ -145,6 +147,15 @@ public class PlayerMovementNew : MonoBehaviour
         {
             animator.SetBool("animateDashing", false);
             dashing = false;
+        }
+
+        if (speed < defaultDashSpeed && speed > defaultDashSpeed - 0.5f)
+        {
+            startDash = true;
+        }
+        else
+        {
+            startDash = false;
         }
     }
 

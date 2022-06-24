@@ -24,6 +24,7 @@ public class CheckWhenPlayerEnters : MonoBehaviour
         if(wormBack)
         {
             worm.transform.position = Vector3.Lerp(worm.transform.position, _target1.position, followSpeed * Time.deltaTime);
+            worm.transform.rotation = _target1.rotation;
         }
 
          if (wormFollows.playerInZone)
