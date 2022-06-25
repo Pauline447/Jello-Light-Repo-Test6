@@ -40,7 +40,8 @@ public class GetWormToKick : MonoBehaviour
         {
             wormkick = true;
             wormFollows.enabled = false;
-           // wormFollows.chageWormPosition = false;
+            // wormFollows.chageWormPosition = false;
+            anim2.SetBool("lightThere", true);
             anim.SetBool("Kicked", true);
             stopFollowing = true;   
             playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -55,9 +56,10 @@ public class GetWormToKick : MonoBehaviour
 
     private IEnumerator DeleteThis()
     {
-       
+        yield return new WaitForSeconds(0.5f);
+       anim2.SetBool("lightThere", false);
         yield return new WaitForSeconds(5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
-         wormkick = false;
+        wormkick = false;
         wormFollows.enabled = true;
        // wormFollows.chageWormPosition = true;
         vCam.Follow = playerObject.transform;

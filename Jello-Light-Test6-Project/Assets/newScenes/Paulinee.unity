@@ -8287,7 +8287,7 @@ MonoBehaviour:
   target3: {fileID: 16702503}
   target4: {fileID: 1077571299}
   target5: {fileID: 1372373884}
-  followSpeed: 3
+  followSpeed: 1
   numberOfTargets: 3
   wormFollows: {fileID: 270245773}
   _target1: {fileID: 1835019135}
@@ -8306,6 +8306,7 @@ MonoBehaviour:
   wormBone: {fileID: 1815477273}
   animWorm: {fileID: 802758146}
   animIgel: {fileID: 2064306758}
+  doneonce: 0
   toTarget: 0
 --- !u!1 &484568102
 GameObject:
@@ -8882,7 +8883,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 12.76851
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8906,7 +8907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.219999, y: 4.8714724, z: -10}
+  m_LocalPosition: {x: -14.219999, y: 4.2623997, z: -10}
   m_LocalScale: {x: 0.9938956, y: 0.9938956, z: 0.9938956}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40500,7 +40501,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2892443271436046497}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 12.76851
+    OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -40524,7 +40525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.219999, y: 4.8714724, z: -10}
+  m_LocalPosition: {x: -14.219999, y: 4.2623997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90643,7 +90644,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2064306756}
   - component: {fileID: 2064306755}
-  - component: {fileID: 2064306757}
   - component: {fileID: 2064306759}
   - component: {fileID: 2064306758}
   m_Layer: 0
@@ -90721,23 +90721,6 @@ Transform:
   m_Father: {fileID: 1162467821}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2064306757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064306753}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141ca24f8a8e24048b75aeb92634a859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatorWorm: {fileID: 802758146}
-  animatorIgel: {fileID: 2064306758}
-  Target1: {fileID: 811621973}
-  Target2: {fileID: 139940381}
-  Target3: {fileID: 124465698}
 --- !u!95 &2064306758
 Animator:
   serializedVersion: 4

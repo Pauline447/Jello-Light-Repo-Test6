@@ -41,6 +41,8 @@ public class ChangeWormPosition : MonoBehaviour
     public Animator animWorm;
     public Animator animIgel;
 
+    public bool doneonce = false;
+
     //delete
     public bool toTarget = false;
     // Start is called before the first frame update
@@ -56,27 +58,17 @@ public class ChangeWormPosition : MonoBehaviour
         if (_checkForFriend[0].friend1there || _checkForFriend[0].friend2there || _checkForFriend[0].playerthere)
         {
             friendAtTarget1 = true;
-            //worm.transform.position = Vector3.Lerp(worm.transform.position, target1.position, followSpeed * Time.deltaTime);
-            //worm.transform.rotation = target1.rotation;
-        }
+         }
         else if (!_checkForFriend[0].friend1there && !_checkForFriend[0].friend2there && !_checkForFriend[0].playerthere)
         {
             friendAtTarget1 = false;
-            //if (!wormFollows.playerInZone)
-            //{
-            //worm.transform.position = Vector3.Lerp(worm.transform.position, _target1.position, followSpeed * Time.deltaTime);
-            //worm.transform.rotation = _target1.rotation;
-            //}
         }
         if (_checkForFriend[1].friend1there || _checkForFriend[1].friend2there || _checkForFriend[1].playerthere)
         {
             friendAtTarget2 = true;
-            //worm.transform.position = Vector3.Lerp(worm.transform.position, target2.position, followSpeed * Time.deltaTime);
-            //worm.transform.rotation = target2.rotation;
         }
         else if (!_checkForFriend[1].friend1there && !_checkForFriend[1].friend2there && !_checkForFriend[1].playerthere)
         {
-            //animatorWorm.SetBool("FishAtTarget2", false);
             friendAtTarget2 = false;
         }
         if ((_checkForFriend[0].friend1there || _checkForFriend[0].friend2there || _checkForFriend[0].playerthere) && (_checkForFriend[1].friend1there || _checkForFriend[1].friend2there || _checkForFriend[1].playerthere) && (_checkForFriend[2].friend1there || _checkForFriend[2].friend2there || _checkForFriend[2].playerthere))
@@ -84,29 +76,20 @@ public class ChangeWormPosition : MonoBehaviour
             friendAtTarget3 = true;
             friendAtTarget2 = true;
             friendAtTarget1 = true;
-            //Destroy(gameObject);
-            // animatorWorm.SetBool("FishAtTarget3", true);
-            //animatorIgel.SetBool("Snatch", true);
-            //anim.SetBool("IsLit", true);
-            //worm.transform.position = Vector3.Lerp(worm.transform.position, target3.position, followSpeed * Time.deltaTime);
-            //worm.transform.rotation = target3.rotation;
-
         }
+
+        /////////////////////////////////////////////////////////////////////////////////////
 
         if(friendAtTarget1&& !friendAtTarget2 && !friendAtTarget3 && !wormFollows.playerInZone)
         {
             changePosToTarget1 = true;
             changePosToTarget2 = false;
-            //worm.transform.position = Vector3.Lerp(worm.transform.position, target1.position, followSpeed * Time.deltaTime);
-            //worm.transform.rotation = target1.rotation;
         }
         else  if (friendAtTarget1 && friendAtTarget2 && !friendAtTarget3 && !wormFollows.playerInZone)
         {
             changePosToTarget1 = false;
             changePosToTarget2 = true;
-            //worm.transform.position = Vector3.Lerp(worm.transform.position, target2.position, followSpeed * Time.deltaTime);
-            //worm.transform.rotation = target2.rotation;
-        }
+          }
         else if (friendAtTarget1 && friendAtTarget2 && friendAtTarget3 && !wormFollows.playerInZone)
         {
             changePosToTarget1 = false;
@@ -133,10 +116,8 @@ public class ChangeWormPosition : MonoBehaviour
             wormFollows.chageWormPosition = true;
             wormFollows.followingAllowed = true;
         }
-        //else if (wormFollows.playerInZone)
-        //{
-        //    wormFollows.chageWormPosition = true;
-        //}
+
+        /////////////////////////////////////////////////////////////////////////////
 
         if (changePosToTarget1)
         {
@@ -163,31 +144,13 @@ public class ChangeWormPosition : MonoBehaviour
             worm.transform.position = Vector3.Lerp(worm.transform.position, target5.position, followSpeed * Time.deltaTime);
             worm.transform.rotation = target5.rotation;
         }
-
-        //if (wormBack)
-        //{
-        //    worm.transform.position = Vector3.Lerp(worm.transform.position, _target1.position, followSpeed * Time.deltaTime);
-        //    worm.transform.rotation = _target1.rotation;
-        //}
-
-        //if(friendAtTarget1)
-        //{
-        //    worm.transform.position = Vector3.Lerp(worm.transform.position, target1.position, followSpeed * Time.deltaTime);
-        //    worm.transform.rotation = target1.rotation;
-        //}
-        //if (friendAtTarget2)
-        //{
-        //    worm.transform.position = Vector3.Lerp(worm.transform.position, target2.position, followSpeed * Time.deltaTime);
-        //    worm.transform.rotation = target2.rotation;
-        //}
-        //if (friendAtTarget3)
-        //{
-        //    worm.transform.position = Vector3.Lerp(worm.transform.position, target3.position, followSpeed * Time.deltaTime);
-        //    worm.transform.rotation = target3.rotation;
-        //}
     }
+
     private IEnumerator Eat()
     {
+        if(!doneonce)
+        {
+        doneonce = true;
         changePosToTarget1 = false;
         changePosToTarget2 = false;
         changePosToTarget3 = true;
@@ -195,10 +158,12 @@ public class ChangeWormPosition : MonoBehaviour
         //worm.transform.rotation = target3.rotation;
         yield return new WaitForSeconds(1f);
         animIgel.SetBool("Snatch", true);
+        animWorm.SetBool("lightThere", true);
         changePosToTarget4 = true;
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target4.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target4.rotation;
         yield return new WaitForSeconds(1f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        animWorm.SetBool("lightThere", false);
         changePosToTarget5 = true;
         yield return new WaitForSeconds(2f);
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target5.position, followSpeed * Time.deltaTime);
@@ -206,5 +171,7 @@ public class ChangeWormPosition : MonoBehaviour
         vCam.Follow = playerObject.transform;
         player.GetComponent<PlayerMovementNew>().enabled = true;
         Destroy(this);
+        }
+
     }
 }
