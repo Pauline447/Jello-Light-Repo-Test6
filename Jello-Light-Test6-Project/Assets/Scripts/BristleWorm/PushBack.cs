@@ -46,6 +46,7 @@ public class PushBack : MonoBehaviour
         playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
         if (startTimer && timer > 0)
         {
+            player.GetComponent<PlayerMovementNew>().enabled = true;
             timer -= Time.deltaTime;
         }
         else if (timer < 0)
