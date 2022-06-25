@@ -8883,7 +8883,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 10.51569
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8907,7 +8907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.219999, y: 4.2623997, z: -10}
+  m_LocalPosition: {x: -14.219999, y: 4.3758516, z: -10}
   m_LocalScale: {x: 0.9938956, y: 0.9938956, z: 0.9938956}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40501,7 +40501,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2892443271436046497}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 10
+    OrthographicSize: 10.68177
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -40525,7 +40525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.219999, y: 4.2623997, z: -10}
+  m_LocalPosition: {x: -14.219999, y: 4.3758516, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -113776,6 +113776,7 @@ MonoBehaviour:
   rotationSpeed: 400
   friendManager: {fileID: 2003371690}
   dashUIDashDone: 0
+  animateNormalDashing: 0
 --- !u!114 &9031516150012293684
 MonoBehaviour:
   m_ObjectHideFlags: 0

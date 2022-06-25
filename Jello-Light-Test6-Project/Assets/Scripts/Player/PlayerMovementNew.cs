@@ -66,10 +66,13 @@ public class PlayerMovementNew : MonoBehaviour
     //UI
     public bool dashUIDashDone = false; //wird von UI gebraucht
 
+    //animate dashing when in stream
+    public bool animateNormalDashing = false;
+
     // Update is called once per frame
     void Start()
     {
-
+        animateNormalDashing = true;
     }
     void Update()
     {
@@ -120,7 +123,7 @@ public class PlayerMovementNew : MonoBehaviour
         {
            // animator.SetBool("animateDashing", true);
             /*StartCoroutine(ParticleTrail());*/  //eigene variable um das nur  mal zu triggern???
-            dashing = true;
+            //dashing = true;
             
             if (speed > minSpeed)
             {
@@ -138,16 +141,25 @@ public class PlayerMovementNew : MonoBehaviour
             UpMovement();
         }
 
-        if(speed < defaultDashSpeed && speed > minSpeed + 1)
+        if(speed < defaultDashSpeed && speed > minSpeed + 1 && animateNormalDashing)
         {
             animator.SetBool("animateDashing", true);
-            dashing = true;
+           // dashing = true;
         }
-        else
+        else if (animateNormalDashing)
         {
             animator.SetBool("animateDashing", false);
-            dashing = false;
+           // dashing = false;
         }
+        //else if(speed < defaultDashSpeed && speed > minSpeed + 1 && !animateNormalDashing)
+        //{
+
+        //}
+        //else
+        //{
+
+        //}
+
 
         if (speed < defaultDashSpeed && speed > defaultDashSpeed - 0.5f)
         {

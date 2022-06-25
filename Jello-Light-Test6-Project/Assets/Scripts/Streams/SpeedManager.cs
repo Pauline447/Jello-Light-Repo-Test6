@@ -73,6 +73,7 @@ public class SpeedManager : MonoBehaviour
             if (pushBack[i].pushBackBool)
             {
                 player.GetComponent<PlayerMovementNew>().SetDashSpeed(speed / 2);
+                player.GetComponent<PlayerMovementNew>().SetMinSpeed(playerDefaultMinSpeed /2);
             }
         }
     }
