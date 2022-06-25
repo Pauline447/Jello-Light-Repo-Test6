@@ -39,7 +39,8 @@ public class GetWormToKick : MonoBehaviour
         if(other.tag == "Player")
         {
             wormkick = true;
-            wormFollows.chageWormPosition = false;
+            wormFollows.enabled = false;
+           // wormFollows.chageWormPosition = false;
             anim.SetBool("Kicked", true);
             stopFollowing = true;   
             playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -57,7 +58,8 @@ public class GetWormToKick : MonoBehaviour
        
         yield return new WaitForSeconds(5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
          wormkick = false;
-        wormFollows.chageWormPosition = true;
+        wormFollows.enabled = true;
+       // wormFollows.chageWormPosition = true;
         vCam.Follow = playerObject.transform;
         player.enabled = true;
         Destroy(this);

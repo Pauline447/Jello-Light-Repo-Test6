@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ChangeWormPosition : MonoBehaviour
 {
@@ -30,6 +31,16 @@ public class ChangeWormPosition : MonoBehaviour
     public bool changePosToTarget4 = false;
     public bool changePosToTarget5 = false;
 
+    public PlayerMovementNew player;
+    public GameObject playerObject;
+    private Transform pos;
+
+    public CinemachineVirtualCamera vCam;
+    public Transform wormBone;
+
+    public Animator animWorm;
+    public Animator animIgel;
+
     //delete
     public bool toTarget = false;
     // Start is called before the first frame update
@@ -41,39 +52,6 @@ public class ChangeWormPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //for(int i = 0; i<numberOfTargets; i++)
-        //{
-        //    if (_checkForFriend[i].friend1there || _checkForFriend[i].friend2there || _checkForFriend[i].friend3there || _checkForFriend[i].playerthere)
-        //    {
-        //        if (target != null)
-        //        {
-        //            worm.transform.position = Vector3.Lerp(worm.transform.position, target.position, followSpeed * Time.deltaTime);
-        //            worm.transform.rotation = target.rotation;
-        //            toTarget = true;
-        //        }
-        //        else
-        //        {
-        //            //do nothing
-        //        }
-        //    }
-        //    else if (!wormFollows.playerInZone)
-        //    {
-        //        wormBack = true;
-        //        toTarget = false;
-        //    }
-        //    if (wormFollows.playerInZone)
-        //    {
-        //        wormBack = false;
-        //        // wormFollows.chageWormPosition = false;
-        //    }
-        //}
-       
-        if (wormFollows.playerInZone)
-        {
-            wormBack = false;
-            // wormFollows.chageWormPosition = false;
-        }
-
 
         if (_checkForFriend[0].friend1there || _checkForFriend[0].friend2there || _checkForFriend[0].playerthere)
         {
@@ -115,23 +93,29 @@ public class ChangeWormPosition : MonoBehaviour
 
         }
 
-        if(friendAtTarget1&& !friendAtTarget2 && !friendAtTarget3)
+        if(friendAtTarget1&& !friendAtTarget2 && !friendAtTarget3 && !wormFollows.playerInZone)
         {
             changePosToTarget1 = true;
+            changePosToTarget2 = false;
             //worm.transform.position = Vector3.Lerp(worm.transform.position, target1.position, followSpeed * Time.deltaTime);
             //worm.transform.rotation = target1.rotation;
         }
-        else  if (friendAtTarget1 && friendAtTarget2 && !friendAtTarget3)
+        else  if (friendAtTarget1 && friendAtTarget2 && !friendAtTarget3 && !wormFollows.playerInZone)
         {
             changePosToTarget1 = false;
             changePosToTarget2 = true;
             //worm.transform.position = Vector3.Lerp(worm.transform.position, target2.position, followSpeed * Time.deltaTime);
             //worm.transform.rotation = target2.rotation;
         }
-        else if (friendAtTarget1 && friendAtTarget2 && friendAtTarget3)
+        else if (friendAtTarget1 && friendAtTarget2 && friendAtTarget3 && !wormFollows.playerInZone)
         {
             changePosToTarget1 = false;
             changePosToTarget2 = false;
+            vCam.Follow = wormBone;
+            playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            pos = player.transform;
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(pos.position.x * 0, pos.position.y * 0);
+            player.GetComponent<PlayerMovementNew>().enabled = false;
             StartCoroutine(Eat());
         }
         else if (!wormFollows.playerInZone)
@@ -141,6 +125,18 @@ public class ChangeWormPosition : MonoBehaviour
             worm.transform.position = Vector3.Lerp(worm.transform.position, _target1.position, followSpeed * Time.deltaTime);
             worm.transform.rotation = _target1.rotation;
         }
+        else if (wormFollows.playerInZone)
+        {
+            worm.transform.rotation = _target1.rotation;
+            changePosToTarget1 = false;
+            changePosToTarget2 = false;
+            wormFollows.chageWormPosition = true;
+            wormFollows.followingAllowed = true;
+        }
+        //else if (wormFollows.playerInZone)
+        //{
+        //    wormFollows.chageWormPosition = true;
+        //}
 
         if (changePosToTarget1)
         {
@@ -167,6 +163,7 @@ public class ChangeWormPosition : MonoBehaviour
             worm.transform.position = Vector3.Lerp(worm.transform.position, target5.position, followSpeed * Time.deltaTime);
             worm.transform.rotation = target5.rotation;
         }
+
         //if (wormBack)
         //{
         //    worm.transform.position = Vector3.Lerp(worm.transform.position, _target1.position, followSpeed * Time.deltaTime);
@@ -191,18 +188,23 @@ public class ChangeWormPosition : MonoBehaviour
     }
     private IEnumerator Eat()
     {
+        changePosToTarget1 = false;
+        changePosToTarget2 = false;
         changePosToTarget3 = true;
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target3.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target3.rotation;
         yield return new WaitForSeconds(1f);
+        animIgel.SetBool("Snatch", true);
         changePosToTarget4 = true;
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target4.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target4.rotation;
-        yield return new WaitForSeconds(3f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        yield return new WaitForSeconds(1f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         changePosToTarget5 = true;
         yield return new WaitForSeconds(2f);
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target5.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target5.rotation;
+        vCam.Follow = playerObject.transform;
+        player.GetComponent<PlayerMovementNew>().enabled = true;
         Destroy(this);
     }
 }
