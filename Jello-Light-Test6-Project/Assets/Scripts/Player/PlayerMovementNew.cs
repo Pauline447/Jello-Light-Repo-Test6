@@ -66,16 +66,28 @@ public class PlayerMovementNew : MonoBehaviour
     //UI
     public bool dashUIDashDone = false; //wird von UI gebraucht
 
-    //animate dashing when in stream
-    public bool animateNormalDashing = false;
+    // Sound Stuff
+    public string EventName = "default";
+    public string StopEvent = "default";
+    private bool IsInColloder = false;
+    public bool playDashSound = false; //private setzten
 
     // Update is called once per frame
     void Start()
     {
-        animateNormalDashing = true;
+       // AkSoundEngine.RegisterGameObj(gameObject);                                        ////////////////////////////////////////////////
     }
     void Update()
     {
+        if (playDashSound)
+        {
+            //AkSoundEngine.PostEvent(EventName, gameObject);                               ////////////////////////////////////////////////
+        }
+        else
+        {
+            //AkSoundEngine.PostEvent(StopEvent, gameObject);                               ////////////////////////////////////////////////
+        }
+
     }
     void FixedUpdate()
     {
@@ -105,6 +117,7 @@ public class PlayerMovementNew : MonoBehaviour
                 slowdownBool = false;
             }
         }
+
         if (!isFacingRight && horizontal > 0f)
         {
             Flip();
@@ -141,25 +154,16 @@ public class PlayerMovementNew : MonoBehaviour
             UpMovement();
         }
 
-        if(speed < defaultDashSpeed && speed > minSpeed + 1 && animateNormalDashing)
+        if(speed < defaultDashSpeed && speed > minSpeed + 1)
         {
             animator.SetBool("animateDashing", true);
-           // dashing = true;
+            // dashing = true;
+            playDashSound = true;
         }
-        else if (animateNormalDashing)
+        else
         {
-            animator.SetBool("animateDashing", false);
-           // dashing = false;
+            playDashSound = false;
         }
-        //else if(speed < defaultDashSpeed && speed > minSpeed + 1 && !animateNormalDashing)
-        //{
-
-        //}
-        //else
-        //{
-
-        //}
-
 
         if (speed < defaultDashSpeed && speed > defaultDashSpeed - 0.5f)
         {
