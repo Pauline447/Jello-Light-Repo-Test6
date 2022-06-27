@@ -1,0 +1,11 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2137482766	_anglerfish_danger_start			\Default Work Unit\_anglerfish_danger_start	
+	2248092158	Player_Move			\Default Work Unit\Player_Move	
+	2382962032	_ambient_main			\Default Work Unit\_ambient_main	
+	2836329861	_anglerfish_danger_end			\Default Work Unit\_anglerfish_danger_end	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	325461513	UnterwasserAtmoOnly	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\UnterwasserAtmoOnly_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\UnterwasserAtmoOnly		2782988
+	511658974	danger clean loopable v1	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\danger clean loopable v1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Anglerfish_Danger\danger clean loopable v1		2443704
+	535172825	Bewegungssound	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Bewegungssound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Move\Bewegungssound		1165008
+

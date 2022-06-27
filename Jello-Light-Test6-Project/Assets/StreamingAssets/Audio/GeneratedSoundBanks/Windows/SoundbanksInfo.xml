@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Switch" BasePlatform="Switch" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Users\tomtr\Documents\WwiseProjects\jello light licence\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\</SourceFilesRoot>
+		<SoundBanksRoot>E:\Jello Light\Jello-Light-Repo-Test6\Jello-Light-Test6-Project\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\tomtr\Documents\WwiseProjects\jello light licence\GeneratedSoundBanks\Switch</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="1213135752">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX" Hash="1919528969">
+			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
+			<ShortName>main</ShortName>
+			<Path>main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2382962032" Name="_ambient_main" ObjectPath="\Events\Default Work Unit\_ambient_main" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="325461513" Language="SFX">
+							<ShortName>UnterwasserAtmoOnly.wav</ShortName>
+							<Path>SFX\UnterwasserAtmoOnly_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2836329861" Name="_anglerfish_danger_end" ObjectPath="\Events\Default Work Unit\_anglerfish_danger_end" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2137482766" Name="_anglerfish_danger_start" ObjectPath="\Events\Default Work Unit\_anglerfish_danger_start" DurationType="OneShot" DurationMin="12.727292" DurationMax="12.727292">
+					<IncludedMemoryFiles>
+						<File Id="511658974" Language="SFX">
+							<ShortName>danger clean loopable v1.wav</ShortName>
+							<Path>SFX\danger clean loopable v1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2248092158" Name="Player_Move" ObjectPath="\Events\Default Work Unit\Player_Move" DurationType="OneShot" DurationMin="3.7479" DurationMax="9.676033">
+					<IncludedMemoryFiles>
+						<File Id="535172825" Language="SFX">
+							<ShortName>Bewegungssound.wav</ShortName>
+							<Path>SFX\Bewegungssound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
