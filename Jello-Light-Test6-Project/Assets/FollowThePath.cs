@@ -14,7 +14,9 @@ public class FollowThePath : MonoBehaviour
 
     // Index of current waypoint from which Enemy walks
     // to the next one
-    private int waypointIndex = 0;
+    public int waypointIndex = 0;
+
+    public int numberOfPoints;
 
     // Use this for initialization
     private void Start()
@@ -37,14 +39,12 @@ public class FollowThePath : MonoBehaviour
     {
         // If Enemy didn't reach last waypoint it can move
         // If enemy reached last waypoint then it stops
-        if (waypointIndex <= waypoints.Length - 1)
+        if (waypointIndex <= numberOfPoints)
         {
 
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
-            transform.position = Vector2.MoveTowards(transform.position,
-               waypoints[waypointIndex].transform.position,
-               moveSpeed * Time.deltaTime);
+             transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
 
             // If Enemy reaches position of waypoint he walked towards
             // then waypointIndex is increased by 1
