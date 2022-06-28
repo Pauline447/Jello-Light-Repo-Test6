@@ -4713,17 +4713,6 @@ Transform:
   m_Father: {fileID: 2078377478}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.676}
---- !u!114 &299677643 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6003564495672054632, guid: adfae867c302e854e8a87c08fdc4f3b8, type: 3}
-  m_PrefabInstance: {fileID: 6003564495963768568}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ffca733ddcccff4391130bf2972106b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &308876019
 GameObject:
   m_ObjectHideFlags: 0
@@ -72200,14 +72189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f084f7d0272044989f163b166057e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 802758146}
-  _checkForFriend:
-  - {fileID: 811621973}
-  - {fileID: 139940381}
-  - {fileID: 124465698}
-  numberOfChecks: 3
-  wormThere: 0
-  _getWormToKick: {fileID: 299677643}
 --- !u!50 &1970618993
 Rigidbody2D:
   serializedVersion: 4
@@ -114506,6 +114487,7 @@ MonoBehaviour:
   friendManager: {fileID: 2003371690}
   dashUIDashDone: 0
   animateNormalDashing: 0
+  EventName: _player_dash
 --- !u!114 &9015642830480606660
 MonoBehaviour:
   m_ObjectHideFlags: 0
