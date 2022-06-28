@@ -69,13 +69,26 @@ public class PlayerMovementNew : MonoBehaviour
     //animate dashing when in stream
     public bool animateNormalDashing = false;
 
+    //wwise
+    public string EventName = "default";
+    //public string StopEventName = "default";
+
     // Update is called once per frame
     void Start()
     {
+        AkSoundEngine.RegisterGameObj(gameObject);
         animateNormalDashing = true;
     }
     void Update()
     {
+        if(startDash)
+        {
+          AkSoundEngine.PostEvent(EventName, gameObject);
+        }
+        else if (!dashing)
+        {
+          //AkSoundEngine.PostEvent(StopEventName, gameObject);
+        }
     }
     void FixedUpdate()
     {
@@ -144,12 +157,12 @@ public class PlayerMovementNew : MonoBehaviour
         if(speed < defaultDashSpeed && speed > minSpeed + 1 && animateNormalDashing)
         {
             animator.SetBool("animateDashing", true);
-           // dashing = true;
+            dashing = true;
         }
         else if (animateNormalDashing)
         {
             animator.SetBool("animateDashing", false);
-           // dashing = false;
+           dashing = false;
         }
         //else if(speed < defaultDashSpeed && speed > minSpeed + 1 && !animateNormalDashing)
         //{
