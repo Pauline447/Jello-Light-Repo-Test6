@@ -282,7 +282,7 @@ public class PlayerMovementNew : MonoBehaviour
     }
     public int GetDefaultParticleEmissionDash()
     {
-        return ParticleEmissionDefault;
+        return ParticleEmissionDash;
     }
     // for stopping friends
     public void Friend1Called(InputAction.CallbackContext ctx)
