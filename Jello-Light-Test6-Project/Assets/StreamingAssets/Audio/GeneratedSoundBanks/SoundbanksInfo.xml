@@ -16,21 +16,22 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1919528969">
+		<SoundBank Id="3161908922" Language="SFX" Hash="637207189">
 			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
 			<ShortName>main</ShortName>
 			<Path>main.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2382962032" Name="_ambient_main" ObjectPath="\Events\Default Work Unit\_ambient_main" DurationType="Infinite">
+				<Event Id="2382962032" Name="_ambient_main" ObjectPath="\Events\Default Work Unit\_ambient_main" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="621829023" Name="_ambient_stream" ObjectPath="\Events\Default Work Unit\_ambient\_ambient_stream" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="325461513" Language="SFX">
-							<ShortName>UnterwasserAtmoOnly.wav</ShortName>
-							<Path>SFX\UnterwasserAtmoOnly_D79FB2B7.wem</Path>
+						<File Id="43092264" Language="SFX">
+							<ShortName>StröhmungLoop.wav</ShortName>
+							<Path>SFX\StröhmungLoop_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2836329861" Name="_anglerfish_danger_end" ObjectPath="\Events\Default Work Unit\_anglerfish_danger_end" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
-				<Event Id="2137482766" Name="_anglerfish_danger_start" ObjectPath="\Events\Default Work Unit\_anglerfish_danger_start" DurationType="OneShot" DurationMin="12.727292" DurationMax="12.727292">
+				<Event Id="2836329861" Name="_anglerfish_danger_end" ObjectPath="\Events\Default Work Unit\_anglerfish\_anglerfish_danger_end" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2137482766" Name="_anglerfish_danger_start" ObjectPath="\Events\Default Work Unit\_anglerfish\_anglerfish_danger_start" DurationType="OneShot" DurationMin="12.727292" DurationMax="12.727292">
 					<IncludedMemoryFiles>
 						<File Id="511658974" Language="SFX">
 							<ShortName>danger clean loopable v1.wav</ShortName>
@@ -38,14 +39,121 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2248092158" Name="Player_Move" ObjectPath="\Events\Default Work Unit\Player_Move" DurationType="OneShot" DurationMin="3.7479" DurationMax="9.676033">
+				<Event Id="1434396755" Name="_bristleworm_eat" ObjectPath="\Events\Default Work Unit\_bristleworm\_bristleworm_eat" DurationType="OneShot" DurationMin="2.521021" DurationMax="3.655479">
 					<IncludedMemoryFiles>
-						<File Id="535172825" Language="SFX">
-							<ShortName>Bewegungssound.wav</ShortName>
-							<Path>SFX\Bewegungssound_10C4C929.wem</Path>
+						<File Id="90849142" Language="SFX">
+							<ShortName>Bristleworm fall ground.wav</ShortName>
+							<Path>SFX\Bristleworm fall ground_10C4C929.wem</Path>
+						</File>
+						<File Id="250680848" Language="SFX">
+							<ShortName>Bristleworm fall v2.wav</ShortName>
+							<Path>SFX\Bristleworm fall v2_10C4C929.wem</Path>
+						</File>
+						<File Id="299482780" Language="SFX">
+							<ShortName>Bristleworm eat.wav</ShortName>
+							<Path>SFX\Bristleworm eat_10C4C929.wem</Path>
+						</File>
+						<File Id="723365115" Language="SFX">
+							<ShortName>Bristleworm fall.wav</ShortName>
+							<Path>SFX\Bristleworm fall_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3918383540" Name="_bristleworm_walk" ObjectPath="\Events\Default Work Unit\_bristleworm\_bristleworm_walk" DurationType="OneShot" DurationMin="0.092191" DurationMax="0.206561">
+					<IncludedMemoryFiles>
+						<File Id="17863157" Language="SFX">
+							<ShortName>bristleworm move steps 2.wav</ShortName>
+							<Path>SFX\bristleworm move steps 2_10C4C929.wem</Path>
+						</File>
+						<File Id="356013245" Language="SFX">
+							<ShortName>bristleworm move steps 9.wav</ShortName>
+							<Path>SFX\bristleworm move steps 9_10C4C929.wem</Path>
+						</File>
+						<File Id="393306186" Language="SFX">
+							<ShortName>bristleworm move steps 3.wav</ShortName>
+							<Path>SFX\bristleworm move steps 3_10C4C929.wem</Path>
+						</File>
+						<File Id="424628159" Language="SFX">
+							<ShortName>bristleworm move steps 8.wav</ShortName>
+							<Path>SFX\bristleworm move steps 8_10C4C929.wem</Path>
+						</File>
+						<File Id="724392783" Language="SFX">
+							<ShortName>bristleworm move steps 6.wav</ShortName>
+							<Path>SFX\bristleworm move steps 6_10C4C929.wem</Path>
+						</File>
+						<File Id="767941412" Language="SFX">
+							<ShortName>bristleworm move steps 7.wav</ShortName>
+							<Path>SFX\bristleworm move steps 7_10C4C929.wem</Path>
+						</File>
+						<File Id="834561708" Language="SFX">
+							<ShortName>bristleworm move steps 1.wav</ShortName>
+							<Path>SFX\bristleworm move steps 1_10C4C929.wem</Path>
+						</File>
+						<File Id="881654069" Language="SFX">
+							<ShortName>bristleworm move steps 5.wav</ShortName>
+							<Path>SFX\bristleworm move steps 5_10C4C929.wem</Path>
+						</File>
+						<File Id="935814984" Language="SFX">
+							<ShortName>bristleworm move steps 4.wav</ShortName>
+							<Path>SFX\bristleworm move steps 4_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2307392356" Name="_friend_1_main" ObjectPath="\Events\Default Work Unit\_friends\_friend_1_main" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2063949947" Name="_friend_2_help" ObjectPath="\Events\Default Work Unit\_friends\_friend_2_help" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="3951491" Language="SFX">
+							<ShortName>Companion 2 call_2.wav</ShortName>
+							<Path>SFX\Companion 2 call_2_10C4C929.wem</Path>
+						</File>
+						<File Id="70630170" Language="SFX">
+							<ShortName>Companion 2 call_1.wav</ShortName>
+							<Path>SFX\Companion 2 call_1_10C4C929.wem</Path>
+						</File>
+						<File Id="449418856" Language="SFX">
+							<ShortName>Companion 2 call_4.wav</ShortName>
+							<Path>SFX\Companion 2 call_4_10C4C929.wem</Path>
+						</File>
+						<File Id="805946363" Language="SFX">
+							<ShortName>Companion 2 call_3.wav</ShortName>
+							<Path>SFX\Companion 2 call_3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1309010701" Name="_friend_2_main" ObjectPath="\Events\Default Work Unit\_friends\_friend_2_main" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2848977922" Name="_friend_3_main" ObjectPath="\Events\Default Work Unit\_friends\_friend_3_main" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1472048067" Name="_friend_3_sad" ObjectPath="\Events\Default Work Unit\_friends\_friend_3_sad" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2759467415" Name="_menu_move" ObjectPath="\Events\Default Work Unit\_menu\_menu_move" DurationType="OneShot" DurationMin="0.909104" DurationMax="0.909104">
+					<IncludedMemoryFiles>
+						<File Id="279347811" Language="SFX">
+							<ShortName>menu move v2.wav</ShortName>
+							<Path>SFX\menu move v2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="260309760" Name="_menu_select" ObjectPath="\Events\Default Work Unit\_menu\_menu_select" DurationType="OneShot" DurationMin="3.025229" DurationMax="3.025229">
+					<IncludedMemoryFiles>
+						<File Id="817422666" Language="SFX">
+							<ShortName>menu select.wav</ShortName>
+							<Path>SFX\menu select_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2233838959" Name="_music_anglerfish" ObjectPath="\Events\Default Work Unit\_music\_music_anglerfish" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1454046954" Name="_music_crystal" ObjectPath="\Events\Default Work Unit\_music\_music_crystal" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="459057707" Name="_music_main" ObjectPath="\Events\Default Work Unit\_music\_music_main" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3308001668" Name="_music_seeEngelDancing" ObjectPath="\Events\Default Work Unit\_music\_music_seeEngelDancing" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="4277240098" Name="_player_dash" ObjectPath="\Events\Default Work Unit\_player\_player_dash" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2577292402" Name="_player_hug" ObjectPath="\Events\Default Work Unit\_player\_player_hug" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="994801233" Name="_player_hurt" ObjectPath="\Events\Default Work Unit\_player\_player_hurt" DurationType="OneShot" DurationMin="6.050437" DurationMax="6.050437">
+					<IncludedMemoryFiles>
+						<File Id="282295108" Language="SFX">
+							<ShortName>danger cooldown.wav</ShortName>
+							<Path>SFX\danger cooldown_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1774057622" Name="_player_stopFriend" ObjectPath="\Events\Default Work Unit\_player\_player_stopFriend" DurationType="OneShot" DurationMin="0." DurationMax="0."/>
 			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>
