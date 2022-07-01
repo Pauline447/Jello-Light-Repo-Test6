@@ -1,11 +1,47 @@
 Event	ID	Name			Wwise Object Path	Notes
-	2137482766	_anglerfish_danger_start			\Default Work Unit\_anglerfish_danger_start	
-	2248092158	Player_Move			\Default Work Unit\Player_Move	
+	260309760	_menu_select			\Default Work Unit\_menu\_menu_select	
+	459057707	_music_main			\Default Work Unit\_music\_music_main	
+	621829023	_ambient_stream			\Default Work Unit\_ambient\_ambient_stream	
+	994801233	_player_hurt			\Default Work Unit\_player\_player_hurt	
+	1309010701	_friend_2_main			\Default Work Unit\_friends\_friend_2_main	
+	1434396755	_bristleworm_eat			\Default Work Unit\_bristleworm\_bristleworm_eat	
+	1454046954	_music_crystal			\Default Work Unit\_music\_music_crystal	
+	1472048067	_friend_3_sad			\Default Work Unit\_friends\_friend_3_sad	
+	1774057622	_player_stopFriend			\Default Work Unit\_player\_player_stopFriend	
+	2063949947	_friend_2_help			\Default Work Unit\_friends\_friend_2_help	
+	2137482766	_anglerfish_danger_start			\Default Work Unit\_anglerfish\_anglerfish_danger_start	
+	2233838959	_music_anglerfish			\Default Work Unit\_music\_music_anglerfish	
+	2307392356	_friend_1_main			\Default Work Unit\_friends\_friend_1_main	
 	2382962032	_ambient_main			\Default Work Unit\_ambient_main	
-	2836329861	_anglerfish_danger_end			\Default Work Unit\_anglerfish_danger_end	
+	2577292402	_player_hug			\Default Work Unit\_player\_player_hug	
+	2759467415	_menu_move			\Default Work Unit\_menu\_menu_move	
+	2836329861	_anglerfish_danger_end			\Default Work Unit\_anglerfish\_anglerfish_danger_end	
+	2848977922	_friend_3_main			\Default Work Unit\_friends\_friend_3_main	
+	3308001668	_music_seeEngelDancing			\Default Work Unit\_music\_music_seeEngelDancing	
+	3918383540	_bristleworm_walk			\Default Work Unit\_bristleworm\_bristleworm_walk	
+	4277240098	_player_dash			\Default Work Unit\_player\_player_dash	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	325461513	UnterwasserAtmoOnly	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\UnterwasserAtmoOnly_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\UnterwasserAtmoOnly		2782988
-	511658974	danger clean loopable v1	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\danger clean loopable v1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Anglerfish_Danger\danger clean loopable v1		2443704
-	535172825	Bewegungssound	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Bewegungssound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Move\Bewegungssound		1165008
+	3951491	Companion 2 call_2	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Companion 2 call_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Companion_HelpCall\Companion 2 call_2		774520
+	17863157	bristleworm move steps 2	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 2		21912
+	43092264	_ambient_stream	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\StröhmungLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\_ambient\_ambient_stream		3962088
+	70630170	Companion 2 call_1	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Companion 2 call_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Companion_HelpCall\Companion 2 call_1		774520
+	90849142	Bristleworm fall ground	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Bristleworm fall ground_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_eat\Bristleworm fall ground		508300
+	250680848	Bristleworm fall v2	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Bristleworm fall v2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_eat\Bristleworm fall v2		701916
+	279347811	_menu_move	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\menu move v2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_menu\_menu_move		174612
+	282295108	_player_hurt	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\danger cooldown_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_player\_player_hurt		1161748
+	299482780	Bristleworm eat	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Bristleworm eat_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_eat\Bristleworm eat		484100
+	356013245	bristleworm move steps 9	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 9		30560
+	393306186	bristleworm move steps 3	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 3		23256
+	424628159	bristleworm move steps 8	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 8		21484
+	449418856	Companion 2 call_4	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Companion 2 call_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Companion_HelpCall\Companion 2 call_4		1064940
+	511658974	_anglerfish_danger	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\danger clean loopable v1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_anglerfish\_anglerfish_danger		2443704
+	723365115	Bristleworm fall more rvb	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Bristleworm fall_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_eat\Bristleworm fall more rvb		629308
+	724392783	bristleworm move steps 6	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 6		20848
+	767941412	bristleworm move steps 7	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 7		23952
+	805946363	Companion 2 call_3	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\Companion 2 call_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Companion_HelpCall\Companion 2 call_3		774520
+	817422666	_menu_select	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\menu select_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_menu\_menu_select		580908
+	834561708	bristleworm move steps 1	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 1		31928
+	881654069	bristleworm move steps 5	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 5		33356
+	935814984	bristleworm move steps 4	C:\Users\tomtr\Documents\WwiseProjects\jello light licence\.cache\Switch\SFX\bristleworm move steps 4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_bristleworm_walk\bristleworm move steps 4		26068
 
