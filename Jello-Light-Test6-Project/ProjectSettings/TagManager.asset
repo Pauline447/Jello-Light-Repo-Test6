@@ -57,6 +57,9 @@ TagManager:
   - name: BG4
     uniqueID: 2299016441
     locked: 0
+  - name: MG
+    uniqueID: 2852144857
+    locked: 0
   - name: lightsUpBG
     uniqueID: 1781933171
     locked: 0
