@@ -9282,7 +9282,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 11.66525
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9306,7 +9306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.68, y: -5.871245, z: -10}
+  m_LocalPosition: {x: 57.68, y: -6.2376, z: -10}
   m_LocalScale: {x: 0.9938956, y: 0.9938956, z: 0.9938956}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41120,7 +41120,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2892443271436046497}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 11.66525
+    OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -41144,7 +41144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.68, y: -5.871245, z: -10}
+  m_LocalPosition: {x: 57.68, y: -6.2376, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -95434,8 +95434,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9015642830480606659}
-        m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
+      - m_Target: {fileID: 9015642830480606661}
+        m_TargetAssemblyTypeName: PlayerMovementScript, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -95450,8 +95450,8 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9015642830480606659}
-        m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
+      - m_Target: {fileID: 9015642830480606661}
+        m_TargetAssemblyTypeName: PlayerMovementScript, Assembly-CSharp
         m_MethodName: Dash
         m_Mode: 0
         m_Arguments:
@@ -95466,8 +95466,8 @@ MonoBehaviour:
     m_ActionName: Player/Dash[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9015642830480606659}
-        m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
+      - m_Target: {fileID: 9015642830480606661}
+        m_TargetAssemblyTypeName: PlayerMovementScript, Assembly-CSharp
         m_MethodName: Hugging
         m_Mode: 0
         m_Arguments:
@@ -95482,8 +95482,8 @@ MonoBehaviour:
     m_ActionName: Player/Hugging[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9015642830480606659}
-        m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
+      - m_Target: {fileID: 9015642830480606661}
+        m_TargetAssemblyTypeName: PlayerMovementScript, Assembly-CSharp
         m_MethodName: Friend1Called
         m_Mode: 0
         m_Arguments:
@@ -95498,8 +95498,8 @@ MonoBehaviour:
     m_ActionName: Player/StopFriend1[/Keyboard/f]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9015642830480606659}
-        m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
+      - m_Target: {fileID: 9015642830480606661}
+        m_TargetAssemblyTypeName: PlayerMovementScript, Assembly-CSharp
         m_MethodName: Friend2Called
         m_Mode: 0
         m_Arguments:
@@ -95554,8 +95554,8 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9015642830480606659}
-        m_TargetAssemblyTypeName: PlayerMovementNew, Assembly-CSharp
+      - m_Target: {fileID: 9015642830480606661}
+        m_TargetAssemblyTypeName: PlayerMovementScript, Assembly-CSharp
         m_MethodName: Friend3Called
         m_Mode: 0
         m_Arguments:
@@ -95642,6 +95642,7 @@ GameObject:
   - component: {fileID: 2892443271436046503}
   - component: {fileID: 9015642830480606659}
   - component: {fileID: 9015642830480606660}
+  - component: {fileID: 9015642830480606661}
   m_Layer: 0
   m_Name: newPlayer
   m_TagString: Player
@@ -115003,7 +115004,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2892443271436046527}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ca7c5859eec9254db39a479e63a389e, type: 3}
   m_Name: 
@@ -115057,6 +115058,45 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &9015642830480606661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892443271436046527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2a6cf67c783e34380bde7dbdca541a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDash: 0
+  animator: {fileID: 2892443271436046496}
+  rb: {fileID: 2892443271436046501}
+  speed: 1
+  defaultSpeed: 2
+  defaultDashSpeed: 8
+  defaultMinSpeed: 4
+  minSpeed: 4
+  doDash: 0
+  dashing: 0
+  slowdownValue: 3
+  slowdownAfterDashValue: 7
+  slowdownBool: 0
+  StopValue: 50
+  dashParticleMia: {fileID: 0}
+  ParticleEmissionDefault: 0
+  ParticleEmissionDash: 0
+  dashPosition: {fileID: 0}
+  ableToHug: 0
+  hugs: 0
+  up: 0
+  friendcalled: 000000
+  rotationSpeed: 400
+  friendManager: {fileID: 2003371690}
+  dashUIDashDone: 0
+  animateNormalDashing: 0
+  EventName: _player_dash
 --- !u!114 &9031516150012293684
 MonoBehaviour:
   m_ObjectHideFlags: 0
