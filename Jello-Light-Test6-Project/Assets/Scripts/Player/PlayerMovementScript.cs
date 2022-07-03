@@ -165,15 +165,6 @@ public class PlayerMovementScript : MonoBehaviour
             animator.SetBool("animateDashing", false);
             dashing = false;
         }
-        //else if(speed < defaultDashSpeed && speed > minSpeed + 1 && !animateNormalDashing)
-        //{
-
-        //}
-        //else
-        //{
-
-        //}
-
 
         if (speed < defaultDashSpeed && speed > defaultDashSpeed - 0.5f)
         {
@@ -292,36 +283,21 @@ public class PlayerMovementScript : MonoBehaviour
         if (ctx.performed)
         {
             StartCoroutine(Button1Clicked());
-            //friendcalled[0] = true;
         }
-        //if (ctx.canceled)
-        //{
-        //    friendcalled[0] = false;
-        //}
     }
     public void Friend2Called(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            //friendcalled[1] = true;
             StartCoroutine(Button2Clicked());
         }
-        //if (ctx.canceled)
-        //{
-        //    friendcalled[1] = false;
-        //}
     }
     public void Friend3Called(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
             StartCoroutine(Button3Clicked());
-            //friendcalled[2] = true;
         }
-        //if (ctx.canceled)
-        //{
-        //    friendcalled[2] = false;
-        //}
     }
     private IEnumerator Button1Clicked()
     {

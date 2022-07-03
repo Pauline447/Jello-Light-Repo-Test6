@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FriendManager : MonoBehaviour
 {
-    public int NumberOfFriends; //= NumberOfFriendLights and NumberOfUIStuff
+  //  public int NumberOfFriends; //= NumberOfFriendLights and NumberOfUIStuff
     public Following[] Friends; 
 
     public GameObject[] FriendLights; 
@@ -34,7 +34,7 @@ public class FriendManager : MonoBehaviour
 
         //Nummer hochsetzten
 
-        for (int i = 0; i < NumberOfFriends; i++)
+        for (int i = 0; i < Friends.Length -1; i++)
         {
             if (Friends[i].isFollowing)
             {
@@ -51,7 +51,7 @@ public class FriendManager : MonoBehaviour
 
         //jeweiligen Freund umarmen
 
-        for (int i = 0; i < NumberOfFriends; i++)
+        for (int i = 0; i < Friends.Length - 1; i++)
         {
             if (player.hugs == true && Friends[i].inRange)
             {
@@ -61,7 +61,7 @@ public class FriendManager : MonoBehaviour
 
         //jeweiligen Freund stoppen
 
-        for (int i = 0; i < NumberOfFriends; i++)
+        for (int i = 0; i < Friends.Length - 1; i++)
         {
             if (Friends[i].hugged == true && player.friendcalled[i] == true && Friends[i].isFollowing == true)  //hier nochmal schauen
             {
@@ -71,7 +71,7 @@ public class FriendManager : MonoBehaviour
 
         //jeweiligen Freund starten
 
-        for (int i = 0; i < NumberOfFriends; i++)
+        for (int i = 0; i < Friends.Length - 1; i++)
         {
             if (Friends[i].hugged == true && Friends[i].isFollowing == false && Friends[i].inRange && player.friendcalled[i] == true)
             {
@@ -81,7 +81,7 @@ public class FriendManager : MonoBehaviour
 
         //UI
 
-        for (int i = 0; i < NumberOfFriends; i++)
+        for (int i = 0; i < Friends.Length - 1; i++)
         {
             if (Friends[i].inRange && !Friends[i].hugged)
             {

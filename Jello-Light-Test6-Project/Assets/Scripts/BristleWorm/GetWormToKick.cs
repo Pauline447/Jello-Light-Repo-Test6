@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
+
 
 public class GetWormToKick : MonoBehaviour
 {
@@ -44,11 +46,11 @@ public class GetWormToKick : MonoBehaviour
             anim2.SetBool("lightThere", true);
             anim.SetBool("Kicked", true);
             stopFollowing = true;   
-            playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-            player.GetComponent<Rigidbody2D>().gravityScale = 0;
             pos = player.transform;
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(pos.position.x * 0, pos.position.y * 0);
-            player.GetComponent<PlayerMovementNew>().enabled = false;
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2( 0f, 0f);
+            player.enabled = false;
+            player.GetComponent<PlayerInput>().enabled = false;
+            playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             StartCoroutine(DeleteThis());
 
         }
@@ -63,6 +65,7 @@ public class GetWormToKick : MonoBehaviour
         wormFollows.enabled = true;
        // wormFollows.chageWormPosition = true;
         vCam.Follow = playerObject.transform;
+        player.GetComponent<PlayerInput>().enabled = true;
         player.enabled = true;
         Destroy(this);
     }
