@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GetPlayerThroughTunnel : MonoBehaviour
 {
     public PlayerMovementScript player;
     public GameObject playerObject;
-    public Transform startPos;
     public Transform endPos;
     public bool move = false;
+    public Vector3 dir;
     // Start is called before the first frame update
     // Array of waypoints to walk from one to the next one
-    [SerializeField]
-    private Transform[] waypoints;
 
     // Walk speed that can be set in Inspector
     [SerializeField]
@@ -20,9 +19,6 @@ public class GetPlayerThroughTunnel : MonoBehaviour
 
     // Index of current waypoint from which Enemy walks
     // to the next one
-    public int waypointIndex = 0;
-
-    public int numberOfPoints;
 
     // Use this for initialization
     private void Start()
@@ -43,23 +39,10 @@ public class GetPlayerThroughTunnel : MonoBehaviour
     // Method that actually make Enemy walk
     private void Move()
     {
-        // If Enemy didn't reach last waypoint it can move
-        // If enemy reached last waypoint then it stops
-        if (waypointIndex <= numberOfPoints)
-        {
-
-            // Move Enemy from current waypoint to the next one
-            // using MoveTowards method
-            playerObject.transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
-
-            // If Enemy reaches position of waypoint he walked towards
-            // then waypointIndex is increased by 1
-            // and Enemy starts to walk to the next waypoint
-            if (playerObject.transform.position == waypoints[waypointIndex].transform.position)
-            {
-                waypointIndex += 1;
-            }
-        }
+        dir = (endPos.position - playerObject.transform.position).normalized * moveSpeed;
+        playerObject.GetComponent<Rigidbody2D>().velocity = dir;
+        //playerObject.GetComponent<Rigidbody2D>().velocity = new Vector2(endPos.position.x* moveSpeed * Time.deltaTime, endPos.position.y * moveSpeed * Time.deltaTime);
+        //playerObject.transform.position = Vector2.MoveTowards(transform.position, endPos.position, moveSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -67,7 +50,9 @@ public class GetPlayerThroughTunnel : MonoBehaviour
         {
            // move = true;
             player.enabled = false;
+            playerObject.GetComponent<PlayerInput>().enabled = false;
             playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+           // playerObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
             player.animator.SetBool("isWalking", true);
             player.animator.SetBool("animateDashing", false);
             move = true;

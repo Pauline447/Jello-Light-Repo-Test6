@@ -10,7 +10,7 @@ public class GetWormToKick : MonoBehaviour
     public Transform target;
    // public Transform playerTarget;
     public float positionX;
-    public PlayerMovementNew player;
+    public PlayerMovementScript player;
     public WormFollowsPlayer wormFollows;
     public GameObject playerObject;
     public CinemachineVirtualCamera vCam;

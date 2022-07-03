@@ -31,7 +31,7 @@ public class ChangeWormPosition : MonoBehaviour
     public bool changePosToTarget4 = false;
     public bool changePosToTarget5 = false;
 
-    public PlayerMovementNew player;
+    public PlayerMovementScript player;
     public GameObject playerObject;
     private Transform pos;
 
