@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GetPlayerThroughTunnel : MonoBehaviour
 {
-    public PlayerMovementNew player;
+    public PlayerMovementScript player;
     public GameObject playerObject;
     public Transform startPos;
     public Transform endPos;

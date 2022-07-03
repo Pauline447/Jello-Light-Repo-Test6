@@ -9,7 +9,7 @@ public class interactionUI2 : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public int interactionCase;
     public GameObject UIinteraction;
-    public PlayerMovementNew Player;
+    public PlayerMovementScript Player;
 
     // Start is called before the first frame update
     void Start()

@@ -13,7 +13,7 @@ public class FriendManager : MonoBehaviour
     private float lightRadius;
     public float addLightValue = 1; //einstellbar
 
-    public PlayerMovementNew player;
+    public PlayerMovementScript player;
 
     public int numberOfFish = 0; //actually not needed at all XD
     public int numberOfFishFollowing = 0;

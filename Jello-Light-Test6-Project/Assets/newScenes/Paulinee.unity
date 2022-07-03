@@ -2489,7 +2489,7 @@ MonoBehaviour:
   - {fileID: 498895196531143713}
   - {fileID: 882921778}
   - {fileID: 228984226}
-  player: {fileID: 9015642830480606659}
+  player: {fileID: 9015642830480606661}
   AddToPlayerSpeedWhen3: 7
   AddToPlayerSpeedWhen2: 5
   AddToPlayerSpeedWhen1: 3
@@ -8633,7 +8633,7 @@ MonoBehaviour:
   changePosToTarget3: 0
   changePosToTarget4: 0
   changePosToTarget5: 0
-  player: {fileID: 9015642830480606659}
+  player: {fileID: 0}
   playerObject: {fileID: 2892443271436046527}
   vCam: {fileID: 1089325744}
   wormBone: {fileID: 1815477273}
@@ -10852,7 +10852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15e28aa9d66779418d03e2dfe6e2b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9015642830480606659}
+  player: {fileID: 9015642830480606661}
   _DashUI: {fileID: 628097028}
 --- !u!212 &628097030
 SpriteRenderer:
@@ -48414,7 +48414,7 @@ MonoBehaviour:
   zero: {fileID: 21300000, guid: e130686918181744990ba860b2c39abb, type: 3}
   interactionCase: 0
   UIinteraction: {fileID: 1332827995}
-  Player: {fileID: 9015642830480606659}
+  Player: {fileID: 9015642830480606661}
 --- !u!212 &1332827998
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53561,7 +53561,7 @@ MonoBehaviour:
   zero: {fileID: 21300000, guid: e130686918181744990ba860b2c39abb, type: 3}
   interactionCase: 0
   UIinteraction: {fileID: 1494455940}
-  Player: {fileID: 9015642830480606659}
+  Player: {fileID: 9015642830480606661}
 --- !u!212 &1494455943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63289,7 +63289,7 @@ MonoBehaviour:
   zero: {fileID: 21300000, guid: e130686918181744990ba860b2c39abb, type: 3}
   interactionCase: 0
   UIinteraction: {fileID: 1585400901}
-  Player: {fileID: 9015642830480606659}
+  Player: {fileID: 9015642830480606661}
 --- !u!212 &1585400904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65177,7 +65177,7 @@ PrefabInstance:
     - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 9015642830480606659}
+      objectReference: {fileID: 9015642830480606661}
     - target: {fileID: 7498686552820190291, guid: 60424ddac6eda7e4db2e977573c5b40b, type: 3}
       propertyPath: Friend1
       value: 
@@ -91470,7 +91470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8cfb0113f755c44a8645c7f058bad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9015642830480606659}
+  player: {fileID: 9015642830480606661}
   playerObject: {fileID: 2892443271436046527}
   startPos: {fileID: 1782401846}
   endPos: {fileID: 2069241826}
@@ -95640,7 +95640,6 @@ GameObject:
   - component: {fileID: 2892443271436046499}
   - component: {fileID: 2892443271436046496}
   - component: {fileID: 2892443271436046503}
-  - component: {fileID: 9015642830480606659}
   - component: {fileID: 9015642830480606660}
   - component: {fileID: 9015642830480606661}
   m_Layer: 0
@@ -110737,7 +110736,7 @@ PrefabInstance:
     - target: {fileID: 6003564495672054632, guid: adfae867c302e854e8a87c08fdc4f3b8, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 9015642830480606659}
+      objectReference: {fileID: 0}
     - target: {fileID: 6003564495672054632, guid: adfae867c302e854e8a87c08fdc4f3b8, type: 3}
       propertyPath: playerObject
       value: 
@@ -114997,45 +114996,6 @@ Transform:
   m_Father: {fileID: 6802840473264851037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25.946}
---- !u!114 &9015642830480606659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2892443271436046527}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca7c5859eec9254db39a479e63a389e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startDash: 0
-  animator: {fileID: 2892443271436046496}
-  rb: {fileID: 2892443271436046501}
-  speed: 1
-  defaultSpeed: 2
-  defaultDashSpeed: 8
-  defaultMinSpeed: 4
-  minSpeed: 4
-  doDash: 0
-  dashing: 0
-  slowdownValue: 3
-  slowdownAfterDashValue: 7
-  slowdownBool: 0
-  StopValue: 50
-  dashParticleMia: {fileID: 0}
-  ParticleEmissionDefault: 0
-  ParticleEmissionDash: 0
-  dashPosition: {fileID: 0}
-  ableToHug: 0
-  hugs: 0
-  up: 0
-  friendcalled: 000000
-  rotationSpeed: 400
-  friendManager: {fileID: 2003371690}
-  dashUIDashDone: 0
-  animateNormalDashing: 0
-  EventName: _player_dash
 --- !u!114 &9015642830480606660
 MonoBehaviour:
   m_ObjectHideFlags: 0
