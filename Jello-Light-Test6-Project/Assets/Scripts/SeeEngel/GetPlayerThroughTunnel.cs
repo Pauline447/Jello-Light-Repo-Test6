@@ -58,4 +58,20 @@ public class GetPlayerThroughTunnel : MonoBehaviour
             move = true;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            // move = true;
+            player.enabled = true;
+            playerObject.GetComponent<PlayerInput>().enabled = true;
+            //playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            // playerObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
+            //player.animator.SetBool("isWalking", true);
+            //player.animator.SetBool("animateDashing", false);
+            move = false;
+            Destroy(this);
+        }
+    }
 }
