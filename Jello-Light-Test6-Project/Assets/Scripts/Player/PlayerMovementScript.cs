@@ -46,8 +46,6 @@ public class PlayerMovementScript : MonoBehaviour
     public int ParticleEmissionDash;
     //public AnimationCurve EmissionProgression;
 
-    public Transform dashPosition;
-
     //hugging
     public bool ableToHug = false; //needed by interactionsUI
     public bool hugs = false; //gebraucht von FriendManager
@@ -84,7 +82,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (startDash)
         {
-            AkSoundEngine.PostEvent(EventName, gameObject);
+           // AkSoundEngine.PostEvent(EventName, gameObject);
         }
         else if (!dashing)
         {
@@ -204,7 +202,7 @@ public class PlayerMovementScript : MonoBehaviour
             //bool variable for the update function -> direction and speed can be adjusted every frame
             buttondown = true;
             GameObject currentParticles = Instantiate(dashParticleMia);
-            currentParticles.transform.position = dashPosition.position;
+          //  currentParticles.transform.position = dashPosition.position;
 
         }
         if (ctx.canceled)
