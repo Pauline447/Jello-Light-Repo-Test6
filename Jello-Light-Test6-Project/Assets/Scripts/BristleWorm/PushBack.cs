@@ -43,16 +43,16 @@ public class PushBack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerSpeed = player.GetComponent<PlayerMovementNew>().GetDefaultDashSpeed();
+        playerSpeed = player.GetComponent<PlayerMovementScript>().GetDefaultDashSpeed();
         if (startTimer && timer > 0)
         {
-            player.GetComponent<PlayerMovementNew>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
             timer -= Time.deltaTime;
         }
         else if (timer < 0)
         {
             //Player auf Anfangsposition zurück
-            player.GetComponent<PlayerMovementNew>().enabled = false;
+            player.GetComponent<PlayerMovementScript>().enabled = false;
             playertrans.position = Vector3.Lerp(playertrans.position, startOfStreamTrans.position, pushBackSpeed * Time.deltaTime);
         }
     }

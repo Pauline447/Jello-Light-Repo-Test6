@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DashUI : MonoBehaviour
 {
-    public PlayerMovementNew player;
+    public PlayerMovementScript player;
     public GameObject _DashUI;
     // Start is called before the first frame update
     void Start()
