@@ -8633,7 +8633,7 @@ MonoBehaviour:
   changePosToTarget3: 0
   changePosToTarget4: 0
   changePosToTarget5: 0
-  player: {fileID: 0}
+  player: {fileID: 9015642830480606661}
   playerObject: {fileID: 2892443271436046527}
   vCam: {fileID: 1089325744}
   wormBone: {fileID: 1815477273}
@@ -9306,7 +9306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.68, y: -6.2376, z: -10}
+  m_LocalPosition: {x: 108.58, y: 48.562397, z: -10}
   m_LocalScale: {x: 0.9938956, y: 0.9938956, z: 0.9938956}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41144,7 +41144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089325743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.68, y: -6.2376, z: -10}
+  m_LocalPosition: {x: 108.58, y: 48.562397, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -91472,15 +91472,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 9015642830480606661}
   playerObject: {fileID: 2892443271436046527}
-  startPos: {fileID: 1782401846}
   endPos: {fileID: 2069241826}
   move: 0
-  waypoints:
-  - {fileID: 1782401846}
-  - {fileID: 2069241826}
-  moveSpeed: 2
-  waypointIndex: 0
-  numberOfPoints: 2
+  dir: {x: 0, y: 0, z: 0}
+  moveSpeed: 5
 --- !u!1 &2045802461
 GameObject:
   m_ObjectHideFlags: 0
@@ -92012,7 +92007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069241825}
   m_LocalRotation: {x: -0, y: -0, z: -0.22301808, w: 0.97481436}
-  m_LocalPosition: {x: 167, y: 171.5, z: 0}
+  m_LocalPosition: {x: 166.5, y: 177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95331,7 +95326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2892443271436046527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 56.8, y: -6.7, z: 0}
+  m_LocalPosition: {x: 107.7, y: 48.1, z: 0}
   m_LocalScale: {x: 0.7631978, y: 0.7631978, z: 0.7631978}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110736,7 +110731,7 @@ PrefabInstance:
     - target: {fileID: 6003564495672054632, guid: adfae867c302e854e8a87c08fdc4f3b8, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9015642830480606661}
     - target: {fileID: 6003564495672054632, guid: adfae867c302e854e8a87c08fdc4f3b8, type: 3}
       propertyPath: playerObject
       value: 
