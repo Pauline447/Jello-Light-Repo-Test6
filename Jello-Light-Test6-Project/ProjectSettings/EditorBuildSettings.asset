@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 0
-    path: Assets/newScenes/Pauline Test.unity
-    guid: 1441fb958b90db74d9fbae052a35bd53
-  - enabled: 1
     path: Assets/newScenes/Mia Test Blockout.unity
     guid: 8d39abe21dcd469479f955e49a0a2614
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: "Assets/newScenes/Men\xFCs/Main Menu.unity"
+    guid: 52e55acfc880de041baca3cf9e2fe6d7
+  - enabled: 1
+    path: Assets/newScenes/Main.unity
+    guid: 872989893d765314fbf2ff4640db58b7
   m_configObjects: {}
