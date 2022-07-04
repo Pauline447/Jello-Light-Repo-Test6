@@ -63,3 +63,7 @@ crashlytics-build.properties
 /Jello-Light-Test6-Project/[Aa]ssets/NintendoSDKPlugin
 /Jello-Light-Test6-Project/[Pp]ackages/com.unity.inputsystem.switch@0.1.6-pre
 /Jello-Light-Test6-Project/[Ss]witchIL2CPPCache
+
+
+# Wwise Stuff
+[Aa]ssets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset
