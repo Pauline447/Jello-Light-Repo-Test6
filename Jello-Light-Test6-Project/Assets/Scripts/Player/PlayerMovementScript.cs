@@ -75,34 +75,13 @@ public class PlayerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-<<<<<<<< HEAD:Jello-Light-Test6-Project/Assets/Scripts/Player/PlayerMovementScript.cs
-        //AkSoundEngine.RegisterGameObj(gameObject);
-========
-        AkSoundEngine.RegisterGameObj(gameObject);
->>>>>>>> 29e179613f6962495a53c0e0eb1ba7466d18ae0e:Jello-Light-Test6-Project/Assets/Scripts/Player/PlayerMovementNew.cs
         animateNormalDashing = true;
     }
     void Update()
     {
-<<<<<<<< HEAD:Jello-Light-Test6-Project/Assets/Scripts/Player/PlayerMovementScript.cs
-        if (startDash)
-        {
-           // AkSoundEngine.PostEvent(EventName, gameObject);
-        }
-        else if (!dashing)
-        {
-            //AkSoundEngine.PostEvent(StopEventName, gameObject);
-========
-        if(startDash)
-        {
-          AkSoundEngine.PostEvent(EventName, gameObject);
-        }
-        else if (!dashing)
-        {
-          //AkSoundEngine.PostEvent(StopEventName, gameObject);
->>>>>>>> 29e179613f6962495a53c0e0eb1ba7466d18ae0e:Jello-Light-Test6-Project/Assets/Scripts/Player/PlayerMovementNew.cs
-        }
+
     }
+
     void FixedUpdate()
     {
         Vector2 dir = new Vector2(horizontal, vertical);
@@ -175,11 +154,7 @@ public class PlayerMovementScript : MonoBehaviour
         else if (animateNormalDashing)
         {
             animator.SetBool("animateDashing", false);
-<<<<<<<< HEAD:Jello-Light-Test6-Project/Assets/Scripts/Player/PlayerMovementScript.cs
             dashing = false;
-========
-           dashing = false;
->>>>>>>> 29e179613f6962495a53c0e0eb1ba7466d18ae0e:Jello-Light-Test6-Project/Assets/Scripts/Player/PlayerMovementNew.cs
         }
 
         if (speed < defaultDashSpeed && speed > defaultDashSpeed - 0.5f)
@@ -371,3 +346,4 @@ public class PlayerMovementScript : MonoBehaviour
 
     }
 }
+
