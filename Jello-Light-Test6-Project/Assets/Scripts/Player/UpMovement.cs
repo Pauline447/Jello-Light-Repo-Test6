@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UpMovement : MonoBehaviour
 {
-    public PlayerMovementNew player;
+    public PlayerMovementScript player;
     // Start is called before the first frame update
     void Start()
     {

@@ -75,7 +75,7 @@ public class PushBack : MonoBehaviour
             pushBackBool = false;
             ResetTimer();
             startTimer = false;
-            player.GetComponent<PlayerMovementNew>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
         }
     }
 }

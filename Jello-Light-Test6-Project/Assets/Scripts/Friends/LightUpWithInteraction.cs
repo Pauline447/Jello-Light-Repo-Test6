@@ -6,7 +6,7 @@ public class LightUpWithInteraction : MonoBehaviour
 {
     public CheckForFriend checkFriend;
     public CheckForFriend checkFriend2;
-    public PlayerMovementNew player;
+    public PlayerMovementScript player;
     public GameObject UIElement;
     private GameObject friend1;
     private GameObject friend2;

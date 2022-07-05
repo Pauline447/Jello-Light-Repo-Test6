@@ -38,7 +38,7 @@ public class Deadzone : MonoBehaviour
         if (other.tag == "Player")
         {
             startTimer = true;
-            player.GetComponent<PlayerMovementNew>().defaultDashSpeed = 3f;
+            player.GetComponent<PlayerMovementScript>().defaultDashSpeed = 3f;
             StartCoroutine(FlackernPlayerLight());
             StartCoroutine(StartFade(track, 3f, 0f));
         }
@@ -64,7 +64,7 @@ public class Deadzone : MonoBehaviour
         playerLight.GetComponent<UnityEngine.Rendering.Universal.Light2D>().enabled = false;
         pos = player.transform;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2 (pos.position.x*0, pos.position.y*0);
-        player.GetComponent<PlayerMovementNew>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
         player.GetComponent<Animator>().SetBool("SchokoHai", true);
       //  Debug.Log("U dead");
     }

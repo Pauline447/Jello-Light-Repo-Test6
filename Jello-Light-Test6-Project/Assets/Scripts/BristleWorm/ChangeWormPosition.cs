@@ -98,7 +98,7 @@ public class ChangeWormPosition : MonoBehaviour
             playerObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             pos = player.transform;
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(pos.position.x * 0, pos.position.y * 0);
-            player.GetComponent<PlayerMovementNew>().enabled = false;
+            player.GetComponent<PlayerMovementScript>().enabled = false;
             StartCoroutine(Eat());
         }
         else if (!wormFollows.playerInZone)
@@ -169,7 +169,7 @@ public class ChangeWormPosition : MonoBehaviour
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target5.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target5.rotation;
         vCam.Follow = playerObject.transform;
-        player.GetComponent<PlayerMovementNew>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
         Destroy(this);
         }
 

@@ -75,7 +75,7 @@ public class PlayerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        AkSoundEngine.RegisterGameObj(gameObject);
+        //AkSoundEngine.RegisterGameObj(gameObject);
         animateNormalDashing = true;
     }
     void Update()

@@ -10,7 +10,7 @@ public class interactionUI : MonoBehaviour
     private Image UIimage;
     public int interactionCase;
     public GameObject UIinteraction;
-    public PlayerMovementNew Player;
+    public PlayerMovementScript Player;
 
     // Start is called before the first frame update
     void Start()
