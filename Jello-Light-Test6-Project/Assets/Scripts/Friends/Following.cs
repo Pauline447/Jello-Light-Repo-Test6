@@ -24,7 +24,11 @@ public class Following : MonoBehaviour
     public bool inRange = false;
 
     public Animator playerAnim;
-    public Transform hugTarget;
+    public Transform hugTarget1;
+    public Transform hugTarget2;
+    public Transform hugTarget3;
+
+    public int whichfriend;
 
     public bool changeToHugTarget = false;
 
@@ -68,7 +72,18 @@ public class Following : MonoBehaviour
         }
         if(changeToHugTarget)
         {
-            transform.position = Vector3.Lerp(transform.position, hugTarget.position, followSpeed * Time.deltaTime);
+            switch(whichfriend)
+            {
+                 case 1:
+                    transform.position = Vector3.Lerp(transform.position, hugTarget1.position, followSpeed * Time.deltaTime);
+                    break;
+                case 2:
+                    transform.position = Vector3.Lerp(transform.position, hugTarget2.position, followSpeed * Time.deltaTime);
+                    break;
+                case 3:
+                    transform.position = Vector3.Lerp(transform.position, hugTarget3.position, followSpeed * Time.deltaTime);
+                    break;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true

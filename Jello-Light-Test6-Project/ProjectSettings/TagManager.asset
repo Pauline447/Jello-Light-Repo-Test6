@@ -72,11 +72,11 @@ TagManager:
   - name: LightsUp
     uniqueID: 579417215
     locked: 0
-  - name: Player
-    uniqueID: 1401244375
-    locked: 0
   - name: Figuren
     uniqueID: 2299937683
+    locked: 0
+  - name: Player
+    uniqueID: 1401244375
     locked: 0
   - name: creatures
     uniqueID: 738142603
