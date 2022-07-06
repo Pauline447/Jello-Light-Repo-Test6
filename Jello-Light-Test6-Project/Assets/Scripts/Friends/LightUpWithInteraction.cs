@@ -11,6 +11,7 @@ public class LightUpWithInteraction : MonoBehaviour
     private GameObject friend1;
     private GameObject friend2;
     private GameObject friend3;
+    public LightUpSingleCoral coralLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,8 @@ public class LightUpWithInteraction : MonoBehaviour
             }
             if(player.hugs)
             {
-                GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+                //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+                coralLight.startFade = true;
                 Destroy(UIElement);
                 if(friend1 !=null)
                 {
