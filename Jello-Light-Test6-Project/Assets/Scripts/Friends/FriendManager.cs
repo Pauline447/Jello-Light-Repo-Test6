@@ -17,6 +17,7 @@ public class FriendManager : MonoBehaviour
 
     public int numberOfFish = 0; //actually not needed at all XD
     public int numberOfFishFollowing = 0;
+    public int numberOfFriends = 3;
 
     public interactionUI2[] UIstuff;
 
@@ -34,7 +35,7 @@ public class FriendManager : MonoBehaviour
 
         //Nummer hochsetzten
 
-        for (int i = 0; i < Friends.Length -1; i++)
+        for (int i = 0; i < numberOfFriends; i++)
         {
             if (Friends[i].isFollowing)
             {
@@ -51,7 +52,7 @@ public class FriendManager : MonoBehaviour
 
         //jeweiligen Freund umarmen
 
-        for (int i = 0; i < Friends.Length - 1; i++)
+        for (int i = 0; i < numberOfFriends; i++)
         {
             if (player.hugs == true && Friends[i].inRange)
             {
@@ -61,7 +62,7 @@ public class FriendManager : MonoBehaviour
 
         //jeweiligen Freund stoppen
 
-        for (int i = 0; i < Friends.Length - 1; i++)
+        for (int i = 0; i < numberOfFriends; i++)
         {
             if (Friends[i].hugged == true && player.friendcalled[i] == true && Friends[i].isFollowing == true)  //hier nochmal schauen
             {
@@ -71,7 +72,7 @@ public class FriendManager : MonoBehaviour
 
         //jeweiligen Freund starten
 
-        for (int i = 0; i < Friends.Length - 1; i++)
+        for (int i = 0; i < numberOfFriends; i++)
         {
             if (Friends[i].hugged == true && Friends[i].isFollowing == false && Friends[i].inRange && player.friendcalled[i] == true)
             {
@@ -81,7 +82,7 @@ public class FriendManager : MonoBehaviour
 
         //UI
 
-        for (int i = 0; i < Friends.Length - 1; i++)
+        for (int i = 0; i < numberOfFriends; i++)
         {
             if (Friends[i].inRange && !Friends[i].hugged)
             {
