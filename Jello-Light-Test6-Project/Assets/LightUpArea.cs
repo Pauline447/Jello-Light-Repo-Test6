@@ -14,6 +14,7 @@ public class LightUpArea : MonoBehaviour
 
     public bool startFade = false;
     public float timer = 0.0f;
+    public int NumberOfLights = 0;
 
     private void Start()
     {
@@ -26,10 +27,18 @@ public class LightUpArea : MonoBehaviour
         if (startFade)
         { 
             timer += Time.deltaTime;
-            if(timer > startTime[0])
+            if(NumberOfLights == 2)
             {
-                StartCoroutine(ChangeIntensity(lights[0], maxLuminosity[0]));
+                if (timer > startTime[0])
+                {
+                    StartCoroutine(ChangeIntensity(lights[0], maxLuminosity[0]));
+                }
+                if (timer > startTime[1])
+                {
+                    StartCoroutine(ChangeIntensity(lights[1], maxLuminosity[1]));
+                }
             }
+                                        //for-Schleife nicht möglich, da das eine schon angefangen muss während das andere noch in der Coroutine is...
         }
     }
 
