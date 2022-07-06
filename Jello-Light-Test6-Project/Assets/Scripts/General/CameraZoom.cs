@@ -15,6 +15,8 @@ public class CameraZoom : MonoBehaviour
     public float timeElapsed;
 
     public float zoomValue;
+
+    public bool hugZoom;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class CameraZoom : MonoBehaviour
     {
         for (int i =0; i<numberOfTriggers;i++)
         {
-            if (_zoomTriggers[i].doZoom)
+            if (_zoomTriggers[i].doZoom ||hugZoom)
             {
                 LensSize = Mathf.Lerp(_zoomTriggers[i].startValue, endValue, timeElapsed / lerpDuration);
                 timeElapsed += Time.deltaTime;
@@ -43,6 +45,10 @@ public class CameraZoom : MonoBehaviour
     public void SetZoomValues(float _endValue)
     {
         endValue = _endValue;
+    }
+    public void ResetTimer()
+    {
+        timeElapsed = 0f;
     }
     public void ResetZoom()
     {

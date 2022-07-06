@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
+
 
 
 public class Following : MonoBehaviour
@@ -31,6 +33,11 @@ public class Following : MonoBehaviour
 
     public float rotationSpeed = 400f;
     public Transform normalRotation;
+
+    public CinemachineVirtualCamera vCam;
+    public CameraZoom camZoom;
+    public float endValueZoom;
+   // public float defaultValueZoom;
 
     // Start is called before the first frame update
     void Start()
@@ -104,8 +111,15 @@ public class Following : MonoBehaviour
         playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
         playerObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, normalRotation.rotation, rotationSpeed * Time.deltaTime);
         //cameraZoom?
+       // vCam.m_Lens.OrthographicSize = defaultValueZoom;
+        camZoom.SetZoomValues(endValueZoom);
+        camZoom.hugZoom = true;
 
-        //
+        yield return new WaitForSeconds(1.5f);
+
+        camZoom.hugZoom = false;
+        camZoom.ResetTimer();
+
         playerAnim.SetBool("smallHug", true);
         changeToHugTarget = true;
         yield return new WaitForSeconds(1.5f);
@@ -117,5 +131,11 @@ public class Following : MonoBehaviour
         //player aktivieren
         playerScript.enabled = true;
         playerObject.GetComponent<PlayerInput>().enabled = true;
+
+        //camera zoom back
+        camZoom.SetZoomValues(12f);
+        camZoom.hugZoom = true;
+        yield return new WaitForSeconds(2f);
+        camZoom.hugZoom = false;
     }
 }
