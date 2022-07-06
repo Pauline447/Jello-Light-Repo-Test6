@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class Following : MonoBehaviour
 {
@@ -20,6 +22,15 @@ public class Following : MonoBehaviour
     public bool inRange = false;
 
     public Animator playerAnim;
+    public Transform hugTarget;
+
+    public bool changeToHugTarget = false;
+
+    public PlayerMovementScript playerScript;
+    public GameObject playerObject;
+
+    public float rotationSpeed = 400f;
+    public Transform normalRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +58,10 @@ public class Following : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             gameObject.GetComponent<SpriteRenderer>().flipY = false;
             facingRight = true;
+        }
+        if(changeToHugTarget)
+        {
+            transform.position = Vector3.Lerp(transform.position, hugTarget.position, followSpeed * Time.deltaTime);
         }
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
@@ -81,9 +96,26 @@ public class Following : MonoBehaviour
 
     private IEnumerator HugFriend()
     {
+        //player deavtivieren
+        playerScript.speed = 0f;
+        playerScript.dir = new Vector2(0f, 0f);
+        playerScript.enabled = true;
+        playerObject.GetComponent<PlayerInput>().enabled = false;
+        playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        playerObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, normalRotation.rotation, rotationSpeed * Time.deltaTime);
+        //cameraZoom?
+
+        //
         playerAnim.SetBool("smallHug", true);
-        yield return new WaitForSeconds(0.5f);
+        changeToHugTarget = true;
+        yield return new WaitForSeconds(1.5f);
+       
         playerAnim.SetBool("smallHug", false);
-        yield return new WaitForSeconds(0f);
+        changeToHugTarget = false;
+        isFollowing = true;
+
+        //player aktivieren
+        playerScript.enabled = true;
+        playerObject.GetComponent<PlayerInput>().enabled = true;
     }
 }

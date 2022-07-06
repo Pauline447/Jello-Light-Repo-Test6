@@ -72,6 +72,8 @@ public class PlayerMovementScript : MonoBehaviour
     public string EventName = "default";
     //public string StopEventName = "default";
 
+    public Vector2 dir;
+
     // Update is called once per frame
     void Start()
     {
@@ -84,7 +86,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 dir = new Vector2(horizontal, vertical);
+        dir = new Vector2(horizontal, vertical);
 
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FriendManager : MonoBehaviour
 {
   //  public int NumberOfFriends; //= NumberOfFriendLights and NumberOfUIStuff
     public Following[] Friends; 
 
-    public GameObject[] FriendLights; 
+    public Light2D[] FriendLights; 
 
     public GameObject playerLight;
     private float lightRadius;
@@ -20,6 +21,14 @@ public class FriendManager : MonoBehaviour
     public int numberOfFriends = 3;
 
     public interactionUI2[] UIstuff;
+
+   // public Light2D coralLight;
+
+    public float maxLuminosity; // max intensity
+
+    public float luminositySteps = 0.001f; // factor when increasing / decreasing
+
+    public bool startFade = false;
 
 
     // Start is called before the first frame update
@@ -39,7 +48,8 @@ public class FriendManager : MonoBehaviour
         {
             if (Friends[i].isFollowing)
             {
-                FriendLights[i].SetActive(true);
+                StartCoroutine(ChangeIntensity(FriendLights[i], maxLuminosity));
+                //FriendLights[i].SetActive(true);
                 Friends[i].GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                 if (!Friends[i].doneonce)
                 {
@@ -106,5 +116,15 @@ public class FriendManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = false;
         friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
+    }
+    private IEnumerator ChangeIntensity(Light2D l, float maxLumi)
+    {
+        while (l.intensity <= maxLumi)
+        {
+            l.intensity += luminositySteps; // increase the firefly intensity / fade in
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return new WaitForSeconds(0f); // wait 3 seconds
     }
 }
