@@ -41,7 +41,16 @@ public class Following : MonoBehaviour
     public CinemachineVirtualCamera vCam;
     public CameraZoom camZoom;
     public float endValueZoom;
-   // public float defaultValueZoom;
+
+    public bool startHugSound = false;
+
+    //Sound
+    public AudioSource audioSource0;
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
+    public AudioSource audioSource3;
+
+    // public float defaultValueZoom;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +94,27 @@ public class Following : MonoBehaviour
                     break;
             }
         }
+        //Sound
+        if(startHugSound)
+        {
+            if (!audioSource0.isPlaying)
+                audioSource0.Play();
+            switch (whichfriend)
+            {
+                case 1:
+                    if (!audioSource1.isPlaying)
+                        audioSource1.Play();
+                    break;
+                case 2:
+                    if (!audioSource2.isPlaying)
+                        audioSource2.Play();
+                    break;
+                case 3:
+                    if (!audioSource3.isPlaying)
+                        audioSource3.Play();
+                    break;
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D other) //if Player goes over fish- following = true
     {
@@ -119,6 +149,7 @@ public class Following : MonoBehaviour
     private IEnumerator HugFriend()
     {
         //player deavtivieren
+        startHugSound = true;
         playerScript.speed = 0f;
         playerScript.dir = new Vector2(0f, 0f);
         playerScript.enabled = true;
@@ -146,6 +177,7 @@ public class Following : MonoBehaviour
         //player aktivieren
         playerScript.enabled = true;
         playerObject.GetComponent<PlayerInput>().enabled = true;
+        startHugSound = false;
 
         //camera zoom back
         camZoom.SetZoomValues(12f);
