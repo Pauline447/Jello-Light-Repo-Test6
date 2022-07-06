@@ -19,6 +19,8 @@ public class Following : MonoBehaviour
     public bool hugged = false;
     public bool inRange = false;
 
+    public Animator playerAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,16 @@ public class Following : MonoBehaviour
         if(!doneonce)
         {
             isFollowing = true;
+            StartCoroutine(HugFriend());
         }
+        //playerAnim.SetBool("smallHug", true);
+    }
+
+    private IEnumerator HugFriend()
+    {
+        playerAnim.SetBool("smallHug", true);
+        yield return new WaitForSeconds(0.5f);
+        playerAnim.SetBool("smallHug", false);
+        yield return new WaitForSeconds(0f);
     }
 }
