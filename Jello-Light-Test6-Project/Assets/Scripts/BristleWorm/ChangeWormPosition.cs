@@ -40,6 +40,7 @@ public class ChangeWormPosition : MonoBehaviour
 
     public Animator animWorm;
     public Animator animIgel;
+    public Animator animHead;
 
     public bool doneonce = false;
 
@@ -156,13 +157,14 @@ public class ChangeWormPosition : MonoBehaviour
         changePosToTarget3 = true;
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target3.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target3.rotation;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         animIgel.SetBool("Snatch", true);
         animWorm.SetBool("lightThere", true);
+        animHead.SetBool("Bite", true);
         changePosToTarget4 = true;
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target4.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target4.rotation;
-        yield return new WaitForSeconds(1f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        yield return new WaitForSeconds(2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         animWorm.SetBool("lightThere", false);
         changePosToTarget5 = true;
         yield return new WaitForSeconds(2f);
