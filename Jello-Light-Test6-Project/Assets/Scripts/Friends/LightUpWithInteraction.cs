@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class LightUpWithInteraction : MonoBehaviour
 {
@@ -25,6 +27,25 @@ public class LightUpWithInteraction : MonoBehaviour
 
     private bool coral1On = false;
     private bool coral2On = false;
+
+
+
+    public PlayerMovementScript playerScript;
+    public GameObject playerObject;
+
+    public float rotationSpeed = 400f;
+    public Transform normalRotation;
+
+    public CinemachineVirtualCamera vCam;
+    public CameraZoom camZoom;
+    public float endValueZoom;
+
+    public Animator playerAnim;
+    private bool canZoom = true;
+    private bool doneonce = false;
+
+    public GameObject _particleSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,11 +98,8 @@ public class LightUpWithInteraction : MonoBehaviour
             if (player.hugs)
             {
                 //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-                if (coral1)
-                {
-                    coralLight.startFade = true;
-                }
 
+                coralLight.startFade = true;
                 Destroy(UIElement);
                 animParticle.SetBool("CompanionWaiting", false);
 
@@ -101,20 +119,19 @@ public class LightUpWithInteraction : MonoBehaviour
                 {
                     Destroy(particle4);
                 }
-
-
-                if (friend1 != null)
-                {
-                    friend1.GetComponent<Following>().isFollowing = true;
-                }
-                if (friend2 != null)
-                {
-                    friend2.GetComponent<Following>().isFollowing = true;
-                }
-                if (friend3 != null)
-                {
-                    friend3.GetComponent<Following>().isFollowing = true;
-                }
+                //if (friend1 != null)
+                //{
+                //    friend1.GetComponent<Following>().isFollowing = true;
+                //}
+                //if (friend2 != null)
+                //{
+                //    friend2.GetComponent<Following>().isFollowing = true;
+                //}
+                //if (friend3 != null)
+                //{
+                //    friend3.GetComponent<Following>().isFollowing = true;
+                //}
+                StartCoroutine(StartLightUp());
             }
         }
         if (coral2 && coral2On)
@@ -126,10 +143,7 @@ public class LightUpWithInteraction : MonoBehaviour
             if (player.hugs)
             {
                 //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-                if (coral2)
-                {
-                    _lightUpArea.startFade = true;
-                }
+                _lightUpArea.startFade = true;
 
                 Destroy(UIElement);
                 animParticle.SetBool("CompanionWaiting", false);
@@ -152,18 +166,80 @@ public class LightUpWithInteraction : MonoBehaviour
                 }
 
 
-                if (friend1 != null)
-                {
-                    friend1.GetComponent<Following>().isFollowing = true;
-                }
-                if (friend2 != null)
-                {
-                    friend2.GetComponent<Following>().isFollowing = true;
-                }
-                if (friend3 != null)
-                {
-                    friend3.GetComponent<Following>().isFollowing = true;
-                }
+                //if (friend1 != null)
+                //{
+                //    friend1.GetComponent<Following>().isFollowing = true;
+                //}
+                //if (friend2 != null)
+                //{
+                //    friend2.GetComponent<Following>().isFollowing = true;
+                //}
+                //if (friend3 != null)
+                //{
+                //    friend3.GetComponent<Following>().isFollowing = true;
+                //}
+                StartCoroutine(StartLightUp());
+            }
+        }
+    }
+
+    private IEnumerator StartLightUp()
+    {
+        if (!doneonce)
+        {    
+            doneonce = true;
+
+            //player deaktivirern
+            //startHugSound = true;
+            playerScript.speed = 0f;
+            playerScript.dir = new Vector2(0f, 0f);
+            playerScript.enabled = true;
+            playerObject.GetComponent<PlayerInput>().enabled = false;
+            playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            playerObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, normalRotation.rotation, rotationSpeed * Time.deltaTime);
+
+            //camZoom
+            canZoom = false;
+            camZoom.SetZoomValues(endValueZoom);
+            camZoom.hugZoom = true;
+
+            //player animation
+            playerAnim.SetBool("smallHug", true);
+            yield return new WaitForSeconds(1f);
+            playerAnim.SetBool("smallHug", false);
+
+            if (_particleSystem !=null)
+            _particleSystem.SetActive(true);
+
+            yield return new WaitForSeconds(1f);
+            camZoom.hugZoom = false;
+            camZoom.ResetTimer();
+            yield return new WaitForSeconds(0.5f);
+
+            //camera zoom back
+            camZoom.SetZoomValues(12f);
+            camZoom.hugZoom = true;
+
+            yield return new WaitForSeconds(1f);
+            camZoom.hugZoom = false;
+            camZoom.ResetTimer();
+            canZoom = true;
+
+            //player aktivieren
+            playerScript.enabled = true;
+            playerObject.GetComponent<PlayerInput>().enabled = true;
+            //startHugSound = false;
+            if (friend1 != null)
+            {
+                friend1.GetComponent<Following>().isFollowing = true;
+            }
+            if (friend2 != null)
+            {
+                friend2.GetComponent<Following>().isFollowing = true;
+            }
+            if (friend3 != null)
+            {
+                friend3.GetComponent<Following>().isFollowing = true;
             }
         }
     }
