@@ -84,7 +84,7 @@ public class FriendManager : MonoBehaviour
 
         for (int i = 0; i < numberOfFriends; i++)
         {
-            if (Friends[i].hugged == true && Friends[i].isFollowing == false && Friends[i].inRange && player.friendcalled[i] == true)
+            if (Friends[i].hugged == true && Friends[i].isFollowing == false && Friends[i].inRange && player.friendcalled[i] == true && !Friends[i].atTentecal)
             {
                 StartCoroutine(StartFriend(Friends[i]));
             }

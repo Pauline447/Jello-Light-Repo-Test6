@@ -50,8 +50,9 @@ public class Following : MonoBehaviour
     public AudioSource audioSource2;
     public AudioSource audioSource3;
 
-    public bool atTentacel = false;
     public bool stopped = false;
+
+    public bool atTentecal = false;
 
     // public float defaultValueZoom;
 
@@ -65,7 +66,7 @@ public class Following : MonoBehaviour
     void Update()
     {
 
-        if (isFollowing && !atTentacel)
+        if (isFollowing)
         {
             transform.position = Vector3.Lerp(transform.position, followTarget.position, followSpeed * Time.deltaTime); //actual following
         }

@@ -28,6 +28,7 @@ public class HugTentacel : MonoBehaviour
 
     public Animator playerAnim;
     private bool canZoom = true;
+    private bool doneonce = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,8 @@ public class HugTentacel : MonoBehaviour
             friend1 = GameObject.Find("Friend1");
             if(friend1.GetComponent<Following>().stopped == true)
             {
-                if(canZoom)
+                friend1.GetComponent<Following>().atTentecal = true;
+                if (canZoom)
                   StartCoroutine(FriendDown());
             }
         }
@@ -52,6 +54,7 @@ public class HugTentacel : MonoBehaviour
             friend2 = GameObject.Find("Friend2");
             if (friend2.GetComponent<Following>().stopped == true)
             {
+                friend2.GetComponent<Following>().atTentecal = true;
                 if (canZoom)
                     StartCoroutine(FriendDown());
             }
@@ -61,6 +64,7 @@ public class HugTentacel : MonoBehaviour
             friend3 = GameObject.Find("Friend3");
             if (friend3.GetComponent<Following>().stopped == true)
             {
+                friend1.GetComponent<Following>().atTentecal = true;
                 if (canZoom)
                     StartCoroutine(FriendDown());
             }
@@ -84,25 +88,28 @@ public class HugTentacel : MonoBehaviour
     }
     private IEnumerator FriendDown()
     {
+        if(!doneonce)
+        {
+            doneonce = true;
+            canZoom = false;
+            camZoom.SetZoomValues(endValueZoom);
+            camZoom.hugZoom = true;
 
-        canZoom = false;
-        camZoom.SetZoomValues(endValueZoom);
-        camZoom.hugZoom = true;
+            _lightUpTentacel.startFade = true;
 
-        _lightUpTentacel.startFade = true;
+            yield return new WaitForSeconds(3f);
+            camZoom.hugZoom = false;
+            camZoom.ResetTimer();
+            yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForSeconds(3f);
-        camZoom.hugZoom = false;
-        camZoom.ResetTimer();
-        yield return new WaitForSeconds(0.5f);
+            //camera zoom back
+            camZoom.SetZoomValues(12f);
+            camZoom.hugZoom = true;
 
-        //camera zoom back
-        camZoom.SetZoomValues(12f);
-        camZoom.hugZoom = true;
-
-        yield return new WaitForSeconds(4f);
-        camZoom.hugZoom = false;
-        camZoom.ResetTimer();
-        canZoom = true;
+            yield return new WaitForSeconds(4f);
+            camZoom.hugZoom = false;
+            camZoom.ResetTimer();
+            canZoom = true;
+        }
     }
 }
