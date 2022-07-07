@@ -116,6 +116,7 @@ public class FriendManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = false;
         friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
+        friend.stopped = true;
     }
     private IEnumerator ChangeIntensity(Light2D l, float maxLumi)
     {

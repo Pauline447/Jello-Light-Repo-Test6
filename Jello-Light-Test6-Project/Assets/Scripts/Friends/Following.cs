@@ -50,6 +50,9 @@ public class Following : MonoBehaviour
     public AudioSource audioSource2;
     public AudioSource audioSource3;
 
+    public bool atTentacel = false;
+    public bool stopped = false;
+
     // public float defaultValueZoom;
 
     // Start is called before the first frame update
@@ -62,7 +65,7 @@ public class Following : MonoBehaviour
     void Update()
     {
 
-        if (isFollowing)
+        if (isFollowing && !atTentacel)
         {
             transform.position = Vector3.Lerp(transform.position, followTarget.position, followSpeed * Time.deltaTime); //actual following
         }
@@ -184,5 +187,6 @@ public class Following : MonoBehaviour
         camZoom.hugZoom = true;
         yield return new WaitForSeconds(2f);
         camZoom.hugZoom = false;
+        camZoom.ResetTimer();
     }
 }
