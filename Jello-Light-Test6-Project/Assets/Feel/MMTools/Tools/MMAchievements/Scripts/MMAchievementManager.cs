@@ -139,7 +139,7 @@ namespace MoreMountains.Tools
 			}
 
 			DeterminePath (listID);
-			MMSaveLoadManager.DeleteSave(_saveFileName + _saveFileExtension, _saveFolderName);
+			//MMSaveLoadManager.DeleteSave(_saveFileName + _saveFileExtension, _saveFolderName);
 			Debug.LogFormat ("Achievements Reset");
 		}
 
@@ -153,9 +153,9 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public static void LoadSavedAchievements()
 		{
-			DeterminePath ();
-			SerializedMMAchievementManager serializedMMAchievementManager = (SerializedMMAchievementManager)MMSaveLoadManager.Load(typeof(SerializedMMAchievementManager), _saveFileName+ _saveFileExtension, _saveFolderName);
-			ExtractSerializedMMAchievementManager(serializedMMAchievementManager);
+			//DeterminePath ();
+			//SerializedMMAchievementManager serializedMMAchievementManager = (SerializedMMAchievementManager)MMSaveLoadManager.Load(typeof(SerializedMMAchievementManager), _saveFileName+ _saveFileExtension, _saveFolderName);
+			//ExtractSerializedMMAchievementManager(serializedMMAchievementManager);
 		}
 
 		/// <summary>
@@ -163,10 +163,10 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public static void SaveAchievements()
 		{
-			DeterminePath ();
-			SerializedMMAchievementManager serializedMMAchievementManager = new SerializedMMAchievementManager();
-			FillSerializedMMAchievementManager(serializedMMAchievementManager);
-			MMSaveLoadManager.Save(serializedMMAchievementManager, _saveFileName+_saveFileExtension, _saveFolderName);
+			//DeterminePath ();
+			//SerializedMMAchievementManager serializedMMAchievementManager = new SerializedMMAchievementManager();
+			//FillSerializedMMAchievementManager(serializedMMAchievementManager);
+			//MMSaveLoadManager.Save(serializedMMAchievementManager, _saveFileName+_saveFileExtension, _saveFolderName);
 		}
 
 		/// <summary>

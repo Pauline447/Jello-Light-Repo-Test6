@@ -49,7 +49,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void SaveSoundSettings()
 		{
-			MMSaveLoadManager.Save(this.Settings, _saveFileName, _saveFolderName);
+			//MMSaveLoadManager.Save(this.Settings, _saveFileName, _saveFolderName);
 		}
 
 		/// <summary>
@@ -57,17 +57,17 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void LoadSoundSettings()
 		{
-			if (Settings.OverrideMixerSettings)
-			{
-				MMSoundManagerSettings settings =
-					(MMSoundManagerSettings) MMSaveLoadManager.Load(typeof(MMSoundManagerSettings), _saveFileName,
-						_saveFolderName);
-				if (settings != null)
-				{
-					this.Settings = settings;
-					ApplyTrackVolumes();
-				}
-			}
+			//if (Settings.OverrideMixerSettings)
+			//{
+			//	MMSoundManagerSettings settings =
+			//		(MMSoundManagerSettings) MMSaveLoadManager.Load(typeof(MMSoundManagerSettings), _saveFileName,
+			//			_saveFolderName);
+			//	if (settings != null)
+			//	{
+			//		this.Settings = settings;
+			//		ApplyTrackVolumes();
+			//	}
+			//}
 		}
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void ResetSoundSettings()
 		{
-			MMSaveLoadManager.DeleteSave(_saveFileName, _saveFolderName);
+			//MMSaveLoadManager.DeleteSave(_saveFileName, _saveFolderName);
 		}
         
 		#endregion
