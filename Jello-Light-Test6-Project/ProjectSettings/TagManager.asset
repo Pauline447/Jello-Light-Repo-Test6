@@ -81,3 +81,9 @@ TagManager:
   - name: creatures
     uniqueID: 738142603
     locked: 0
+  - name: ink
+    uniqueID: 2530155033
+    locked: 0
+  - name: particles
+    uniqueID: 3271013225
+    locked: 0
