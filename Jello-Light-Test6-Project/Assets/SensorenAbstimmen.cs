@@ -19,6 +19,10 @@ public class SensorenAbstimmen : MonoBehaviour
     public int numberOfSensors2;
     public GameObject[] sensors1;
     public GameObject[] sensors2;
+
+    public bool active1;
+    public bool active2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,32 @@ public class SensorenAbstimmen : MonoBehaviour
         //blurMaterial.SetFloat("_Blur_Amount", blurAmount);
     }
     // Update is called once per frame
+    private void Update()
+    {
+        for(int i = 0; i <numberOfSensors1; i++)
+        {
+            if (blurAmount1<1)
+            {
+                sensors1[i].SetActive(true);
+            }
+            else if (blurAmount1 >1.5)
+            {
+                sensors1[i].SetActive(false);
+            }
+        }
+        for (int i = 0; i < numberOfSensors2; i++)
+        {
+            if (blurAmount2 <1)
+            {
+                sensors2[i].SetActive(true);
+            }
+            else if (blurAmount2 > 1.5)
+            {
+                sensors2[i].SetActive(false);
+            }
+        }
+
+    }
     void FixedUpdate()
     {
         if (onOne)
@@ -50,30 +80,6 @@ public class SensorenAbstimmen : MonoBehaviour
             blurAmount2 = Mathf.Clamp(blurAmount2, blurmin, blurmax);
             blurMaterial2.SetFloat("_Blur_Amount", blurAmount2);
         }
-        for(int i = 0; i < numberOfSensors1; i++)
-        {
-            if(onOne)
-            {
-                sensors1[i].SetActive(false);
-            }
-            else
-            {
-                sensors1[i].SetActive(true);
-            }
-
-        }
-        for (int i = 0; i < numberOfSensors2; i++)
-        {
-            if (onOne)
-            {
-                sensors2[i].SetActive(true);
-            }
-            else
-            {
-                sensors2[i].SetActive(false);
-            }
-
-        }
     }
     private IEnumerator SetOn()
     {
@@ -85,4 +91,9 @@ public class SensorenAbstimmen : MonoBehaviour
           yield return new WaitForSeconds(4f);
         }
     }
+
+    //private IEnumerator WaitABitLonger()
+    //{
+    //        yield return new WaitForSeconds(1f);
+    //}
 }
