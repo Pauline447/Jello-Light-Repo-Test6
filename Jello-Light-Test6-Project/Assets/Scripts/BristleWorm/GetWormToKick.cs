@@ -26,6 +26,9 @@ public class GetWormToKick : MonoBehaviour
     public bool stopFollowing = false;
 
     public bool wormkick = false;
+
+    public GameObject stoneStopper1;
+    public GameObject stoneStopper2;
     // Start is called before the first frame update
 
     private void Update()
@@ -59,14 +62,19 @@ public class GetWormToKick : MonoBehaviour
     private IEnumerator DeleteThis()
     {
         yield return new WaitForSeconds(0.5f);
-       anim2.SetBool("lightThere", false);
-        yield return new WaitForSeconds(5f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        anim2.SetBool("lightThere", false);
+        yield return new WaitForSeconds(1f);
+        stoneStopper1.SetActive(false);
+        yield return new WaitForSeconds(4f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         wormkick = false;
         wormFollows.enabled = true;
-       // wormFollows.chageWormPosition = true;
+        stoneStopper2.SetActive(true);
+        // wormFollows.chageWormPosition = true;
         vCam.Follow = playerObject.transform;
         player.GetComponent<PlayerInput>().enabled = true;
         player.enabled = true;
+        
+
         Destroy(this);
     }
 
