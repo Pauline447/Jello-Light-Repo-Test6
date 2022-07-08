@@ -75,6 +75,15 @@ TagManager:
   - name: Figuren
     uniqueID: 2299937683
     locked: 0
+  - name: Friend1
+    uniqueID: 2618051735
+    locked: 0
+  - name: friend2
+    uniqueID: 3239580325
+    locked: 0
+  - name: friend3
+    uniqueID: 683284693
+    locked: 0
   - name: Player
     uniqueID: 1401244375
     locked: 0

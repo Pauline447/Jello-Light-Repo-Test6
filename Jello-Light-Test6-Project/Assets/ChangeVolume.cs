@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class ChangeVolume : MonoBehaviour
 {
-    public bool changeBloom = false;
+    private bool changeBloom = false;
     public float bloomValue = 0f;
     public float vigValue = 0f;
     // Start is called before the first frame update
