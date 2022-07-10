@@ -57,8 +57,14 @@ TagManager:
   - name: BG4
     uniqueID: 2299016441
     locked: 0
+  - name: bgeffected
+    uniqueID: 138977931
+    locked: 0
   - name: MG
     uniqueID: 2852144857
+    locked: 0
+  - name: MGeffected
+    uniqueID: 175049743
     locked: 0
   - name: lightsUpBG
     uniqueID: 1781933171
@@ -90,9 +96,9 @@ TagManager:
   - name: creatures
     uniqueID: 738142603
     locked: 0
-  - name: ink
-    uniqueID: 2530155033
-    locked: 0
   - name: particles
     uniqueID: 3271013225
+    locked: 0
+  - name: ink
+    uniqueID: 2530155033
     locked: 0
