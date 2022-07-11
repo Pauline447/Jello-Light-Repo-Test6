@@ -52,7 +52,9 @@ public class GetPlayerThroughTunnel : MonoBehaviour
             player.enabled = false;
             playerObject.GetComponent<PlayerInput>().enabled = false;
             playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
-           // playerObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
+            StartCoroutine(WaitForABit());
+            playerObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            // playerObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
             player.animator.SetBool("isWalking", true);
             player.animator.SetBool("animateDashing", false);
             move = true;
@@ -66,6 +68,7 @@ public class GetPlayerThroughTunnel : MonoBehaviour
             // move = true;
             player.enabled = true;
             playerObject.GetComponent<PlayerInput>().enabled = true;
+            playerObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
             //playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
             // playerObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
             //player.animator.SetBool("isWalking", true);
@@ -73,5 +76,9 @@ public class GetPlayerThroughTunnel : MonoBehaviour
             move = false;
             Destroy(this);
         }
+    }
+    private IEnumerator WaitForABit()
+    {
+        yield return new WaitForSeconds(0.2f);
     }
 }

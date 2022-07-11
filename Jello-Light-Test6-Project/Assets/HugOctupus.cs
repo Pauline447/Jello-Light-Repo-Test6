@@ -35,19 +35,22 @@ public class HugOctupus : MonoBehaviour
     {
         if (friend1.atTentecal && friend2.atTentecal && friend3.atTentecal)
         {
+            if(playerthere)
+            {
+                _UI.SetActive(true);
+            }
             lastParticle.SetActive(true);
-        }
-        if (_playerScript.hugs && playerthere)
-        {
-            StartCoroutine(EndOfGame());
+            if (_playerScript.hugs && playerthere)
+            {
+                //UI
+                StartCoroutine(EndOfGame());
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            //UI
-            _UI.SetActive(true);
             playerthere = true;
             //if player hugs, StartCoroutine --> End of Game --> zoom in again, hug animation --> fade to white, load next scene
         }

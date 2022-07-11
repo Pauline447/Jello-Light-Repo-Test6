@@ -30,45 +30,65 @@ public class HugTentacel : MonoBehaviour
     private bool canZoom = true;
     private bool doneonce = false;
 
+    public bool friend1down = false;
+    public bool friend2down = false;
+    public bool friend3down = false;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        friend1 = GameObject.Find("Friend1");
+        friend2 = GameObject.Find("Friend2");
+        friend3 = GameObject.Find("Friend3");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (checkFriend.friend1there)
+        if(!friend1down && !friend2down && !friend3down)
         {
-            friend1 = GameObject.Find("Friend1");
-            if(friend1.GetComponent<Following>().stopped == true)
-            {
-                friend1.GetComponent<Following>().atTentecal = true;
-                if (canZoom)
-                  StartCoroutine(FriendDown());
-            }
+                if (checkFriend.friend1there)
+                {
+                   // friend1 = GameObject.Find("Friend1");
+                    if(friend1.GetComponent<Following>().stopped == true)
+                    {
+                        friend1.GetComponent<Following>().atTentecal = true;
+                        if (canZoom)
+                        {
+                            friend1down = true;
+                            StartCoroutine(FriendDown());
+                        }
+                       
+                    }
+                }
+                if (checkFriend.friend2there)
+                {
+                   // friend2 = GameObject.Find("Friend2");
+                    if (friend2.GetComponent<Following>().stopped == true)
+                    {
+                        friend2.GetComponent<Following>().atTentecal = true;
+                        if (canZoom)
+                        {
+                            friend2down = true;
+                            StartCoroutine(FriendDown());
+                        }
+                }
+                }
+                if (checkFriend.friend3there)
+                {
+                   // friend3 = GameObject.Find("Friend3");
+                    if (friend3.GetComponent<Following>().stopped == true)
+                    {
+                        friend3.GetComponent<Following>().atTentecal = true;
+                        if (canZoom)
+                        {
+                            friend3down = true;
+                            StartCoroutine(FriendDown());
+                        }
+                }
+                }
         }
-        if (checkFriend.friend2there)
-        {
-            friend2 = GameObject.Find("Friend2");
-            if (friend2.GetComponent<Following>().stopped == true)
-            {
-                friend2.GetComponent<Following>().atTentecal = true;
-                if (canZoom)
-                    StartCoroutine(FriendDown());
-            }
-        }
-        if (checkFriend.friend3there)
-        {
-            friend3 = GameObject.Find("Friend3");
-            if (friend3.GetComponent<Following>().stopped == true)
-            {
-                friend3.GetComponent<Following>().atTentecal = true;
-                if (canZoom)
-                    StartCoroutine(FriendDown());
-            }
-        }
+      
     }
     private IEnumerator FriendDown()
     {
