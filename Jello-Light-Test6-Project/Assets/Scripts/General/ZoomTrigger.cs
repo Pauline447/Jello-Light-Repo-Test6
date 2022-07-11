@@ -13,6 +13,7 @@ public class ZoomTrigger : MonoBehaviour
     public CameraZoom camZoom;
     public float startValue; //für Camera Zoom
     public float endValue;
+    public float zoomDuration = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,10 @@ public class ZoomTrigger : MonoBehaviour
             camZoom.timeElapsed = 0;
             doZoom = true;
             camZoom.SetZoomValues(endValue);
+        }
+        if (camZoom.timeElapsed > zoomDuration)
+        {
+            camZoom.ResetTimer();
         }
     }
     private void OnTriggerExit2D(Collider2D other)

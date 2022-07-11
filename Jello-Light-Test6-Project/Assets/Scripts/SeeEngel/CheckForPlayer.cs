@@ -21,7 +21,7 @@ public class CheckForPlayer : MonoBehaviour
     {
         if(other.tag=="Player")
         {
-            _followThePath.enabled = true;
+           _followThePath.enabled = true;
             playerthere = true;
         }
     }

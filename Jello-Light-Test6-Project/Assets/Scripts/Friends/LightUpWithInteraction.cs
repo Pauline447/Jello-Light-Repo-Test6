@@ -41,7 +41,7 @@ public class LightUpWithInteraction : MonoBehaviour
     public float endValueZoom;
 
     public Animator playerAnim;
-    private bool canZoom = true;
+   // private bool canZoom = true;
     private bool doneonce = false;
 
     public GameObject _particleSystem;
@@ -199,7 +199,7 @@ public class LightUpWithInteraction : MonoBehaviour
             playerObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, normalRotation.rotation, rotationSpeed * Time.deltaTime);
 
             //camZoom
-            canZoom = false;
+            //canZoom = false;
             camZoom.SetZoomValues(endValueZoom);
             camZoom.hugZoom = true;
 
@@ -223,7 +223,7 @@ public class LightUpWithInteraction : MonoBehaviour
             yield return new WaitForSeconds(1f);
             camZoom.hugZoom = false;
             camZoom.ResetTimer();
-            canZoom = true;
+           // canZoom = true;
 
             //player aktivieren
             playerScript.enabled = true;

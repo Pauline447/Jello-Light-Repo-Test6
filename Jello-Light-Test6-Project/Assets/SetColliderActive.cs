@@ -5,10 +5,10 @@ using UnityEngine;
 public class SetColliderActive : MonoBehaviour
 {
     public GameObject[] checkCollider;
+    public int numberOfColliders = 3;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class SetColliderActive : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            for(int i =0; i<checkCollider.Length-1; i++)
+            for(int i = 0; i<checkCollider.Length-1; i++)
             {
                 checkCollider[i].SetActive(true);
             }

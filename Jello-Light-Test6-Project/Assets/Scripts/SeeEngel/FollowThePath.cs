@@ -22,17 +22,22 @@ public class FollowThePath : MonoBehaviour
     public int stopIndex1;
     public int stopIndex2;
     public int stopIndex3;
+    public int stopIndex4;
+
     public float numberOfSeconds = 0f;
 
     private bool doneonce = false;
     private bool doneonce1 = false;
     private bool doneonce2 = false;
     private bool doneonce3 = false;
+    private bool doneonce4 = false;
 
-    public CheckForPlayer _checkForPlayer;
+    public ObserveSeaEngels _observeSeaEngels;
+    //public CheckForPlayer _checkForPlayer;
     public CheckForPlayer _checkForPlayer1;
     public CheckForPlayer _checkForPlayer2;
     public CheckForPlayer _checkForPlayer3;
+    public CheckForPlayer _checkForPlayer4;
 
     // Use this for initialization
     private void Start()
@@ -58,7 +63,7 @@ public class FollowThePath : MonoBehaviour
         {
             if (waypointIndex == stopIndex )
             {   
-               if (_checkForPlayer.playerthere)
+               if (_observeSeaEngels.playerthere)
                 {
                     this.enabled = true;
                     Debug.Log("starts");
@@ -113,6 +118,21 @@ public class FollowThePath : MonoBehaviour
                     doneonce3 = true;
                 }
                 else if (!doneonce3)
+                {
+                    Debug.Log("stops");
+                    this.enabled = false;
+                }
+            }
+            if (waypointIndex == stopIndex4)
+            {
+                if (_checkForPlayer4.playerthere)
+                {
+                    this.enabled = true;
+                    Debug.Log("starts");
+                    if (waypointIndex == stopIndex2)
+                        doneonce4 = true;
+                }
+                else if (!doneonce4)
                 {
                     Debug.Log("stops");
                     this.enabled = false;
