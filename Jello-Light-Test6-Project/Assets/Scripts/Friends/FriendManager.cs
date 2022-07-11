@@ -24,7 +24,7 @@ public class FriendManager : MonoBehaviour
 
    // public Light2D coralLight;
 
-    public float maxLuminosity; // max intensity
+    public float[] maxLuminosity; // max intensity
 
     public float luminositySteps = 0.001f; // factor when increasing / decreasing
 
@@ -48,9 +48,9 @@ public class FriendManager : MonoBehaviour
         {
             if (Friends[i].isFollowing)
             {
-                StartCoroutine(ChangeIntensity(FriendLights[i], maxLuminosity));
+                StartCoroutine(ChangeIntensity(FriendLights[i], maxLuminosity[i]));
                 //FriendLights[i].SetActive(true);
-                Friends[i].GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+               // Friends[i].GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                 if (!Friends[i].doneonce)
                 {
                     numberOfFish++;
