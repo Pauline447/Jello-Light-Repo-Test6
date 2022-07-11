@@ -64,27 +64,11 @@ public class HugTentacel : MonoBehaviour
             friend3 = GameObject.Find("Friend3");
             if (friend3.GetComponent<Following>().stopped == true)
             {
-                friend1.GetComponent<Following>().atTentecal = true;
+                friend3.GetComponent<Following>().atTentecal = true;
                 if (canZoom)
                     StartCoroutine(FriendDown());
             }
         }
-        //if ((checkFriend.friend1there || checkFriend.playerthere || checkFriend.friend2there) && (checkFriend2.friend1there || checkFriend2.playerthere || checkFriend2.friend2there))
-        //{
-        //    if (UIElement != null)
-        //    {
-        //        UIElement.GetComponent<SpriteRenderer>().enabled = true;
-        //    }
-        //    if (player.hugs)
-        //    {
-        //        StartCoroutine(HugFriend());
-        //        //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-        //    }
-        //}
-        //if (checkFriend.friend1there || checkFriend.playerthere || checkFriend.friend2there)
-        //{
-        //    StartCoroutine(FriendDown());
-        //}
     }
     private IEnumerator FriendDown()
     {
