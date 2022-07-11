@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HugOctupus : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class HugOctupus : MonoBehaviour
     public Animator playerAnim;
 
     public bool playerthere = false;
+    public GameObject fadeToWhite;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +79,11 @@ public class HugOctupus : MonoBehaviour
         yield return new WaitForSeconds(0f);
 
         //Fade to white
+        fadeToWhite.GetComponent<Animator>().enabled = true;
 
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(2);
 
     }
     private IEnumerator ZoomOut()
