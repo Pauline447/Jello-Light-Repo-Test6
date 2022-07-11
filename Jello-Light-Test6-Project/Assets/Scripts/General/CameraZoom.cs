@@ -11,7 +11,7 @@ public class CameraZoom : MonoBehaviour
     public int numberOfTriggers;
     public float endValue;
     public float defaultValue = 10f;
-    public float lerpDuration = 3;
+    public float lerpDuration = 3f;
     public float timeElapsed;
 
     public float zoomValue;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class HugOctupus : MonoBehaviour
@@ -9,10 +10,20 @@ public class HugOctupus : MonoBehaviour
     public Following friend3;
 
     public GameObject lastParticle;
+
+    public CinemachineVirtualCamera vCam;
+    public CameraZoom camZoom;
+    public float endValueZoom;
+
+    public GameObject _UI;
+    public PlayerMovementScript _playerScript;
+    public Animator playerAnim;
+
+    public bool playerthere = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,13 +33,18 @@ public class HugOctupus : MonoBehaviour
         {
             lastParticle.SetActive(true);
         }
+        if (_playerScript.hugs && playerthere)
+        {
+            StartCoroutine(EndOfGame());
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
-            //zoom in
             //UI
+            _UI.SetActive(true);
+            playerthere = true;
             //if player hugs, StartCoroutine --> End of Game --> zoom in again, hug animation --> fade to white, load next scene
         }
     }
@@ -37,6 +53,39 @@ public class HugOctupus : MonoBehaviour
         if (other.tag == "Player")
         {
             //zoom out
+            StartCoroutine(ZoomOut());
+
         }
+    }
+    private IEnumerator EndOfGame()
+    {
+        //zoom in, hug animation
+        camZoom.SetZoomValues(endValueZoom);
+        camZoom.hugZoom = true;
+
+        yield return new WaitForSeconds(1.5f);
+
+        camZoom.hugZoom = false;
+        camZoom.ResetTimer();
+
+        playerAnim.SetBool("smallHug", true);
+        yield return new WaitForSeconds(1.5f);
+
+        playerAnim.SetBool("smallHug", false);
+        yield return new WaitForSeconds(0f);
+
+        //Fade to white
+
+
+    }
+    private IEnumerator ZoomOut()
+    {
+        //camera zoom back
+        camZoom.lerpDuration = 30f;
+        camZoom.SetZoomValues(12f);
+        camZoom.hugZoom = true;
+        yield return new WaitForSeconds(2f);
+        camZoom.hugZoom = false;
+        camZoom.ResetTimer();
     }
 }
