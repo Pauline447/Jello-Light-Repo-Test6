@@ -307,8 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554276524}
   - component: {fileID: 554276523}
-  - component: {fileID: 554276526}
-  - component: {fileID: 554276527}
+  - component: {fileID: 554276525}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -366,7 +365,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &554276526
+--- !u!114 &554276525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -375,53 +374,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 554276522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f7d25f4792e5d4e976118b397b7f15, type: 3}
+  m_Script: {fileID: 11500000, guid: c358b23e78a172242990f0243a1c823b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
---- !u!114 &554276527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554276522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34cd71a439bc70a4b81cc7c4aa3b37f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  useCallbacks: 0
-  Callbacks: []
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
-  MultiPositionType: 1
-  multiPositionTypeLabel: 0
-  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
-  LargeModePositions: []
-  multiPositionArray: []
+  _videoPlayer: {fileID: 554276523}
 --- !u!1 &1103444048
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,19 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee0445b00d9c2745933c653032dc8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: f18a0eb9f3a2ee44eba8732dcee7ca7d, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &1103444050
 Transform:
   m_ObjectHideFlags: 0
@@ -492,18 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab2bed196a312845ae7541d4fc84a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  decodeBank: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
 --- !u!1 &1483914715
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,8 +600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54836b39b4159ec4f93efe7e8109c6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
 --- !u!114 &1677824794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,13 +612,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f7d25f4792e5d4e976118b397b7f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
