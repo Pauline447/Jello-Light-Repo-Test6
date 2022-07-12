@@ -40,6 +40,8 @@ public class IntroSequenzScript : MonoBehaviour
     public GameObject _UI;
     public bool _test;
 
+    public GameObject IntroLight2;
+
     //dunkel zu hell - kleine Fisch pfad man kann den einsammeln, player color = 255 und umgebungslichter(Light 2D und Light 2D (1)) aus bis fisch umarmt
     void Start()
     {
@@ -121,6 +123,7 @@ public class IntroSequenzScript : MonoBehaviour
         _PlayerLightAnim.SetBool("stops", true);
         yield return new WaitForSeconds(1f);
         playerLight.enabled = true;
+        Destroy(IntroLight2);
         yield return new WaitForSeconds(2f);
         //cam zoom out
 
