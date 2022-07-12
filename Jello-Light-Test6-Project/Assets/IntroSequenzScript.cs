@@ -38,6 +38,7 @@ public class IntroSequenzScript : MonoBehaviour
     public Light2D playerLight;
 
     public GameObject _UI;
+    public GameObject _Dash_UI;
     public bool _test;
 
     public GameObject IntroLight2;
@@ -114,6 +115,7 @@ public class IntroSequenzScript : MonoBehaviour
         //Player aktivieren
         playerScript.enabled = true;
         playerObject.GetComponent<PlayerInput>().enabled = true;
+        _Dash_UI.SetActive(true);
 
         // if hug - UI gets activated, light gets turned up to 1
     }

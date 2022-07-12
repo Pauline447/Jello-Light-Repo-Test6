@@ -13,11 +13,15 @@ public class LoadNextScene : MonoBehaviour
     private float loadprogress;
 
     private bool skipable= false;
+    public GameObject SkipButton;
+    AsyncOperation loadingOperation;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Wait());
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        loadingOperation= SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        loadingOperation.allowSceneActivation = false;
     }
 
     // Update is called once per frame
@@ -35,19 +39,27 @@ public class LoadNextScene : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-        if (SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1).isDone)
+
+        //loadingOperation.allowSceneActivation = true;
+
+        if (loadingOperation.progress < 0.9f)
         {
-            skipable = true;
+                skipable = true;
         }
         if(skipable)
         {
             //activate Button
+            SkipButton.SetActive(true);
         }
     }
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(3f);
         waited = true;
+    }
+    public void PlayGame()
+    {
+        loadingOperation.allowSceneActivation = true;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
