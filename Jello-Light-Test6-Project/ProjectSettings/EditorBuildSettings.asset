@@ -18,9 +18,15 @@ EditorBuildSettings:
     path: "Assets/newScenes/Men\xFCs/Main Menu.unity"
     guid: 52e55acfc880de041baca3cf9e2fe6d7
   - enabled: 1
+    path: "Assets/newScenes/Men\xFCs/Intro.unity"
+    guid: ec4caf708028fb648a1efa924b8bceb3
+  - enabled: 1
     path: Assets/newScenes/Main.unity
     guid: 872989893d765314fbf2ff4640db58b7
   - enabled: 1
     path: "Assets/newScenes/Men\xFCs/Outro.unity"
-    guid: a770d2269c40a9c43b6fd1e0ef7a3bfe
+    guid: 147a768ce198e87469940d035173a63f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

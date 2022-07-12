@@ -86,7 +86,7 @@ public class HugOctupus : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
     private IEnumerator ZoomOut()

@@ -23,16 +23,18 @@ public class Dancing : MonoBehaviour
 
     public CinemachineVirtualCamera vCam;
     public CameraZoom camZoom;
-    public float endValueZoom;
+    public float endValueZoom1;
+    public float endValueZoom2;
 
     public Light2D caveLight1;
     public Light2D caveLight2;
-    public float maxLuminosity; // max intensity
+    //public float maxLuminosity; // max intensity
     public float luminositySteps = 0.001f; // factor when increasing / decreasing
     public float endValueLight1;
     public float endValueLight2;
 
     public GameObject _UIElement;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +45,9 @@ public class Dancing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(startDance)
+        if(startDance && playerScript.hugs)
         {
+            _UIElement.SetActive(false);
             StartCoroutine(StartDancing());
         }
         if(changeToDanceTarget)
@@ -76,26 +79,37 @@ public class Dancing : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         //animation starten
-        //  playerAnim.SetBool("", true);
-        //seeEngelAnim.SetBool("", true);
+        playerAnim.SetBool("isDancing", true);
+        seeEngelAnim.SetBool("isDancing", true);
 
         //zoom out
-        camZoom.SetZoomValues(endValueZoom);
+        camZoom.lerpDuration = 60f;
+        camZoom.SetZoomValues(endValueZoom1);
         camZoom.hugZoom = true;
 
         //lightUp Cave
-        StartCoroutine(ChangeIntensityDown(caveLight1, endValueLight1));
-        StartCoroutine(ChangeIntensity(caveLight2, endValueLight2));
+        //StartCoroutine(ChangeIntensityDown(caveLight1, endValueLight1));
+        //StartCoroutine(ChangeIntensity(caveLight2, endValueLight2));
+
+
+        yield return new WaitForSeconds(10f);
+        //lightUp Cave
+        //StartCoroutine(ChangeIntensityDown(caveLight1, endValueLight1));
+        //StartCoroutine(ChangeIntensity(caveLight2, endValueLight2));
 
         yield return new WaitForSeconds(1f);
         camZoom.hugZoom = false;
         camZoom.ResetTimer();
 
-        yield return new WaitForSeconds(4f); //so lange (-1) dauert die Tanz Animation
+        //yield return new WaitForSeconds(5f); //so lange (-1) dauert die Tanz Animation
 
         //animation 
-        //playerAnim.SetBool("", false);
-        //seeEngelAnim.SetBool("", false);
+        playerAnim.SetBool("isDancing", false);
+        seeEngelAnim.SetBool("isDancing", false);
+        yield return new WaitForSeconds(3f);
+
+        playerAnim.SetBool("isDoneDancing", true);
+        seeEngelAnim.SetBool("isDoneDancing", true);
 
         //zoom in
         camZoom.SetZoomValues(10f);
@@ -108,12 +122,13 @@ public class Dancing : MonoBehaviour
         //maybe wait for seconds however long the zoom takes?
 
         //activate UI
-        _UIElement.SetActive(true);
+        //_UIElement.SetActive(true);
 
         //player aktivieren
         playerScript.enabled = true;
         playerObject.GetComponent<PlayerInput>().enabled = true;
-
+        seeEngel.GetComponent<Following>().hugged = true;
+        Destroy(this);
         //yield return new WaitForSeconds(0f);
     }
     private IEnumerator ChangeIntensity(Light2D l, float maxLumi)
