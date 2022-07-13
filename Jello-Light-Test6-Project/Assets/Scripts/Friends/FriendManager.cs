@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using MoreMountains.Feedbacks;
 
 public class FriendManager : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class FriendManager : MonoBehaviour
 
     public bool startFade = false;
 
+    //Sound
+    public MMFeedbacks _StopFeedback1;
+    public MMFeedbacks _StopFeedback2;
+    public MMFeedbacks _StopFeedback3;
 
     // Start is called before the first frame update
     void Start()
@@ -114,6 +119,13 @@ public class FriendManager : MonoBehaviour
     private IEnumerator StopFriend(Following friend)
     {
         yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////SoundFeedback
+        if(friend.tag == "Friend1")
+        _StopFeedback1.PlayFeedbacks();
+        if (friend.tag == "Friend2")
+            _StopFeedback2.PlayFeedbacks();
+        if (friend.tag == "Friend3")
+            _StopFeedback3.PlayFeedbacks();
         friend.isFollowing = false;
         friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
         friend.stopped = true;
