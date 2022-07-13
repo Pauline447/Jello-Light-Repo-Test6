@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using MoreMountains.Feedbacks;
 
 public class LightUpWithInteraction : MonoBehaviour
 {
@@ -45,6 +46,9 @@ public class LightUpWithInteraction : MonoBehaviour
     private bool doneonce = false;
 
     public GameObject _particleSystem;
+
+    //Sound
+    public MMFeedbacks _HugSoundFeedback;
 
     // Start is called before the first frame update
     void Start()
@@ -186,7 +190,8 @@ public class LightUpWithInteraction : MonoBehaviour
     private IEnumerator StartLightUp()
     {
         if (!doneonce)
-        {    
+        {
+            _HugSoundFeedback.PlayFeedbacks();
             doneonce = true;
 
             //player deaktivirern
