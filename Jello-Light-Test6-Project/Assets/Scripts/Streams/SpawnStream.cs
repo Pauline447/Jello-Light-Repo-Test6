@@ -7,6 +7,7 @@ public class SpawnStream : MonoBehaviour
     public bool active = false;
     public GameObject Visual;
     public GameObject Stream;
+    public PolygonCollider2D polyCol;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class SpawnStream : MonoBehaviour
             active = true;
             Stream.SetActive(true);
             Visual.SetActive(true);
+            polyCol.enabled=true;
         }
     }
 }

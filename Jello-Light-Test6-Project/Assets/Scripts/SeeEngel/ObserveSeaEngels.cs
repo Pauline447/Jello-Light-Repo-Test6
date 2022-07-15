@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using MoreMountains.Feedbacks;
 
 public class ObserveSeaEngels : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class ObserveSeaEngels : MonoBehaviour
     public bool playerthere = false;
 
     private bool doneonce = false;
+
+    public MMFeedbacks playSoundFeedback;
+    public MMFeedbacks freeSoundFeedback;
 
 
     // Start is called before the first frame update
@@ -60,6 +64,9 @@ public class ObserveSeaEngels : MonoBehaviour
         playerObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, normalRotation.rotation, rotationSpeed * Time.deltaTime);
         //Camera auf position SeeEngels
         vCam.Follow = seeEngelTransform;
+
+        playSoundFeedback.PlayFeedbacks();
+
         yield return new WaitForSeconds(1f);
         //SeeEngel Animation starten
         twoSeeEngelAnim.SetBool("startDancing", true);
@@ -79,6 +86,8 @@ public class ObserveSeaEngels : MonoBehaviour
         playerObject.GetComponent<PlayerInput>().enabled = true;
         vCam.Follow = playerObject.transform;
         yield return new WaitForSeconds(0f);
+
+        freeSoundFeedback.PlayFeedbacks();
         }
       
     }

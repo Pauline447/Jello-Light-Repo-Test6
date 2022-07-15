@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using MoreMountains.Feedbacks;
 
 public class Dancing : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class Dancing : MonoBehaviour
     public float endValueLight2;
 
     public GameObject _UIElement;
+
+    public MMFeedbacks _startSoundFeedback;
+    public MMFeedbacks _freeSoundFeedbacks;
 
 
     // Start is called before the first frame update
@@ -73,6 +77,8 @@ public class Dancing : MonoBehaviour
         playerObject.GetComponent<PlayerInput>().enabled = false;
         playerObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
         playerObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, normalRotation.rotation, rotationSpeed * Time.deltaTime);
+
+        _startSoundFeedback.PlayFeedbacks();
 
         //change SeeEngel position to danceTarget
         changeToDanceTarget = true;
@@ -130,6 +136,8 @@ public class Dancing : MonoBehaviour
         seeEngel.GetComponent<Following>().hugged = true;
         Destroy(this);
         //yield return new WaitForSeconds(0f);
+
+        _freeSoundFeedbacks.PlayFeedbacks();
     }
     private IEnumerator ChangeIntensity(Light2D l, float maxLumi)
     {
