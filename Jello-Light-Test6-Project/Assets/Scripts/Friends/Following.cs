@@ -54,10 +54,18 @@ public class Following : MonoBehaviour
 
     public bool atTentecal = false;
 
-    public MMFeedbacks _loudSound1;
-    public MMFeedbacks _silentFeedback1;
-    public MMFeedbacks _loudSound2;
-    public MMFeedbacks _silentFeedback2;
+    public MMFeedbacks _loudSound1; //Freund 1 
+    public MMFeedbacks _loudSound2; //Freund 2
+    public MMFeedbacks _loudSound3; //Freund 3
+    public MMFeedbacks _silentFeedback2; //Freund 2
+    public MMFeedbacks _silentFeedback3; //Freund 3
+
+    public MMFeedbacks _calmFeedback1; 
+    public MMFeedbacks _calmFeedback2;
+    public MMFeedbacks _calmFeedback3;
+
+    public bool stopSound = false;
+    public bool startSoundAgain = false;
 
     // public float defaultValueZoom;
 
@@ -75,6 +83,7 @@ public class Following : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, followTarget.position, followSpeed * Time.deltaTime); //actual following
         }
+
         if (Target.transform.position.x < gameObject.transform.position.x && facingRight)
         { //gameobject.transform.position = fish
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -122,6 +131,37 @@ public class Following : MonoBehaviour
                     if (!audioSource3.isPlaying)
                         audioSource3.Play();
                     break;
+            }
+        }
+
+        if (stopSound)
+        {
+            if (whichfriend == 1)
+            {
+                _calmFeedback1.PlayFeedbacks();
+            }
+            if (whichfriend == 2)
+            {
+                _calmFeedback2.PlayFeedbacks();
+            }
+            if (whichfriend == 3)
+            {
+                _calmFeedback3.PlayFeedbacks();
+            }
+        }
+        if (startSoundAgain)
+        {
+            if (whichfriend == 1)
+            {
+                _loudSound1.PlayFeedbacks();
+            }
+            if (whichfriend == 2)
+            {
+                _loudSound2.PlayFeedbacks();
+            }
+            if (whichfriend == 3)
+            {
+                _loudSound3.PlayFeedbacks();
             }
         }
     }
@@ -195,15 +235,14 @@ public class Following : MonoBehaviour
         camZoom.hugZoom = false;
         camZoom.ResetTimer();
 
-        if(whichfriend == 2)
+        //wenn hugged Play loud
+        if(whichfriend==2)
         {
-            _silentFeedback1.StopFeedbacks();
-            _loudSound1.PlayFeedbacks();
-        }
-        if (whichfriend == 3)
-        {
-            _silentFeedback2.StopFeedbacks();
             _loudSound2.PlayFeedbacks();
+        }
+        if(whichfriend==3)
+        {
+            _loudSound3.PlayFeedbacks();
         }
     }
 }

@@ -115,6 +115,10 @@ public class FriendManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = true;
+
+        friend.startSoundAgain = true;
+        yield return new WaitForSeconds(1f);
+        friend.startSoundAgain = false;
     }
     private IEnumerator StopFriend(Following friend)
     {
@@ -129,6 +133,11 @@ public class FriendManager : MonoBehaviour
         friend.isFollowing = false;
         friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
         friend.stopped = true;
+
+        friend.stopSound = true;
+        yield return new WaitForSeconds(1f);
+        friend.stopSound = false;
+
     }
     private IEnumerator ChangeIntensity(Light2D l, float maxLumi)
     {
