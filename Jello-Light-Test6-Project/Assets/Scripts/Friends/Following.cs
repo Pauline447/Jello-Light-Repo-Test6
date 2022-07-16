@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
-
+using MoreMountains.Feedbacks;
 
 
 public class Following : MonoBehaviour
@@ -53,6 +53,11 @@ public class Following : MonoBehaviour
     public bool stopped = false;
 
     public bool atTentecal = false;
+
+    public MMFeedbacks _loudSound1;
+    public MMFeedbacks _silentFeedback1;
+    public MMFeedbacks _loudSound2;
+    public MMFeedbacks _silentFeedback2;
 
     // public float defaultValueZoom;
 
@@ -189,5 +194,16 @@ public class Following : MonoBehaviour
         yield return new WaitForSeconds(2f);
         camZoom.hugZoom = false;
         camZoom.ResetTimer();
+
+        if(whichfriend == 2)
+        {
+            _silentFeedback1.StopFeedbacks();
+            _loudSound1.PlayFeedbacks();
+        }
+        if (whichfriend == 3)
+        {
+            _silentFeedback2.StopFeedbacks();
+            _loudSound2.PlayFeedbacks();
+        }
     }
 }

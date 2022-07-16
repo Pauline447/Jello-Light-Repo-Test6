@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using UnityEngine.Rendering.Universal;
+using MoreMountains.Feedbacks;
 
 public class IntroSequenzScript : MonoBehaviour
 {
@@ -42,6 +43,12 @@ public class IntroSequenzScript : MonoBehaviour
     public bool _test;
 
     public GameObject IntroLight2;
+
+    public MMFeedbacks playIntroFeedback;
+    public MMFeedbacks playFischFeedback;
+    public MMFeedbacks playJaroFeedback;
+    public MMFeedbacks playOctupusFeedback;
+    public MMFeedbacks playSeaAngelFeedback;
 
     //dunkel zu hell - kleine Fisch pfad man kann den einsammeln, player color = 255 und umgebungslichter(Light 2D und Light 2D (1)) aus bis fisch umarmt
     void Start()
@@ -138,6 +145,14 @@ public class IntroSequenzScript : MonoBehaviour
 
         camZoom.hugZoom = false;
         camZoom.ResetTimer();
+        yield return new WaitForSeconds(3f);
+       
+        playIntroFeedback.PlayFeedbacks();
+        playFischFeedback.PlayFeedbacks();
+        playJaroFeedback.PlayFeedbacks();
+        playOctupusFeedback.PlayFeedbacks();
+        playSeaAngelFeedback.PlayFeedbacks();
+
         //Script löschen
         Destroy(this);
     }
