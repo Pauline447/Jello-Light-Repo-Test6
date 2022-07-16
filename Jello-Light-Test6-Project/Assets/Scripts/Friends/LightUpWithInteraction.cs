@@ -50,6 +50,8 @@ public class LightUpWithInteraction : MonoBehaviour
     //Sound
     public MMFeedbacks _HugSoundFeedback;
 
+   // public GameObject UIchanger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -246,6 +248,7 @@ public class LightUpWithInteraction : MonoBehaviour
             {
                 friend3.GetComponent<Following>().isFollowing = true;
             }
+          //  UIchanger.SetActive(false);
         }
     }
 }

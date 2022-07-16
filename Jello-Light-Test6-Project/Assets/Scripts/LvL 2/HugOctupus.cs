@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MoreMountains.Feedbacks;
 
 public class HugOctupus : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class HugOctupus : MonoBehaviour
     public bool playerthere = false;
     public GameObject fadeToWhite;
 
+    public MMFeedbacks _startEndSound;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +71,9 @@ public class HugOctupus : MonoBehaviour
         //zoom in, hug animation
         camZoom.SetZoomValues(endValueZoom);
         camZoom.hugZoom = true;
+
+        //Sound Feedback
+        _startEndSound.PlayFeedbacks();
 
         yield return new WaitForSeconds(1.5f);
 
