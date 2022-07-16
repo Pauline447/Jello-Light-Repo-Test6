@@ -124,12 +124,20 @@ public class FriendManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////SoundFeedback
+        
         if(friend.tag == "Friend1")
-        _StopFeedback1.PlayFeedbacks();
+        {
+            _StopFeedback1.PlayFeedbacks();
+        }
         if (friend.tag == "Friend2")
+        {
             _StopFeedback2.PlayFeedbacks();
+        }
         if (friend.tag == "Friend3")
+        {
             _StopFeedback3.PlayFeedbacks();
+        }
+
         friend.isFollowing = false;
         friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
         friend.stopped = true;

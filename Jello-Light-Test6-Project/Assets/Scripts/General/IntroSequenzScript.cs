@@ -146,10 +146,11 @@ public class IntroSequenzScript : MonoBehaviour
         camZoom.hugZoom = false;
         camZoom.ResetTimer();
         yield return new WaitForSeconds(3f);
-       
-      //  playIntroFeedback.PlayFeedbacks();
 
-       // yield return new WaitForSeconds(48f);
+        playIntroFeedback.PlayFeedbacks();
+        yield return new WaitForSeconds(48f);
+
+
         playFischFeedback.PlayFeedbacks();
         playJaroFeedback.PlayFeedbacks();
         playOctupusFeedback.PlayFeedbacks();
