@@ -50,6 +50,10 @@ public class IntroSequenzScript : MonoBehaviour
     public MMFeedbacks playOctupusFeedback;
     public MMFeedbacks playSeaAngelFeedback;
 
+    public PlayAnglerfischSound angerfischSound;
+    private bool anglerfischArea=false;
+    public bool introfinished = false;
+
     //dunkel zu hell - kleine Fisch pfad man kann den einsammeln, player color = 255 und umgebungslichter(Light 2D und Light 2D (1)) aus bis fisch umarmt
     void Start()
     {
@@ -60,7 +64,8 @@ public class IntroSequenzScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(startMove)
+        anglerfischArea = angerfischSound.doneonce;
+        if (startMove)
         {
              Move();
         }
@@ -150,11 +155,14 @@ public class IntroSequenzScript : MonoBehaviour
         playIntroFeedback.PlayFeedbacks();
         yield return new WaitForSeconds(48f);
 
-
-        playFischFeedback.PlayFeedbacks();
-        playJaroFeedback.PlayFeedbacks();
-        playOctupusFeedback.PlayFeedbacks();
-        playSeaAngelFeedback.PlayFeedbacks();
+        if(!anglerfischArea)
+        {
+            playFischFeedback.PlayFeedbacks();
+            playJaroFeedback.PlayFeedbacks();
+            playOctupusFeedback.PlayFeedbacks();
+            playSeaAngelFeedback.PlayFeedbacks();
+            introfinished = true;
+        }
         //Script löschen
         Destroy(this);
     }
