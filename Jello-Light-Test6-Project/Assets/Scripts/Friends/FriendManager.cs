@@ -154,6 +154,7 @@ public class FriendManager : MonoBehaviour
         friend.stopped = true;
         yield return new WaitForSeconds(0.2f);
         friend.stopped = false;
+
         if (friend.tag == "Friend1")
         {
             whichfriend = 1;

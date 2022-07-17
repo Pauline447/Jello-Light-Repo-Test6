@@ -24,7 +24,7 @@ public class LoadNextScene : MonoBehaviour
         StartCoroutine(Wait());
         if (isOutro)
         {
-         loadingOperation= SceneManager.LoadSceneAsync(0);
+         loadingOperation= SceneManager.LoadSceneAsync(1); 
         }
         else if(!isOutro)
         {
