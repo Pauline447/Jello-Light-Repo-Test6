@@ -152,6 +152,8 @@ public class FriendManager : MonoBehaviour
         friend.isFollowing = false;
         friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
         friend.stopped = true;
+        yield return new WaitForSeconds(0.2f);
+        friend.stopped = false;
         if (friend.tag == "Friend1")
         {
             whichfriend = 1;

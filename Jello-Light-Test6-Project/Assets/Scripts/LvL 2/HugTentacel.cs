@@ -72,7 +72,7 @@ public class HugTentacel : MonoBehaviour
                             friend2down = true;
                             StartCoroutine(FriendDown());
                         }
-                }
+                    }
                 }
                 if (checkFriend.friend3there)
                 {
@@ -85,7 +85,7 @@ public class HugTentacel : MonoBehaviour
                             friend3down = true;
                             StartCoroutine(FriendDown());
                         }
-                }
+                    }
                 }
         }
       
