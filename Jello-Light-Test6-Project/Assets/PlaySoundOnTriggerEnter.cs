@@ -8,6 +8,7 @@ public class PlaySoundOnTriggerEnter : MonoBehaviour
     public MMFeedbacks _FeedbacksPlay;
     public MMFeedbacks _FeedbacksStop;
     public MMFeedbacks _FeebacksResume;
+
     private bool doneonce = false;
     // Start is called before the first frame update
 
@@ -30,7 +31,6 @@ public class PlaySoundOnTriggerEnter : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
             _FeedbacksPlay.StopFeedbacks();
             _FeedbacksStop.PlayFeedbacks();
         }
