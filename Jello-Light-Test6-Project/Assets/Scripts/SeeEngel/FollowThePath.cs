@@ -66,13 +66,11 @@ public class FollowThePath : MonoBehaviour
                if (_observeSeaEngels.playerthere)
                 {
                     this.enabled = true;
-                    Debug.Log("starts");
                     if (waypointIndex == stopIndex)
                         doneonce = true;
                 }
                else if (!doneonce)
                 {
-                    Debug.Log("stops");
                     this.enabled = false;
                 }
                 
@@ -82,13 +80,11 @@ public class FollowThePath : MonoBehaviour
                 if (_checkForPlayer1.playerthere)
                 {
                     this.enabled = true;
-                    Debug.Log("starts");
                     if (waypointIndex == stopIndex1)
                         doneonce1 = true;
                 }
                 else if (!doneonce1)
                 {
-                    Debug.Log("stops");
                     this.enabled = false;
                 }
 
@@ -98,13 +94,11 @@ public class FollowThePath : MonoBehaviour
                 if (_checkForPlayer2.playerthere)
                 {
                     this.enabled = true;
-                    Debug.Log("starts");
                     if (waypointIndex == stopIndex2)
                     doneonce2 = true;
                 }
                 else if (!doneonce2)
                 {
-                    Debug.Log("stops");
                     this.enabled = false;
                 }
             }
@@ -113,13 +107,11 @@ public class FollowThePath : MonoBehaviour
                 if (_checkForPlayer3.playerthere)
                 {
                     this.enabled = true;
-                    Debug.Log("starts");
                     if (waypointIndex == stopIndex2)
                     doneonce3 = true;
                 }
                 else if (!doneonce3)
                 {
-                    Debug.Log("stops");
                     this.enabled = false;
                 }
             }
@@ -128,13 +120,11 @@ public class FollowThePath : MonoBehaviour
                 if (_checkForPlayer4.playerthere)
                 {
                     this.enabled = true;
-                    Debug.Log("starts");
                     if (waypointIndex == stopIndex2)
                         doneonce4 = true;
                 }
                 else if (!doneonce4)
                 {
-                    Debug.Log("stops");
                     this.enabled = false;
                 }
             }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using MoreMountains.Feedbacks;
 
 public class ChangeWormPosition : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class ChangeWormPosition : MonoBehaviour
 
     //delete
     public bool toTarget = false;
+
+    public MMFeedbacks _startEatFeedback;
     // Start is called before the first frame update
     void Start()
     {
@@ -161,6 +164,7 @@ public class ChangeWormPosition : MonoBehaviour
         animIgel.SetBool("Snatch", true);
         animWorm.SetBool("lightThere", true);
         animHead.SetBool("Bite", true);
+        _startEatFeedback.PlayFeedbacks();
         changePosToTarget4 = true;
         //worm.transform.position = Vector3.Lerp(worm.transform.position, target4.position, followSpeed * Time.deltaTime);
         //worm.transform.rotation = target4.rotation;

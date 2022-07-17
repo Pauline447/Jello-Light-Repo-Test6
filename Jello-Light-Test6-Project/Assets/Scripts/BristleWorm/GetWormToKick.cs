@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using MoreMountains.Feedbacks;
 
 
 public class GetWormToKick : MonoBehaviour
@@ -29,6 +30,10 @@ public class GetWormToKick : MonoBehaviour
 
     public GameObject stoneStopper1;
     public GameObject stoneStopper2;
+
+    public MMFeedbacks _startFeedbackFall;
+    public MMFeedbacks _stopFeedbackFall;
+
     // Start is called before the first frame update
 
     private void Update()
@@ -48,6 +53,7 @@ public class GetWormToKick : MonoBehaviour
             // wormFollows.chageWormPosition = false;
             anim2.SetBool("lightThere", true);
             anim.SetBool("Kicked", true);
+            StartCoroutine(StartSound());
             stopFollowing = true;   
             pos = player.transform;
             player.GetComponent<Rigidbody2D>().velocity = new Vector2( 0f, 0f);
@@ -76,6 +82,14 @@ public class GetWormToKick : MonoBehaviour
         
 
         Destroy(this);
+    }
+    private IEnumerator StartSound()
+    {
+        yield return new WaitForSeconds(1.5f);
+        _startFeedbackFall.PlayFeedbacks();
+       yield return new WaitForSeconds(2f);
+        _stopFeedbackFall.PlayFeedbacks();
+
     }
 
 }

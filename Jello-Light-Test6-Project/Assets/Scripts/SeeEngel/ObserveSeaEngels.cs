@@ -28,6 +28,15 @@ public class ObserveSeaEngels : MonoBehaviour
     public MMFeedbacks playSoundFeedback;
     public MMFeedbacks freeSoundFeedback;
 
+    public MMFeedbacks _FeedbackmusicLaut1;
+    public MMFeedbacks _FeedbackmusicLaut2;
+    public MMFeedbacks _FeedbackmusicLaut3;
+    //public MMFeedbacks _FeedbackmusicLaut4;
+
+    public MMFeedbacks _FeedbackmusicLeise1;
+    public MMFeedbacks _FeedbackmusicLeise2;
+    public MMFeedbacks _FeedbackmusicLeise3;
+    //public MMFeedbacks _FeedbackmusicLeise4;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +76,13 @@ public class ObserveSeaEngels : MonoBehaviour
 
         playSoundFeedback.PlayFeedbacks();
 
-        yield return new WaitForSeconds(1f);
+            _FeedbackmusicLeise1.PlayFeedbacks();
+            _FeedbackmusicLeise2.PlayFeedbacks();
+            _FeedbackmusicLeise3.PlayFeedbacks();
+
+
+
+            yield return new WaitForSeconds(1f);
         //SeeEngel Animation starten
         twoSeeEngelAnim.SetBool("startDancing", true);
         yield return new WaitForSeconds(4f);
@@ -88,6 +103,9 @@ public class ObserveSeaEngels : MonoBehaviour
         yield return new WaitForSeconds(0f);
 
         freeSoundFeedback.PlayFeedbacks();
+            _FeedbackmusicLaut1.PlayFeedbacks();
+            _FeedbackmusicLaut2.PlayFeedbacks();
+            _FeedbackmusicLaut3.PlayFeedbacks();
         }
       
     }
