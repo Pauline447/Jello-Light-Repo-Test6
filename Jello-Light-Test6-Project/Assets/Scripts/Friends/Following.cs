@@ -64,8 +64,8 @@ public class Following : MonoBehaviour
     public MMFeedbacks _calmFeedback2;
     public MMFeedbacks _calmFeedback3;
 
-    public bool stopSound = false;
-    public bool startSoundAgain = false;
+
+    public IntroSequenzScript intro;
 
     // public float defaultValueZoom;
 
@@ -134,7 +134,7 @@ public class Following : MonoBehaviour
             }
         }
 
-        if (stopSound)
+        if (!isFollowing &&intro.introfinished)
         {
             if (whichfriend == 1)
             {
@@ -149,7 +149,7 @@ public class Following : MonoBehaviour
                 _calmFeedback3.PlayFeedbacks();
             }
         }
-        if (startSoundAgain)
+        if (isFollowing && intro.introfinished)
         {
             if (whichfriend == 1)
             {

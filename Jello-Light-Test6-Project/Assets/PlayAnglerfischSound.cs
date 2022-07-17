@@ -75,6 +75,7 @@ public class PlayAnglerfischSound : MonoBehaviour
                 playJaroFeedback.PlayFeedbacks();
                 playOctupusFeedback.PlayFeedbacks();
                 playSeaAngelFeedback.PlayFeedbacks();
+                intro.introfinished = true;
             }
         }
     }

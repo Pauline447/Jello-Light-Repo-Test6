@@ -32,9 +32,17 @@ public class FriendManager : MonoBehaviour
     public bool startFade = false;
 
     //Sound
-    public MMFeedbacks _StopFeedback1;
-    public MMFeedbacks _StopFeedback2;
-    public MMFeedbacks _StopFeedback3;
+    //public MMFeedbacks _StopFeedback1;
+    //public MMFeedbacks _StopFeedback2;
+    //public MMFeedbacks _StopFeedback3;
+
+    public AudioSource stop1;
+    public AudioSource stop2;
+    public AudioSource stop3;
+
+    public bool playStopSound = false;
+    public int whichfriend;
+    public bool alreadyplaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +63,7 @@ public class FriendManager : MonoBehaviour
             {
                 StartCoroutine(ChangeIntensity(FriendLights[i], maxLuminosity[i]));
                 //FriendLights[i].SetActive(true);
-               // Friends[i].GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+                // Friends[i].GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                 if (!Friends[i].doneonce)
                 {
                     numberOfFish++;
@@ -110,42 +118,70 @@ public class FriendManager : MonoBehaviour
                 UIstuff[i].ChangeInteractionUI();
             }
         }
+
+        if (playStopSound)
+        {
+            //if (!audioSource0.isPlaying)
+            //    audioSource0.Play();
+            switch (whichfriend)
+            {
+                case 1:
+                   if (!alreadyplaying)
+                        stop1.Play();
+                    break;
+                case 2:
+                    if (!alreadyplaying)
+                        stop2.Play();
+                    break;
+                case 3:
+                    if (!alreadyplaying)
+                        stop3.Play();
+                    break;
+            }
+        }
     }
     private IEnumerator StartFriend(Following friend)
     {
         yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = true;
-
-        friend.startSoundAgain = true;
-        yield return new WaitForSeconds(1f);
-        friend.startSoundAgain = false;
     }
     private IEnumerator StopFriend(Following friend)
     {
-        yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////SoundFeedback
-        
-        if(friend.tag == "Friend1")
-        {
-            _StopFeedback1.PlayFeedbacks();
-        }
-        if (friend.tag == "Friend2")
-        {
-            _StopFeedback2.PlayFeedbacks();
-        }
-        if (friend.tag == "Friend3")
-        {
-            _StopFeedback3.PlayFeedbacks();
-        }
-
+        yield return new WaitForSeconds(0.2f); //Nach einer Halben Sekunde wird der Code von hier aus weiter ausgeführt
         friend.isFollowing = false;
         friend.transform.position = Vector3.Lerp(friend.transform.position, player.transform.position, 10f * Time.deltaTime);
         friend.stopped = true;
-
-        friend.stopSound = true;
-        yield return new WaitForSeconds(1f);
-        friend.stopSound = false;
-
+        if (friend.tag == "Friend1")
+        {
+            whichfriend = 1;
+            playStopSound = true;
+            yield return new WaitForSeconds(0.01f);
+            alreadyplaying = true;
+            playStopSound = false;
+            yield return new WaitForSeconds(0.2f);
+            alreadyplaying = false;
+        }
+        if (friend.tag == "Friend2")
+        {
+            whichfriend = 2;
+            playStopSound = true;
+            yield return new WaitForSeconds(0.01f);
+            alreadyplaying = true;
+            playStopSound = false;
+            yield return new WaitForSeconds(0.2f);
+            alreadyplaying = false;
+        }
+        if (friend.tag == "Friend3")
+        {
+            whichfriend = 3;
+            playStopSound = true;
+            yield return new WaitForSeconds(0.01f);
+            alreadyplaying = true;
+            playStopSound = false;
+            yield return new WaitForSeconds(0.2f);
+            alreadyplaying = false;
+        }
     }
     private IEnumerator ChangeIntensity(Light2D l, float maxLumi)
     {
