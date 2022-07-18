@@ -313,8 +313,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     private IEnumerator ParticleTrail()
     {
-        Debug.Log("hello");
-
         ParticleSystem ps = dashParticleMia.GetComponent<ParticleSystem>();
         var em = ps.emission;
         em.enabled = true;
@@ -322,7 +320,6 @@ public class PlayerMovementScript : MonoBehaviour
         for (int i = 0; i <= ParticleEmissionDash - ParticleEmissionDefault; i++)
         {
             em.rateOverDistance = ParticleEmissionDash - 1 * i;
-            Debug.Log(em.rateOverDistance);
             yield return new WaitForSeconds(0.00001f);
 
 
