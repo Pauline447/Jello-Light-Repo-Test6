@@ -25,6 +25,7 @@ public class HugOctupus : MonoBehaviour
     public GameObject fadeToWhite;
 
     public MMFeedbacks _startEndSound;
+    public int nextScene;
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +92,7 @@ public class HugOctupus : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(nextScene);
 
     }
     private IEnumerator ZoomOut()

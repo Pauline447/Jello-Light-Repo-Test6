@@ -375,12 +375,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 554276522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c358b23e78a172242990f0243a1c823b, type: 3}
+  m_Script: {fileID: 11500000, guid: dc5d4d755847c8845a09594b5731dc7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _videoPlayer: {fileID: 554276523}
-  SkipButton: {fileID: 953255206}
-  isOutro: 1
+  nextScene: 0
 --- !u!1 &953255206
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +393,7 @@ GameObject:
   - component: {fileID: 953255209}
   - component: {fileID: 953255208}
   m_Layer: 5
-  m_Name: Skip
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,8 +465,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 554276525}
-        m_TargetAssemblyTypeName: LoadNextScene, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: LoadNextSceneWithoutButton, Assembly-CSharp
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -895,7 +894,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skip
+  m_text: 'Main Menu
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -8,6 +8,7 @@ public class LoadNextSceneWithoutButton : MonoBehaviour
 {
     public VideoPlayer _videoPlayer;
     private bool isPlaying = true;
+    public int nextScene;
 
     private bool waited;
     // Start is called before the first frame update
@@ -29,12 +30,16 @@ public class LoadNextSceneWithoutButton : MonoBehaviour
         }
         if (!isPlaying)
         {
-           SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+           SceneManager.LoadScene(nextScene);
         }
     }
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(3f);
         waited = true;
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }
